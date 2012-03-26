@@ -15,11 +15,13 @@
 
 #define astromechName "R2-D2"   // This will display on the screen, Keep length to 8 chars or less
 
-#define VERSION "beta 0.3.5"    //
+#define VERSION "beta 0.3.7"    //
 
 
 /* 
  Revision History
+ v.0.3.7 - Updated I2C Module Code to work with Arduino IDE 1.0
+ v.0.3.6 - Need to have enough delay in between sending the packet and receiving a telemetry packet.
  v.0.3.5 - Code performance
  v.0.3.4 - Increased Xbee baud rate to 19200, cleaned up XBee TX Response code - Tested with Receiver v019
  v.0.3.3 - triggeritem is now sent as 2 bytes, reduced payload to 9 bytes
@@ -191,20 +193,27 @@ char* previousradiostatus = "--";
      
 int buttonval;
 
-int rxVCC = 0;
-int rxVCA = 0;
+unsigned int rxVCC;
+unsigned int rxVCA;
 
-float dmmVCC = 00.0;  // Display variable for Voltage from Receiver
-float dmmVCA = 00.0;  // Display variable for Amperage from Receiver
+float dmmVCC;  // Display variable for Voltage from Receiver
+float dmmVCA;  // Display variable for Amperage from Receiver
+
+float testdmmVCA;  // Display variable for Amperage from Receiver
 
 float previousdmmVCC = 00.0;
 float previousdmmVCA = 00.0;
 
-float yellowVCC = 9.8;  // If voltage drops BELOW these thresholds, text will turn yellow then red.
-float redVCC = 9.4;
+unsigned char telemetryVCCMSB = 0;
+unsigned char telemetryVCCLSB = 0;
+unsigned char telemetryVCAMSB = 0;
+unsigned char telemetryVCALSB = 0;
 
-float yellowVCA = 15.0;// If current goes ABOVE these thresholds, text will turn yellow then red.
-float redVCA = 21.0;
+float yellowVCC = 12.5;  // If voltage drops BELOW these thresholds, text will turn yellow then red.
+float redVCC = 11.8;
+
+float yellowVCA = 50.0;// If current goes ABOVE these thresholds, text will turn yellow then red.
+float redVCA = 65.0;
 
 long lastStatusBarUpdate = 0;
 long nextStatusBarUpdate = 0;
@@ -467,7 +476,7 @@ void setup() {
 
   xbee.setSerial(Serial1);                     // Setup xbee to use Serial1
   xbee.begin(xbeebps);                         // Setup xbee to begin 9600
-  Serial.begin(9600);                          // Setup Serial to begin 9600    ENABLE TO DEBUG
+ // Serial.begin(9600);                          // Setup Serial to begin 9600    ENABLE TO DEBUG
   
   tft.reset();                                 // A4 must be connected to TFT Break out Pin 7
 
@@ -479,7 +488,7 @@ void setup() {
   buttonval = 0;
   
   displaySPLASH();          // Display Splash Screen
-  delay(2000);              // for 2000 ms
+  delay(1500);              // for 1500 ms
   tft.fillScreen(BLACK);    // Clear screen
   
   displayPOST();            // Display POST Routine on TFT
@@ -487,8 +496,8 @@ void setup() {
 //  Serial.println("POST Finished Successfully"); // DEBUG CODE
   
   radiostatus = "OK";
-  dmmVCC=rxVCC/10.0;        // convert telemetry into floats
-  dmmVCA=rxVCA/10.0;
+//  dmmVCC=rxVCC/10.0;        // convert telemetry into floats
+//  dmmVCA=rxVCA/10.0;
 
 //Serial.println("Clearing Screen to all black"); // DEBUG CODE
 
@@ -509,7 +518,7 @@ void setup() {
 
 
 void loop() {
- previousradiostatus = radiostatus;
+ //previousradiostatus = radiostatus;
  RXdata();
 
 //int xbstat = msr.getStatus(); 
@@ -561,7 +570,7 @@ void loop() {
   TXdata();                           // Transmit Data
 
 
-  delay(50);                         // Give it time to transmit, and serial port 
+  delay(100);                         // Give it time to transmit 
   displaySendclear();
 //  tft.fillRect(80, 21, 220, 17, BLACK);// Clear Trigger Message
 //  triggeritem=0;                       // Zero out selection variables
@@ -738,24 +747,24 @@ void displaySTATUS(uint16_t color) {          // This builds the status line at 
   tft.setCursor(170, 0);
   
   tft.setTextColor(GREEN);    // Default dmmVCC text color
-  if (dmmVCC <=yellowVCC){    // If dmmVCC drops BELOW, change text to YELLOW or RED
+  if (dmmVCC <= yellowVCC){    // If dmmVCC drops BELOW, change text to YELLOW or RED
     tft.setTextColor(YELLOW);}
-  if (dmmVCC <=redVCC){
+  if (dmmVCC <= redVCC){
    tft.setTextColor(RED);}
    
   tft.setTextSize(2);
-  tft.println(dmmVCC,2);      // Display dmmVCA FLOAT 2 Places
+  tft.println(dmmVCC,2);      // Display dmmVCC FLOAT 2 Places
   tft.setCursor(230, 0);
   tft.println("V");
   
   tft.setTextColor(GREEN);    // Default dmmVCA text color
-  if (dmmVCA >=yellowVCA){    // If dmmVCA goes ABOVE, change text to YELLOW or RED
+  if (dmmVCA >= yellowVCA){    // If dmmVCA goes ABOVE, change text to YELLOW or RED
     tft.setTextColor(YELLOW);}
-  if (dmmVCA >=redVCA){
+  if (dmmVCA >= redVCA){
     tft.setTextColor(RED);}
    
   tft.setCursor(250, 0);
-  tft.println(dmmVCA,2);      // Display dmmVCA FLOAT 2 Places
+  tft.println(dmmVCC,2);      // Display dmmVCA FLOAT 2 Places
   tft.setCursor(310, 0);
   tft.println("A");
    
@@ -799,9 +808,9 @@ void updateSTATUSbar(uint16_t color) {
   tft.fillRect(170, 0, 59, 17, BLACK);
   
   tft.setTextColor(GREEN);    // Default dmmVCC text color
-  if (dmmVCC <=yellowVCC){    // If dmmVCC drops BELOW, change text to YELLOW or RED
+  if (dmmVCC <= yellowVCC){    // If dmmVCC drops BELOW, change text to YELLOW or RED
     tft.setTextColor(YELLOW);}
-  if (dmmVCC <=redVCC){
+  if (dmmVCC <= redVCC){
    tft.setTextColor(RED);}
      
   tft.setTextSize(2);
@@ -810,9 +819,9 @@ void updateSTATUSbar(uint16_t color) {
   tft.println("V");
   
   tft.setTextColor(GREEN);    // Default dmmVCA text color
-  if (dmmVCA >=yellowVCA){    // If dmmVCA goes ABOVE, change text to YELLOW or RED
+  if (dmmVCA >= yellowVCA){    // If dmmVCA goes ABOVE, change text to YELLOW or RED
     tft.setTextColor(YELLOW);}
-  if (dmmVCA >=redVCA){
+  if (dmmVCA >= redVCA){
     tft.setTextColor(RED);}
   
   tft.fillRect(250, 0, 59, 17, BLACK);
@@ -1146,8 +1155,8 @@ void displayPOST() {       // Power Up Self Test and Init
   
   while(telemetrystatus == false) {
       RXdata();
-//      Serial.print("Received Telemetry -->> rxVCC =");Serial.print(rxVCC);  // DEBUG CODE
-//      Serial.print("\trxVCA =");Serial.println(rxVCA);                                  // DEBUG CODE
+ //     Serial.print("POST Received Telemetry -->> rxVCC =");Serial.print(rxVCC);  // DEBUG CODE
+ //     Serial.print("\trxVCA =");Serial.println(rxVCA);                                  // DEBUG CODE
 
     if (rxVCC > 0 && rxVCA > 0){
       telemetrystatus = true;
@@ -1171,8 +1180,9 @@ void displayPOST() {       // Power Up Self Test and Init
 
 void RXdata() {
  
-  xbee.readPacket(100);
+  xbee.readPacket(50); // wait 50msec to see if we received a packet
   
+  if (xbee.getResponse().isAvailable()) {
   if (xbee.getResponse().getApiId() == ZB_RX_RESPONSE) {
     xbee.getResponse().getZBRxResponse(rx);
 
@@ -1191,26 +1201,43 @@ buf[3] = (byte) n >> 24;
 //int telemetryvCC = (int)(rx.getData()[0]; << 8) | rx.getData[1];
 //int telemetryvCA = (int)(rx.getData()[2]; << 8) | rx.getData[3];
 
-    byte telemetryVCCMSB = rx.getData()[0];
-    byte telemetryVCCLSB = rx.getData()[1];
+    telemetryVCCMSB = rx.getData()[0];
+    telemetryVCCLSB = rx.getData()[1];
+//    Serial.print("\ttelemetryVCCMSB =");Serial.print(telemetryVCCMSB);  // DEBUG CODE
+//    Serial.print("\ttelemetryVCCLSB =");Serial.print(telemetryVCCLSB);                      // DEBUG CODE
+  
     
-    int telemetryVCC = (int)(word(telemetryVCCMSB,telemetryVCCLSB));
+    telemetryVCAMSB = rx.getData()[2];
+    telemetryVCALSB = rx.getData()[3];
     
-    byte telemetryVCAMSB = rx.getData()[2];
-    byte telemetryVCALSB = rx.getData()[3];
+//    Serial.print("\t\ttelemetryVCAMSB =");Serial.print(telemetryVCAMSB);                        // DEBUG CODE                                          // DEBUG CODE
+//    Serial.print("\ttelemetryVCALSB =");Serial.println(telemetryVCALSB);                      // DEBUG CODE
+
+
+
+    rxVCC = (unsigned int)word(telemetryVCCMSB,telemetryVCCLSB);
     
-    int telemetryVCA = (int)(word(telemetryVCAMSB,telemetryVCALSB));
+    rxVCA = (unsigned int)word(telemetryVCAMSB,telemetryVCALSB);
+
+//    Serial.print("\trxVCC =");Serial.print(rxVCC);                        // DEBUG CODE                                          // DEBUG CODE
+//    Serial.print("\trxVCA =");Serial.println(rxVCA);                      // DEBUG CODE
+
+
     
-        
-      rxVCC= telemetryVCC;
-      rxVCA= telemetryVCA;
-      dmmVCC = rxVCC / 10.0;                   // Float & move the point for Volts
-      dmmVCA = rxVCA / 10.0;                   // float & move the point for Amps
-                        
+//    Serial.print("\ttelemetryVCAMSB =");                                                      // DEBUG CODE
+//    Serial.print(telemetryVCAMSB);                                                            // DEBUG CODE
+//    Serial.print("\ttelemetryVCALSB =");Serial.println(telemetryVCALSB);                      // DEBUG CODE
+
+
+
+      dmmVCC = (float)rxVCC / 10.0;                   // Float & move the point for Volts
+      dmmVCA = (float)rxVCA / 10.0;                   // float & move the point for Amps
+                  
 //    Serial.print("Received Telemetry -->> rxVCC =");Serial.print(rxVCC);  // DEBUG CODE
 //    Serial.print("\trxVCA =");Serial.println(rxVCA);                      // DEBUG CODE
 
     }
+  }
  }
   
   
