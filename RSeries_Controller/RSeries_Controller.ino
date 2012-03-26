@@ -13,13 +13,14 @@
  * Gabriel Bianconi  http://www.gabrielbianconi.com/projects/arduinonunchuk/
 */ 
 
-#define astromechName "R2-D2"   // This will display on the screen, Keep length to 8 chars or less
+#define astromechName "R2-D2"   // This will display on the screen, Keep length to 6 chars or less
 
-#define VERSION "beta 0.3.7"    //
+#define VERSION "beta 0.3.8"    // You don't think we're done do you?
 
 
 /* 
  Revision History
+ v.0.3.8 - Added local Controller Shield battery monitor & display based on vinSTRONG & vinWEAK
  v.0.3.7 - Updated I2C Module Code to work with Arduino IDE 1.0
  v.0.3.6 - Need to have enough delay in between sending the packet and receiving a telemetry packet.
  v.0.3.5 - Code performance
@@ -407,6 +408,19 @@ boolean domerotation;
 int itemsel;
 
 
+                        // Controller shield battery monitor variables
+int analogVCCinput = 5; // RSeries Controller default VCC input is A5
+float R1 = 47000.0;     // >> resistance of R1 in ohms << the more accurate these values are
+float R2 = 24000.0;     // >> resistance of R2 in ohms << the more accurate the measurement will be
+float vout = 0.0;       // for voltage out measured analog input
+int VCCvalue = 0;       // used to hold the analog value coming out of the voltage divider
+float vin = 0.0;        // voltage calulcated... since the divider allows for 15 volts
+
+float vinSTRONG=9.6;    // If vin is above vinSTRONG display GREEN battery
+float vinWEAK=8.8;       // if vin is above vinWEAK display YELLOW otherwise display RED
+
+
+
                 // Touch Screen Pin Configuration - Need to change A2 & A3, so as not to share
 #define YM 9    // Y- (Minus) digital pin UNO = D9, MEGA = 9   // Orig 9
 #define XM A8   // X- (Minus) must be an analog pin, use "An" notation! // Orig A2
@@ -478,6 +492,8 @@ void setup() {
   xbee.begin(xbeebps);                         // Setup xbee to begin 9600
  // Serial.begin(9600);                          // Setup Serial to begin 9600    ENABLE TO DEBUG
   
+  pinMode(analogVCCinput, INPUT);
+
   tft.reset();                                 // A4 must be connected to TFT Break out Pin 7
 
   tft.initDisplay(); 
@@ -726,6 +742,7 @@ void displaySTATUS(uint16_t color) {          // This builds the status line at 
   tft.setTextColor(color);
   tft.setTextSize(2);
   tft.println(astromechName);
+  displayBATT();
   displayRSSI();
   tft.setCursor(128, 0);
   if (radiostatus == "OK") {
@@ -780,6 +797,7 @@ void displaySTATUS(uint16_t color) {          // This builds the status line at 
 void updateSTATUSbar(uint16_t color) {
 
   tft.setTextSize(2);
+  displayBATT();
   displayRSSI();
   tft.setCursor(128, 0);
   
@@ -1366,6 +1384,37 @@ atRequest.setCommand(slCmd);
     }
   }
 
+}
+
+
+void getVCC(){
+//    vin = random(80,100)/10.0;             // DEBUG CODE
+   VCCvalue = analogRead(analogVCCinput); // this must be between 0.0 and 5.0 - otherwise you'll let the blue smoke out of your ar
+   vout= (VCCvalue * 5.0)/1024.0;         //voltage coming out of the voltage divider
+   vin = vout / (R2/(R1+R2));             //voltage based on vout to display battery status
+// Serial.print("Battery Voltage =");Serial.println(vin,1);  // DEBUG CODE
+
+}
+
+
+
+void displayBATT() {                        // Display Local Battery Status
+  getVCC();
+
+   tft.fillRect(84, 0, 9, 17, BLACK);       // Erase Battery Status area
+
+                                            // Draw the battery outline in white
+   tft.drawHorizontalLine(86, 0, 4, WHITE); // This is the little top of the battery
+   tft.drawHorizontalLine(86, 1, 4, WHITE);
+   tft.drawRect(84, 2, 8, 15, WHITE);       // Body of the battery
+
+  if (vin >= vinSTRONG) {   
+    tft.fillRect(85, 3, 6, 14, GREEN);    // If Battery is strong then GREEN  
+  } else if (vin >=vinWEAK) {
+   tft.fillRect(85, 8, 6, 9, YELLOW);    // If Battery is medium then YELLOW
+  } else {
+    tft.fillRect(85, 12, 6, 4, RED);    // If Battery is low then RED & Sound Warning
+  }    
 }
 
 
