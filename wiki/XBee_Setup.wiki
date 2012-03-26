@@ -1,0 +1,33 @@
+#summary recommended XBee modules and their configuration.
+= Introduction =
+The control system relies on XBee modules to allow our controller to talk to the receiver wirelessly. One module is mounted to the Controller Shield and acts as a 'Coordinator'. Another is mounted to the Receiver Shield and acts as a 'Router' for commands to and from the controller.
+= Recommended Parts =
+Most XBee parts are available to buy directly from their manufacturer (Digi) or from distributors such as Digi-Key or Newark.
+
+== Controller ==
+ * *XBee Module* : XBee-PRO ZB S2B module with RPSMA connector
+  * Model Number : XBP24BZ7SIT-004
+  * Digi-Key : [http://parts.digikey.com/1/parts/1586162-module-zigbee-pro-w-rpsma-ant-xbp24-z7sit-004.html 602-1103-ND]
+  * Digi : [http://www.digi.com/products/model?mid=3587]
+ * *Antenna* : 2.4GHZ Dipole Half-Wave, 2.1 dBi, RPSMA male, articulating
+  * Part Number : A24-HASM-450
+  * Digi-Key : [http://parts.digikey.com/1/parts/635412-ant-2-4ghz-dipole-half-wave-a24-hasm-450.html A24-HASM-450-ND]
+  * Digi : [http://www.digi.com/products/model?mid=2603]
+== Receiver ==
+ * *XBee Module* : XBee-PRO ZB S2B module w/ U.Fl antenna connector
+  * Model Number : XBP24BZ7UIT-004
+  * Digi-Key : [http://search.digikey.com/scripts/DkSearch/dksus.dll?x=22&y=13&lang=en&site=us&KeyWords=XBP24BZ7UIT-004 602-1257-ND]
+  * Digi : http://www.digi.com/products/model?mid=3588
+ * *Antenna Cable* : U.Fl female to RPSMA female 4"
+  * Part Number : JF1R6-CR3-4I
+  * Digi-Key : [http://parts.digikey.com/1/parts/26446-rf-cable-assy-jf1r6-cr3-4i.html JF1R6-CR3-4I]
+  * Digi : [http://www.digi.com/products/model?mid=2602]
+ * *Antenna* : 2.4GHZ Dipole Half-Wave, 2.1 dBi, RPSMA male, articulating
+  * Part Number : A24-HASM-450
+  * Digi-Key : [http://parts.digikey.com/1/parts/635412-ant-2-4ghz-dipole-half-wave-a24-hasm-450.html A24-HASM-450-ND]
+  * Digi : [http://www.digi.com/products/model?mid=2603]
+
+= Configuration =
+Before our XBee modules can talk to each other, they need to be configured. This is done by connecting them to a PC and using some software to read and write their settings. To connect the XBee you'll need either an XBee USB Adapter (from [https://www.adafruit.com/products/247 Adafruit] or [http://www.sparkfun.com/products/8687 Sparkfun]) that the XBee connects directly to, or you can use an FTDI/USB adapter (from [https://www.adafruit.com/products/284 Adafruit] or [http://www.sparkfun.com/products/9716 Sparkfun]) to connect via the controller or receiver shields. The shields have a built-in XBee adapter based on an [http://www.ladyada.net/make/xbee/ Adafruit design].
+
+The X-CTU application is downloadable from [http://www.digi.com/support/productdetail?pid=3352&osvid=0&type=utilities Digi's website]. 
