@@ -1,4 +1,7 @@
 #summary recommended XBee modules and their configuration.
+#sidebar TableOfContents
+<wiki:toc max_depth="1" />
+
 = Introduction =
 The control system relies on XBee modules to allow our controller to talk to the receiver wirelessly. One module is mounted to the Controller Shield and acts as a 'Coordinator'. Another is mounted to the Receiver Shield and acts as a 'Router' for commands to and from the controller.
 = Recommended Parts =
