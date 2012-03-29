@@ -1,0 +1,16 @@
+#summary Summary of hardware and software.
+
+= Introduction =
+This project's goal is to develop a simply-executed and feature-rich method of controlling R-Series droids while keeping components modular, affordable and future-proof.
+
+The principal design revolves around readily available Arduino microcontrollers.  XBee wireless modules are used used by a touchscreen controller to communicate back and forth with a receiver inside the droid. The receiver can then relay commands to the droid's motor drivers as well as optional AudioFX modules (also Arduino based), servo controllers or dome-lighting controllers. 
+
+= Controller =
+
+= Receiver =
+
+= I2C Module = 
+
+= AudioFX Modules =
+
+= Slip-Ring Interface =  
