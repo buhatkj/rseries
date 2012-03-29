@@ -1,4 +1,5 @@
 #summary Summary of hardware and software.
+#labels Featured
 
 = Introduction =
 This project's goal is to develop a simply-executed and feature-rich method of controlling R-Series droids while keeping components modular, affordable and future-proof.
