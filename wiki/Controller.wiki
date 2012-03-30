@@ -10,7 +10,7 @@
   * RPSMA Antenna - from [http://www.digi.com/products/model?mid=2603 Digi], [http://parts.digikey.com/1/parts/635412-ant-2-4ghz-dipole-half-wave-a24-hasm-450.html Digi-Key], etc.
   * Screw Terminal (for connecting nunchuk) - from [http://parts.digikey.com/1/parts/374526-term-block-4pos-side-ent-2-54mm-282834-4.html Digi-Key]
   * XBee Sockets (2) - from [http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=S5751-10-ND Digi-Key], [http://www.mouser.com/Search/ProductDetail.aspx?qs=WS5Jv%252b%252bx1qUfXs5lYp1U1g%3d%3d Mouser] or [http://www.sparkfun.com/products/8272 SparkFun]
-  * Voltage Regulator - from [http://search.digikey.com/scripts/dksearch/dksus.dll?vendor=0&keywords=MCP1700-3302E%2FTO-ND Digi-Key]
+  * Voltage Regulator (MCP1700-3302E/TO) - from [http://search.digikey.com/scripts/dksearch/dksus.dll?vendor=0&keywords=MCP1700-3302E%2FTO-ND Digi-Key] or [http://www.mouser.com/Search/ProductDetail.aspx?qs=h7tZ5KkzNMMPEB66r2rMQw%3d%3d Mouser]
   * Buffer chip (74AHC125N) - from [http://search.digikey.com/us/en/products/SN74AHC125N/296-4531-5-ND/375724 Digi-Key] or [http://www.mouser.com/ProductDetail/Texas-Instruments/SN74AHC125N/?qs=DXdcjUGny5MST0EFXjN0s5T7aaGfxZzO3NLSvqGw%252b8o%3d Mouser]
   * Resistors : 1k (2), 10k (6), 47k (1), 24k (1)
   * Capacitors : (1) 0.1uF and (1) 100uF
