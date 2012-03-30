@@ -1,0 +1,15 @@
+#summary Summary of controller hardware.
+#labels Featured
+
+= Parts =
+  * Arduino Mega 2560 - from [http://www.dfrobot.com/index.php?route=product/product&product_id=458 DFRobot], [http://www.sparkfun.com/products/11061 SparkFun], [http://www.amazon.com/gp/product/B004A7H3DG/ref=as_li_ss_tl?ie=UTF8&tag=murphy00-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=B004A7H3DG Amazon], [http://www.ebay.com/sch/i.html?_nkw=arduino+mega+2560+-shield+-kit+-uno eBay] etc.
+  * Controller Shield PCB - from [http://pcb.laen.org Laen]
+  * Adafruit 2.8" Touchscreen - from [http://www.adafruit.com/products/335 Adafruit.com]
+  * Wii Nunchuk (Nintendo brand recommended) - from [http://www.amazon.com/gp/product/B000IMYKQ0/ref=as_li_ss_tl?ie=UTF8&tag=murphy00-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=B000IMYKQ0 Amazon] etc.
+  * XBee Pro Series 2 Module with RPSMA antenna connector (XBP24BZ7SIT-004) - from [http://www.digi.com/products/model?mid=2603 Digi], [http://www.mouser.com/ProductDetail/Digi-International/XBP24BZ7SIT-004/?qs=sGAEpiMZZMu3sxpa5v1qrlZXrkmQG2M06vkdoL2YBys%3D Mouser], [http://parts.digikey.com/1/parts/1948593-module-zigbee-pro-w-rpsma-ant-xbp24bz7sit-004.html Digi-Key] etc.
+  * RPSMA Antenna - from [http://www.digi.com/products/model?mid=2603 Digi], [http://parts.digikey.com/1/parts/635412-ant-2-4ghz-dipole-half-wave-a24-hasm-450.html Digi-Key], etc.
+
+= Prototype Photos = 
+Photos of the V3 prototypes can be seen here...
+
+http://rseries-open-control.googlecode.com/svn/images/proto-photos/
