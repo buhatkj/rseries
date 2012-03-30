@@ -7,11 +7,18 @@ This project's goal is to develop a simply-executed and feature-rich method of c
 The principal design revolves around readily available Arduino microcontrollers.  XBee wireless modules are used used by a touchscreen controller to communicate back and forth with a receiver inside the droid. The receiver can then relay commands to the droid's motor drivers as well as optional AudioFX modules (also Arduino based), servo controllers or dome-lighting controllers. 
 
 = Controller =
+https://rseries-open-control.googlecode.com/svn/images/controller-v4.png
 
 = Receiver =
+https://rseries-open-control.googlecode.com/svn/images/receiver-v3.png
 
-= I2C Module = 
+= FX Modules = 
+FX Modules share the same PCB design.
 
-= AudioFX Modules =
+https://rseries-open-control.googlecode.com/svn/images/i2c-fx-v1.png
+== AudioFX ==
+== ServoFX ==
+== LogicFX ==
 
 = Slip-Ring Interface =  
+https://rseries-open-control.googlecode.com/svn/images/slipring-v3.png
