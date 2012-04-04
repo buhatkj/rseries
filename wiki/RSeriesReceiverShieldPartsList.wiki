@@ -7,44 +7,44 @@ Part # are from DigiKey.com for your convenience, all parts listed here are RoHS
 
 = Details =
 
-Xbee Series 2 (Pro is optional) with RPSMA Antenna Connector , 602-1180-ND
-Xbee Series 2 Dipole Antenna, A24-HASM-450-ND
+* Xbee Series 2 (Pro is optional) with RPSMA Antenna Connector , 602-1180-ND
+* Xbee Series 2 Dipole Antenna, A24-HASM-450-ND
 
-LED 1 = 3mm RED - 160-1708-ND
-LED 2 = 3mm Green - 160-1710-ND
+* LED 1 = 3mm RED - 160-1708-ND
+* LED 2 = 3mm Green - 160-1710-ND
 
-C1 = Ceramic Capacitor 0.1UF 50V 10% RADIAL, 445-5258-ND
-C2 =  Alum Capacitoe 100UF 6.3V 20% RADIAL, P803-ND
+* C1 = Ceramic Capacitor 0.1UF 50V 10% RADIAL, 445-5258-ND
+* C2 =  Alum Capacitoe 100UF 6.3V 20% RADIAL, P803-ND
 
-IC1 = 3.3v 250ma Voltage Regulator MCP1700-3302E/TO-ND
-IC2 =SN74HCT125N -  IC BUS BUFFER TRI-ST QD 14DIP, 296-4531-5-ND
-IC3 = P2N2222AGOS-ND
-IC4 = P2N2222AGOS-ND
-IC5 = P2N2222AGOS-ND
+* IC1 = 3.3v 250ma Voltage Regulator MCP1700-3302E/TO-ND
+* IC2 =SN74HCT125N -  IC BUS BUFFER TRI-ST QD 14DIP, 296-4531-5-ND
+* IC3 = P2N2222AGOS-ND
+* IC4 = P2N2222AGOS-ND
+* IC5 = P2N2222AGOS-ND
 
-D1 = 1N4004FSCT-ND
-D2 = 1N4004FSCT-ND
-D3 = 1N4004FSCT-ND
+* D1 = 1N4004FSCT-ND
+* D2 = 1N4004FSCT-ND
+* D3 = 1N4004FSCT-ND
 
-R1 = 1K Ohm 1/4 W
-R2 = 1K Ohm 1/4 W
-R3 = 10K Ohm 1/4 W
-R4 = 10K Ohm 1/4 W
-R5 = 10K Ohm 1/4 W
-R6 = 47K Ohm 1/4 W Metal Film RNF14FTD47K0CT-ND
-R7 = 24K Ohm 1/4 W Metal Film S24KCACT-ND
-R8 = 10K Ohm 1/4 W
-R9 = 10K Ohm 1/4 W
-R10 = 10K Ohm 1/4 W
+* R1 = 1K Ohm 1/4 W
+* R2 = 1K Ohm 1/4 W
+* R3 = 10K Ohm 1/4 W
+* R4 = 10K Ohm 1/4 W
+* R5 = 10K Ohm 1/4 W
+* R6 = 47K Ohm 1/4 W Metal Film RNF14FTD47K0CT-ND
+* R7 = 24K Ohm 1/4 W Metal Film S24KCACT-ND
+* R8 = 10K Ohm 1/4 W
+* R9 = 10K Ohm 1/4 W
+* R10 = 10K Ohm 1/4 W
 
-XB Header x 2 = 2mm 10 POS Female Header Vertical,  952-1354-5-ND
+* XB Header x 2 = 2mm 10 POS Female Header Vertical,  952-1354-5-ND
 
-Battery Monitor Connector = Terminal Block 2 POS .100 A98333-ND
-Servo Power Connecter      = Terminal Block 2 POS .100 A98333-ND
+* Battery Monitor Connector = Terminal Block 2 POS .100 A98333-ND
+* Servo Power Connecter      = Terminal Block 2 POS .100 A98333-ND
 
-Relay 1 Connector = Terminal Block 2 POS .100 A98333-ND (optional)
-Relay 2 Connector = Terminal Block 2 POS .100 A98333-ND (optional)
-Relay 3 Connector = Terminal Block 2 POS .100 A98333-ND (optional)
+* Relay 1 Connector = Terminal Block 2 POS .100 A98333-ND (optional)
+* Relay 2 Connector = Terminal Block 2 POS .100 A98333-ND (optional)
+* Relay 3 Connector = Terminal Block 2 POS .100 A98333-ND (optional)
 
-2 x .100 BreakAway Male Headers 40 Position 1 Row
-1 x .100 BreakAway Male Headers 40 Position 2 Rows
+* 2 x .100 BreakAway Male Headers 40 Position 1 Row
+* 1 x .100 BreakAway Male Headers 40 Position 2 Rows
