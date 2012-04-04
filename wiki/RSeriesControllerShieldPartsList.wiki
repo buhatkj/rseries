@@ -9,6 +9,8 @@ The following part # are from AdaFruit or DigiKey for your convenience, all part
 
 = Details =
   * AdaFruit's 2.8" TFTLCD Touchscreen Breakout board https://www.adafruit.com/products/335
+
+  * Nintendo Wii Nunchuck - While third party exist, they have different internals and wire colors. 
  
   * Xbee Series 2 (Pro is optional) with RPSMA Antenna Connector , 602-1180-ND
   * Xbee Series 2 Dipole Antenna, A24-HASM-450-ND
