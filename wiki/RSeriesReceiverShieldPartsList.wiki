@@ -2,7 +2,9 @@
 
 = Introduction =
 
-Part # are from DigiKey.com for your convenience, all parts listed here are RoHS compliant
+It's assumed you have the RSeries Receiver Shield v3 or greater
+
+The following part # are from DigiKey for your convenience, all parts listed here are RoHS compliant for our friends in EMEA.
 
 
 = Details =
