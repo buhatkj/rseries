@@ -19,7 +19,7 @@ The following part # are from AdaFruit or DigiKey for your convenience, all part
   * LED 2 = 3mm Green - 160-1710-ND
 
   * C1 = Ceramic Capacitor 0.1UF 50V 10% RADIAL, 445-5258-ND
-  * C2 =  Alum Capacitoe 100UF 6.3V 20% RADIAL, P803-ND
+  * C2 =  Alum Capacitor 100UF 6.3V 20% RADIAL, P803-ND
 
   * IC1 = 3.3v 250ma Voltage Regulator MCP1700-3302E/TO-ND
   * IC2 =SN74HCT125N -  IC BUS BUFFER TRI-ST QD 14DIP, 296-4531-5-ND
