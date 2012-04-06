@@ -35,4 +35,11 @@ Most XBee parts are available to buy directly from their manufacturer (Digi) or 
 = Configuration =
 Before our XBee modules can talk to each other, they need to be configured. This is done by connecting them to a PC and using some software to read and write their settings. To connect the XBee you'll need either an XBee USB Adapter (from [https://www.adafruit.com/products/247 Adafruit] or [http://www.sparkfun.com/products/8687 Sparkfun]) that the XBee connects directly to, or you can use an FTDI/USB adapter (from [https://www.adafruit.com/products/284 Adafruit] or [http://www.sparkfun.com/products/9716 Sparkfun]) to connect via the controller or receiver shields. The shields have a built-in XBee adapter based on an [http://www.ladyada.net/make/xbee/ Adafruit design].
 
-The X-CTU application is downloadable from [http://www.digi.com/support/productdetail?pid=3352&osvid=0&type=utilities Digi's website]. 
+The X-CTU application is downloadable from [http://www.digi.com/support/productdetail?pid=3352&osvid=0&type=utilities Digi's website] (currently version 5.2.7.5, Windows only). Once X-CTU is installed and your XBee is connected to your PC, open Device Manager and note which COM port it is using (this is probably the last COM# listed under Ports). To verify that X-CTU can talk to the XBee, start the application, select the correct COM port on the left and then click the Test/Query button. If everything went well it should respond with something like this (if not see XbeeTroubleshooting)...
+ * Communication with modem... OK
+ * Modem type = XBP24BZ7
+ * Modem firmware version = 21A0
+ * Serial Number = 13A200 *40XXXXXX*
+
+== Serial Numbers ==
+Write down the last 8 digits of the serial number (probably starting with 40) and note where you will be using this XBee (is it going in the controller or the receiver?). In order to communicate with each other, the receiver Arduino will need to know the serial number of the controller's XBee and vice versa. Later we will edit our Arduino sketches with these serial numbers.
