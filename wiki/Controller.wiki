@@ -2,6 +2,7 @@
 #labels Featured
 
 = Parts =
+For a complete list of components see [RSeriesControllerShieldPartsList]
   * Arduino Mega 2560 - from [http://www.dfrobot.com/index.php?route=product/product&product_id=458 DFRobot], [http://www.sparkfun.com/products/11061 SparkFun], [http://www.amazon.com/gp/product/B004A7H3DG/ref=as_li_ss_tl?ie=UTF8&tag=murphy00-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=B004A7H3DG Amazon], [http://www.ebay.com/sch/i.html?_nkw=arduino+mega+2560+-shield+-kit+-uno eBay] etc.
   * Controller Shield PCB - from [http://pcb.laen.org Laen]
   * Adafruit 2.8" Touchscreen - from [http://www.adafruit.com/products/335 Adafruit.com]
