@@ -35,9 +35,9 @@ The following part # are from DigiKey for your convenience, all parts listed her
   * R5 = 10K Ohm 1/4 W
   * R6 = 47K Ohm 1/4 W Metal Film RNF14FTD47K0CT-ND
   * R7 = 24K Ohm 1/4 W Metal Film S24KCACT-ND
-  * R8 = 10K Ohm 1/4 W
-  * R9 = 10K Ohm 1/4 W
-  * R10 = 10K Ohm 1/4 W
+  * R8 = 1K Ohm 1/4 W
+  * R9 = 1K Ohm 1/4 W
+  * R10 = 1K Ohm 1/4 W
 
   * XB Header x 2 = 2mm 10 POS Female Header Vertical,  952-1354-5-ND
 
