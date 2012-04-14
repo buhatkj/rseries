@@ -16,13 +16,18 @@ The following part # are from DigiKey for your convenience, all parts listed her
   * LED 2 = 3mm Green - 160-1710-ND
 
   * C1 = Ceramic Capacitor 0.1UF 50V 10% RADIAL, 445-5258-ND
-  * C2 =  Alum Capacitoe 100UF 6.3V 20% RADIAL, P803-ND
+  * C2 =  Alum Capacitor 100UF 6.3V 20% RADIAL, P803-ND
+  * C3 = Ceramic Capacitor 0.22UF 50V 10% RADIAL, 490-3862-ND 
+  * C4 =  Alum Capacitor .1UF 50V 10% RADIAL, 490-5369-ND
+
+
 
   * IC1 = 3.3v 250ma Voltage Regulator MCP1700-3302E/TO-ND
   * IC2 =SN74HCT125N -  IC BUS BUFFER TRI-ST QD 14DIP, 296-4531-5-ND
   * IC3 = P2N2222AGOS-ND
   * IC4 = P2N2222AGOS-ND
   * IC5 = P2N2222AGOS-ND
+  * IC6 = LM7805CT-ND
 
   * D1 = 1N4004FSCT-ND
   * D2 = 1N4004FSCT-ND
