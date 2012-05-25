@@ -1,0 +1,36 @@
+#summary RSeries I2C Address Assignments
+#labels Phase-Implementation
+
+= Introduction =
+
+RSeries I2C Address Assignments, please contact ME if you wish to own an address for RSeries.
+
+
+= Details =
+
+I2C Addresses are in decimal
+
+0 Reserved
+1 Receiver Master I2C
+2 
+3 MP3 Player #1 - Primary Sound FX - R2 Vocal FX
+4 MP3 Player #2 - Secondary Sound FX - R2 Operational FX
+5 MP3 Player #3 - Tertiary Sound FX - Soundscapes & Background Music etc.
+6 I2C FX Module #4 - Servos, VCSensor,  
+7 Voice Recognition / Droid Caller Controller (not confirmed yet)
+8 Telemetry & VCSensor
+9 LCD Display
+...
+10 Teeces Dome Logics
+11 Body Logics
+12 Charging Bay
+13 TBD 
+14 Periscope
+15 Dome Controller 
+...
+64 PCA9685 - Dome Servos #1 (16 servos)
+65 PCA9685 - Dome Servos #2 (16 servos)
+66 PCA9685 - Body Servos #1  (16 servos)
+67 PCA9685 - Body Servos #2  (16 servos)
+...
+127 MAX
