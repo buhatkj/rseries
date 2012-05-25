@@ -28,6 +28,9 @@ I2C Addresses are in decimal
   * 13 TBD 
   * 14 Periscope
   * 15 Dome Controller 
+  * 16 CPU Arm & Gripper Arm
+  * 17 Magnetic Rear Grappler
+  * 18 
 
   * 64 PCA9685 - Dome Servos #1 (16 servos)
   * 65 PCA9685 - Dome Servos #2 (16 servos)
