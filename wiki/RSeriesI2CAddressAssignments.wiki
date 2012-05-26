@@ -12,14 +12,14 @@ I2C Addresses are in decimal
 
   * 0 Reserved
   * 1 Receiver Master I2C
-  * 2 
+  * 2 LCD Display 20 x 4
   * 3 MP3 Player #1 - Primary Sound FX - R2 Vocal FX
   * 4 MP3 Player #2 - Secondary Sound FX - R2 Operational FX
   * 5 MP3 Player #3 - Tertiary Sound FX - Soundscapes & Background Music etc.
   * 6 I2C FX Module #4 - Servos, VCSensor,  
   * 7 Voice Recognition / Droid Caller Controller (not confirmed yet)
   * 8 Telemetry & VCSensor
-  * 9 LCD Display
+  * 9 Reserved
 
 
   * 10 Teeces Dome Logics
