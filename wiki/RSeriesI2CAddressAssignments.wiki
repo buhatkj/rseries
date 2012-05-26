@@ -32,7 +32,7 @@ I2C Addresses are in decimal
   * 17 Magnetic Rear Grappler
   * 18 
 
-  * 64 PCA9685 - Dome Servos #1 (16 servos)
+  * 64 PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP Servos (2 Each)
   * 65 PCA9685 - Dome Servos #2 (16 servos)
   * 66 PCA9685 - Body Servos #1  (16 servos)
   * 67 PCA9685 - Body Servos #2  (16 servos)
