@@ -26,8 +26,8 @@ I2C Addresses are in decimal
   * 11 Body Logics CBI & DataPort, Brooks Boosters FX
   * 12 Charging Bay (vader)
   * 13 TBD 
-  * 14 Periscope & LFS Lifter (JAG)
-  * 15 Dome Controller (RotoPod)
+  * 14 Periscope & LFS Lifters (JAG)
+  * 15 Dome Controller (rotopod)
   * 16 CPU Arm & Gripper Arm
   * 17 Magnetic Rear Grappler
   * 18 232 Fusion Controller 
