@@ -17,20 +17,20 @@ I2C Addresses are in decimal
   * 4 MP3 Player #2 - Secondary Sound FX - R2 Operational FX
   * 5 MP3 Player #3 - Tertiary Sound FX - Soundscapes & Background Music etc.
   * 6 I2C FX Module #4 - Servos, VCSensor,  
-  * 7 Voice Recognition / Droid Caller Controller (not confirmed yet)
+  * 7 Voice Recognition / Droid Caller Controller 
   * 8 Telemetry & VCSensor
   * 9 Reserved
 
 
   * 10 Teeces Dome Logics
   * 11 Body Logics
-  * 12 Charging Bay
+  * 12 Charging Bay (vader & RSeries)
   * 13 TBD 
-  * 14 Periscope
-  * 15 Dome Controller 
+  * 14 Periscope & LFS Lifter (JAG)
+  * 15 Dome Controller (RotoPod)
   * 16 CPU Arm & Gripper Arm
   * 17 Magnetic Rear Grappler
-  * 18 
+  * 18 232 Fusion Controller 
 
   * 64 PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
   * 65 PCA9685 - Dome Servos #2 (16 servos)
