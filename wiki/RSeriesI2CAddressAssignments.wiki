@@ -23,14 +23,16 @@ I2C Addresses are in decimal
 
 
   * 10 Teeces Dome Logics
-  * 11 Body Logics
-  * 12 Charging Bay (vader & RSeries)
+  * 11 Body Logics CBI & DataPort, Brooks Boosters FX
+  * 12 Charging Bay (vader)
   * 13 TBD 
   * 14 Periscope & LFS Lifter (JAG)
   * 15 Dome Controller (RotoPod)
   * 16 CPU Arm & Gripper Arm
   * 17 Magnetic Rear Grappler
   * 18 232 Fusion Controller 
+  * 19 TBD
+
 
   * 64 PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
   * 65 PCA9685 - Dome Servos #2 (16 servos)
