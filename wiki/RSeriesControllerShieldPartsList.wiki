@@ -43,3 +43,10 @@ The following part # are from AdaFruit or DigiKey for your convenience, all part
 
   * 2 x .100 BreakAway Male Headers 40 Position 1 Row
   * 1 x .100 BreakAway Male Headers 40 Position 2 Rows
+
+
+  * 2  x 20 Pin 2x10 .100 IDC Connector (Jameco 32522)
+  * 1 x 6” 20pin Ribbon Cable (Jameco 643583)
+  * 1 x 20 Pin Shrouded Header (Jameco  68292)  - OPTIONAL - You can use a 2x40 header pins
+
+  * AdaFruit's MicroSD Breakout (OPTIONAL & currently not used yet) http://adafruit.com/products/254
