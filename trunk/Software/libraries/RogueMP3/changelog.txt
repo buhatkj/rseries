@@ -1,0 +1,14 @@
+$Id: changelog.txt 125 2010-10-18 03:04:22Z bhagman@roguerobotics.com $
+
+RogueMP3 Library
+
+Version Modified By Date     Comments
+------- ----------- -------- --------
+0001    B Hagman    09/07/05 Initial coding
+0002    B Hagman    10/03/21 License updates, minor fixes
+                    10/05/19 Added getspectrumanalyzer()
+                             Added setspectrumanalyzer()
+                    10/06/15 Added overload for playfile() to accept path and filename
+                             Added gettracklength()
+0003    B Hagman    10/08/10 Updated to new Stream class proposed for Arduino 0019
+                             Fixed dependency on Arduino core - now works with Wiring as well
