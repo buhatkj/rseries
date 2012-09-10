@@ -1,0 +1,53 @@
+#######################################
+# Syntax Coloring Map for RogueSD
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+RogueSD	KEYWORD1
+fileinfo	KEYWORD1
+moduletype	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+changesetting	KEYWORD2
+close	KEYWORD2
+closeall	KEYWORD2
+entrytofilename	KEYWORD2
+filecount	KEYWORD2
+getfileinfo	KEYWORD2
+getfreehandle	KEYWORD2
+getfilesize	KEYWORD2
+getsetting	KEYWORD2
+LastErrorCode	KEYWORD2
+open	KEYWORD2
+opendir	KEYWORD2
+read	KEYWORD2
+readbyte	KEYWORD2
+readdir	KEYWORD2
+readln	KEYWORD2
+remove	KEYWORD2
+seek	KEYWORD2
+seektoend	KEYWORD2
+setprompt	KEYWORD2
+status	KEYWORD2
+sync	KEYWORD2
+version	KEYWORD2
+write	KEYWORD2
+writebyte	KEYWORD2
+writeln	KEYWORD2
+writeln_finish	KEYWORD2
+writeln_prep	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+SD_OPEN_READ	LITERAL1
+SD_OPEN_WRITE	LITERAL1
+SD_OPEN_RW	LITERAL1
+SD_OPEN_APPEND	LITERAL1
