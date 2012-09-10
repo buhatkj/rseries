@@ -1,0 +1,18 @@
+$Id: changelog.txt 126 2010-10-18 03:06:09Z bhagman@roguerobotics.com $
+
+RogueSD Library
+
+Version Modified By Date     Comments
+------- ----------- -------- --------
+0001    B Hagman    09/06/21 Initial coding
+0002    B Hagman    09/12/18 Fixed filecount()
+0003    B Hagman    10/03/21 License updates, minor fixes
+        B Hagman    10/05/23 Fixed problem with module type recognition with
+                             beta firmware in _get_version()
+                             Added remove() - delete a file/folder
+                             Added writebyte() - write single byte
+                             Added getfilesize()
+                             Added entrytofilename() - gets filename from a path filter entry
+0004    B Hagman    10/08/10 Updated to new Stream class proposed for Arduino 0019
+                             Fixed dependency on Arduino core - now works with Wiring as well
+
