@@ -1,0 +1,841 @@
+(PCB "test"
+    (parser
+        (string_quote ")
+        (space_in_quoted_tokens on)
+        (host_cad "FreePCB Ver 1.359")
+        (host_version "translated by: FpcROUTE Ver 1.303R")
+        (case_sensitive on)
+    )
+    (resolution mil 100)
+    (structure
+        (boundary
+            (rect pcb 3000.00 1700.00 5300.00 3600.00)
+        )
+        (boundary
+            (path signal 0
+                3000.00  3000.00
+                3600.00  3600.00
+                4700.00  3600.00
+                5300.00  3000.00
+                5300.00  1700.00
+                3000.00  1700.00
+            )
+        )
+        (snap_angle
+            fortyfive_degree
+        )
+        (via
+            DefVia
+        )
+        (control
+            (via_at_smd off)
+        )
+        (rule
+            (width 10.0)
+            (clear 10.0)
+            (clear 10.0 (type pad_to_turn_gap))
+            (clear 10.0 (type smd_to_turn_gap))
+            (clear 10.0 (type default_area))
+            (clear 10.0 (type via_via))
+            (clear 10.0 (type via_smd))
+            (clear 10.0 (type via_pin))
+            (clear 10.0 (type pin_pin))
+            (clear 10.0 (type smd_pin))
+            (clear 10.0 (type smd_smd))
+            (clear 25.0 (type default_Outlines))
+            (clear 25.0 (type area_Outlines))
+            (clear 25.0 (type via_Outlines))
+            (clear 25.0 (type smd_Outlines))
+            (clear 25.0 (type pin_Outlines))
+            (clear 0.00 (type Outlines_Outlines))
+        )
+        (layer Top
+            (type signal)
+            (direction horizontal)
+        )
+        (layer Bottom
+            (type signal)
+            (direction vertical)
+        )
+    )
+    (placement
+        (place_control
+            (flip_style mirror_first)
+        )
+        (component "LED-T1.75"
+            (place "ML1" 4160.00 3090.00 front 0)
+            (place "ML2" 4160.00 2120.00 front 0)
+            (place "RL" 5130.00 2500.00 front 0)
+            (place "LL" 3100.00 2500.00 front 0)
+        )
+        (component "7X2HDR-100"
+            (place "TLCONNECTOR" 3900.00 3400.00 front 0)
+        )
+        (component "1X2HDR-100"
+            (place "RR" 5160.00 2100.00 front 0)
+            (place "LR1" 3100.00 2100.00 front 0)
+            (place "LR2" 3200.00 2100.00 front 0)
+        )
+        (component "RC05"
+            (place "R1" 4800.00 2500.00 front 270)
+        )
+        (component "SCREW100"
+            (place "TL9" 4700.00 1800.00 front 90)
+        )
+        (component "24DIP300"
+            (place "IC1" 4400.00 3200.00 front 270)
+        )
+        (component "CK05"
+            (place "C1" 4140.00 2750.00 front 270)
+            (place "C2" 4260.00 2750.00 front 270)
+        )
+        (component "24DIP600"
+            (place "ARDUINO_MINI_PRO_5V" 3400.00 3200.00 front 270)
+        )
+        (component "6X2HDR-100"
+            (place "BLCONNECTOR" 3950.00 1800.00 front 0)
+        )
+    )
+    (library
+        (image "LED-T1.75"
+            (side front)
+            (pin Pad101 (rotate 0) "1" 71.00 71.00)
+            (pin Pad101 (rotate 0) "2" 0.00 0.00)
+            (outline
+                (rect signal -92.00 -92.00 164.00 164.00)
+            )
+            (outline
+                (path signal 0
+                    156.00  36.00
+                    155.54  46.46
+                    154.18  56.84
+                    151.91  67.06
+                    148.76  77.04
+                    144.76  86.71
+                    139.92  96.00
+                    134.30  104.83
+                    127.93  113.13
+                    120.85  120.85
+                    113.13  127.93
+                    104.83  134.30
+                    96.00  139.92
+                    86.71  144.76
+                    77.04  148.76
+                    67.06  151.91
+                    56.84  154.18
+                    46.46  155.54
+                    36.00  156.00
+                )
+            )
+            (outline
+                (path signal 0
+                    36.00  -84.00
+                    46.46  -83.54
+                    56.84  -82.18
+                    67.06  -79.91
+                    77.04  -76.76
+                    86.71  -72.76
+                    96.00  -67.92
+                    104.83  -62.30
+                    113.13  -55.93
+                    120.85  -48.85
+                    127.93  -41.13
+                    134.30  -32.83
+                    139.92  -24.00
+                    144.76  -14.71
+                    148.76  -5.04
+                    151.91  4.94
+                    154.18  15.16
+                    155.54  25.54
+                    156.00  36.00
+                )
+            )
+            (outline
+                (path signal 0
+                    36.00  156.00
+                    25.54  155.54
+                    15.16  154.18
+                    4.94  151.91
+                    -5.04  148.76
+                    -14.71  144.76
+                    -24.00  139.92
+                    -32.83  134.30
+                    -41.13  127.93
+                    -48.85  120.85
+                    -55.93  113.13
+                    -62.30  104.83
+                    -67.92  96.00
+                    -72.76  86.71
+                    -76.76  77.04
+                    -79.91  67.06
+                    -82.18  56.84
+                    -83.54  46.46
+                    -84.00  36.00
+                )
+            )
+            (outline
+                (path signal 0
+                    -84.00  36.00
+                    36.00  -84.00
+                )
+            )
+            (outline
+                (circle  signal 26.00 71.00 71.00)
+            )
+            (outline
+                (circle  signal 26.00 0.00 0.00)
+            )
+        )
+        (image "7X2HDR-100"
+            (side front)
+            (pin Pad102 (rotate 0) "1" 0.00 0.00)
+            (pin Pad103 (rotate 0) "2" 0.00 100.00)
+            (pin Pad103 (rotate 0) "3" 100.00 0.00)
+            (pin Pad103 (rotate 0) "4" 100.00 100.00)
+            (pin Pad103 (rotate 0) "5" 200.00 0.00)
+            (pin Pad103 (rotate 0) "6" 200.00 100.00)
+            (pin Pad103 (rotate 0) "7" 300.00 0.00)
+            (pin Pad103 (rotate 0) "8" 300.00 100.00)
+            (pin Pad103 (rotate 0) "9" 400.00 0.00)
+            (pin Pad103 (rotate 0) "10" 400.00 100.00)
+            (pin Pad103 (rotate 0) "11" 500.00 0.00)
+            (pin Pad103 (rotate 0) "12" 500.00 100.00)
+            (pin Pad103 (rotate 0) "13" 600.00 0.00)
+            (pin Pad103 (rotate 0) "14" 600.00 100.00)
+            (outline
+                (rect signal -33.00 -33.00 633.00 133.00)
+            )
+            (outline
+                (circle  signal 40.00 0.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 0.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 100.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 100.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 200.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 200.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 300.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 300.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 400.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 400.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 500.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 500.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 600.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 600.00 100.00)
+            )
+        )
+        (image "1X2HDR-100"
+            (side front)
+            (pin Pad102 (rotate 0) "1" 0.00 0.00)
+            (pin Pad103 (rotate 0) "2" 0.00 100.00)
+            (outline
+                (rect signal -65.00 -65.00 65.00 165.00)
+            )
+            (outline
+                (polygon signal 0
+                    -50.00  150.00
+                    -50.00  -50.00
+                    50.00  -50.00
+                    50.00  150.00
+                )
+            )
+            (outline
+                (circle  signal 40.00 0.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 0.00 100.00)
+            )
+        )
+        (image "RC05"
+            (side front)
+            (pin Pad104 (rotate 0) "1" 0.00 0.00)
+            (pin Pad104 (rotate 0) "2" 400.00 0.00)
+            (outline
+                (rect signal -45.00 -45.00 445.00 45.00)
+            )
+            (outline
+                (polygon signal 0
+                    120.00  33.00
+                    280.00  33.00
+                    280.00  -33.00
+                    120.00  -33.00
+                )
+            )
+            (outline
+                (circle  signal 28.00 0.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 400.00 0.00)
+            )
+        )
+        (image "SCREW100"
+            (side front)
+            (pin Pad103 (rotate 0) "1" 0.00 0.00)
+            (pin Pad103 (rotate 0) "2" 100.00 0.00)
+            (outline
+                (rect signal -85.00 -135.00 185.00 135.00)
+            )
+            (outline
+                (polygon signal 0
+                    -70.00  120.00
+                    -70.00  -120.00
+                    170.00  -120.00
+                    170.00  120.00
+                )
+            )
+            (outline
+                (circle  signal 40.00 0.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 100.00 0.00)
+            )
+        )
+        (image "24DIP300"
+            (side front)
+            (pin Pad105 (rotate 0) "1" 0.00 0.00)
+            (pin Pad106 (rotate 0) "2" 100.00 0.00)
+            (pin Pad106 (rotate 0) "3" 200.00 0.00)
+            (pin Pad106 (rotate 0) "4" 300.00 0.00)
+            (pin Pad106 (rotate 0) "5" 400.00 0.00)
+            (pin Pad106 (rotate 0) "6" 500.00 0.00)
+            (pin Pad106 (rotate 0) "7" 600.00 0.00)
+            (pin Pad106 (rotate 0) "8" 700.00 0.00)
+            (pin Pad106 (rotate 0) "9" 800.00 0.00)
+            (pin Pad106 (rotate 0) "10" 900.00 0.00)
+            (pin Pad106 (rotate 0) "11" 1000.00 0.00)
+            (pin Pad106 (rotate 0) "12" 1100.00 0.00)
+            (pin Pad106 (rotate 0) "13" 1100.00 300.00)
+            (pin Pad106 (rotate 0) "14" 1000.00 300.00)
+            (pin Pad106 (rotate 0) "15" 900.00 300.00)
+            (pin Pad106 (rotate 0) "16" 800.00 300.00)
+            (pin Pad106 (rotate 0) "17" 700.00 300.00)
+            (pin Pad106 (rotate 0) "18" 600.00 300.00)
+            (pin Pad106 (rotate 0) "19" 500.00 300.00)
+            (pin Pad106 (rotate 0) "20" 400.00 300.00)
+            (pin Pad106 (rotate 0) "21" 300.00 300.00)
+            (pin Pad106 (rotate 0) "22" 200.00 300.00)
+            (pin Pad106 (rotate 0) "23" 100.00 300.00)
+            (pin Pad106 (rotate 0) "24" 0.00 300.00)
+            (outline
+                (rect signal -58.00 -35.00 1158.00 335.00)
+            )
+            (outline
+                (polygon signal 0
+                    -50.00  50.00
+                    1150.00  50.00
+                    1150.00  250.00
+                    -50.00  250.00
+                )
+            )
+            (outline
+                (polygon signal 0
+                    -50.00  100.00
+                    0.00  100.00
+                    0.00  200.00
+                    -50.00  200.00
+                )
+            )
+            (outline
+                (circle  signal 28.00 0.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 100.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 200.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 300.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 400.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 500.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 600.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 700.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 800.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 900.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 1000.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 1100.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 1100.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 1000.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 900.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 800.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 700.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 600.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 500.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 400.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 300.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 200.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 100.00 300.00)
+            )
+            (outline
+                (circle  signal 28.00 0.00 300.00)
+            )
+        )
+        (image "CK05"
+            (side front)
+            (pin Pad107 (rotate 0) "1" 0.00 0.00)
+            (pin Pad107 (rotate 0) "2" 200.00 0.00)
+            (outline
+                (rect signal -46.00 -58.00 246.00 58.00)
+            )
+            (outline
+                (polygon signal 0
+                    -38.00  50.00
+                    238.00  50.00
+                    238.00  -50.00
+                    -38.00  -50.00
+                )
+            )
+            (outline
+                (circle  signal 45.00 0.00 0.00)
+            )
+            (outline
+                (circle  signal 45.00 200.00 0.00)
+            )
+        )
+        (image "24DIP600"
+            (side front)
+            (pin Pad105 (rotate 0) "1" 0.00 0.00)
+            (pin Pad106 (rotate 0) "2" 100.00 0.00)
+            (pin Pad106 (rotate 0) "3" 200.00 0.00)
+            (pin Pad106 (rotate 0) "4" 300.00 0.00)
+            (pin Pad106 (rotate 0) "5" 400.00 0.00)
+            (pin Pad106 (rotate 0) "6" 500.00 0.00)
+            (pin Pad106 (rotate 0) "7" 600.00 0.00)
+            (pin Pad106 (rotate 0) "8" 700.00 0.00)
+            (pin Pad106 (rotate 0) "9" 800.00 0.00)
+            (pin Pad106 (rotate 0) "10" 900.00 0.00)
+            (pin Pad106 (rotate 0) "11" 1000.00 0.00)
+            (pin Pad106 (rotate 0) "12" 1100.00 0.00)
+            (pin Pad106 (rotate 0) "13" 1100.00 600.00)
+            (pin Pad106 (rotate 0) "14" 1000.00 600.00)
+            (pin Pad106 (rotate 0) "15" 900.00 600.00)
+            (pin Pad106 (rotate 0) "16" 800.00 600.00)
+            (pin Pad106 (rotate 0) "17" 700.00 600.00)
+            (pin Pad106 (rotate 0) "18" 600.00 600.00)
+            (pin Pad106 (rotate 0) "19" 500.00 600.00)
+            (pin Pad106 (rotate 0) "20" 400.00 600.00)
+            (pin Pad106 (rotate 0) "21" 300.00 600.00)
+            (pin Pad106 (rotate 0) "22" 200.00 600.00)
+            (pin Pad106 (rotate 0) "23" 100.00 600.00)
+            (pin Pad106 (rotate 0) "24" 0.00 600.00)
+            (outline
+                (rect signal -58.00 -35.00 1158.00 635.00)
+            )
+            (outline
+                (polygon signal 0
+                    -50.00  50.00
+                    1150.00  50.00
+                    1150.00  550.00
+                    -50.00  550.00
+                )
+            )
+            (outline
+                (polygon signal 0
+                    -50.00  250.00
+                    0.00  250.00
+                    0.00  350.00
+                    -50.00  350.00
+                )
+            )
+            (outline
+                (circle  signal 28.00 0.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 100.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 200.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 300.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 400.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 500.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 600.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 700.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 800.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 900.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 1000.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 1100.00 0.00)
+            )
+            (outline
+                (circle  signal 28.00 1100.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 1000.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 900.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 800.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 700.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 600.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 500.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 400.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 300.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 200.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 100.00 600.00)
+            )
+            (outline
+                (circle  signal 28.00 0.00 600.00)
+            )
+        )
+        (image "6X2HDR-100"
+            (side front)
+            (pin Pad102 (rotate 0) "1" 0.00 0.00)
+            (pin Pad103 (rotate 0) "2" 0.00 100.00)
+            (pin Pad103 (rotate 0) "3" 100.00 0.00)
+            (pin Pad103 (rotate 0) "4" 100.00 100.00)
+            (pin Pad103 (rotate 0) "5" 200.00 0.00)
+            (pin Pad103 (rotate 0) "6" 200.00 100.00)
+            (pin Pad103 (rotate 0) "7" 300.00 0.00)
+            (pin Pad103 (rotate 0) "8" 300.00 100.00)
+            (pin Pad103 (rotate 0) "9" 400.00 0.00)
+            (pin Pad103 (rotate 0) "10" 400.00 100.00)
+            (pin Pad103 (rotate 0) "11" 500.00 0.00)
+            (pin Pad103 (rotate 0) "12" 500.00 100.00)
+            (outline
+                (rect signal -33.00 -33.00 533.00 133.00)
+            )
+            (outline
+                (circle  signal 40.00 0.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 0.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 100.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 100.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 200.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 200.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 300.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 300.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 400.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 400.00 100.00)
+            )
+            (outline
+                (circle  signal 40.00 500.00 0.00)
+            )
+            (outline
+                (circle  signal 40.00 500.00 100.00)
+            )
+        )
+        (padstack DefVia
+            (shape (circle signal 28.00))
+        )
+        (padstack Pad101
+            (shape (circle signal 50.00))
+        )
+        (padstack Pad102
+            (shape (rect signal -30.00 -30.00 30.00 30.00))
+        )
+        (padstack Pad103
+            (shape (circle signal 60.00))
+        )
+        (padstack Pad104
+            (shape (circle signal 75.00))
+        )
+        (padstack Pad105
+            (shape (rect signal -27.50 -27.50 27.50 27.50))
+        )
+        (padstack Pad106
+            (shape (circle signal 55.00))
+        )
+        (padstack Pad107
+            (shape (circle signal 75.00))
+        )
+    )
+    (network
+        (net "VDC"
+        )
+        (net "RAW"
+            (pins
+                "TL9"-"1"
+                "ARDUINO_MINI_PRO_5V"-"24"
+            )
+        )
+        (net "DIn"
+            (pins
+                "IC1"-"1"
+                "ARDUINO_MINI_PRO_5V"-"15"
+            )
+        )
+        (net "Load"
+            (pins
+                "IC1"-"12"
+                "ARDUINO_MINI_PRO_5V"-"13"
+            )
+        )
+        (net "VIn"
+            (pins
+                "IC1"-"19"
+                "R1"-"1"
+                "C2"-"2"
+                "C1"-"2"
+                "ARDUINO_MINI_PRO_5V"-"21"
+            )
+        )
+        (net "col1"
+            (pins
+                "IC1"-"22"
+                "TLCONNECTOR"-"2"
+                "BLCONNECTOR"-"2"
+                "LL"-"1"
+                "LR1"-"2"
+            )
+        )
+        (net "col2"
+            (pins
+                "IC1"-"14"
+                "TLCONNECTOR"-"4"
+                "BLCONNECTOR"-"4"
+                "ML1"-"1"
+                "LR2"-"2"
+            )
+        )
+        (net "col3"
+            (pins
+                "IC1"-"16"
+                "TLCONNECTOR"-"6"
+                "BLCONNECTOR"-"6"
+                "ML2"-"1"
+                "RR"-"2"
+            )
+        )
+        (net "col4"
+            (pins
+                "IC1"-"20"
+                "TLCONNECTOR"-"8"
+                "BLCONNECTOR"-"8"
+                "RL"-"1"
+            )
+        )
+        (net "Col6"
+            (pins
+                "IC1"-"21"
+                "TLCONNECTOR"-"12"
+                "BLCONNECTOR"-"12"
+            )
+        )
+        (net "col5"
+            (pins
+                "IC1"-"23"
+                "TLCONNECTOR"-"10"
+                "BLCONNECTOR"-"10"
+            )
+        )
+        (net "Row 5"
+            (pins
+                "IC1"-"3"
+            )
+        )
+        (net "col7"
+            (pins
+                "IC1"-"15"
+                "TLCONNECTOR"-"14"
+            )
+        )
+        (net "DOut"
+            (pins
+                "IC1"-"24"
+            )
+        )
+        (net "GND"
+            (pins
+                "IC1"-"4"
+                "IC1"-"9"
+                "TL9"-"2"
+                "C2"-"1"
+                "C1"-"1"
+                "ARDUINO_MINI_PRO_5V"-"23"
+            )
+        )
+        (net "Row 6"
+            (pins
+                "IC1"-"10"
+            )
+        )
+        (net "Clock"
+            (pins
+                "ARDUINO_MINI_PRO_5V"-"14"
+                "IC1"-"13"
+            )
+        )
+        (net "Row 7"
+            (pins
+                "IC1"-"5"
+            )
+        )
+        (net "row1"
+            (pins
+                "IC1"-"2"
+                "TLCONNECTOR"-"1"
+                "TLCONNECTOR"-"3"
+                "TLCONNECTOR"-"5"
+                "TLCONNECTOR"-"7"
+                "TLCONNECTOR"-"9"
+                "TLCONNECTOR"-"11"
+                "TLCONNECTOR"-"13"
+            )
+        )
+        (net "row2"
+            (pins
+                "IC1"-"11"
+                "BLCONNECTOR"-"1"
+                "BLCONNECTOR"-"3"
+                "BLCONNECTOR"-"5"
+                "BLCONNECTOR"-"7"
+                "BLCONNECTOR"-"9"
+                "BLCONNECTOR"-"11"
+            )
+        )
+        (net "row3"
+            (pins
+                "IC1"-"6"
+                "ML1"-"2"
+                "LL"-"2"
+                "ML2"-"2"
+                "RL"-"2"
+            )
+        )
+        (net "Clk"
+            (pins
+                "ARDUINO_MINI_PRO_5V"-"11"
+            )
+        )
+        (net "row4"
+            (pins
+                "IC1"-"7"
+                "LR1"-"1"
+                "LR2"-"1"
+                "RR"-"1"
+            )
+        )
+        (net "RSet"
+            (pins
+                "R1"-"2"
+                "IC1"-"18"
+            )
+        )
+        (via DefVia DefVia via)
+        (via_rule default DefVia)
+        (class default
+            "VDC"  "RAW"  "DIn"  "Load"  
+            "VIn"  "col1"  "col2"  "col3"  
+            "col4"  "Col6"  "col5"  "Row 5"  
+            "col7"  "DOut"  "GND"  "Row 6"  
+            "Clock"  "Row 7"  "row1"  "row2"  
+            "row3"  "Clk"  "row4"  "RSet"  
+            (clearance_class default)
+            (via_rule default)
+        )
+    )
+    (wiring
+    )
+)

@@ -1,0 +1,232 @@
+
+(session periscope_top_v1.ses
+  (base_design periscope_top_v1.dsn)
+  (placement
+    (resolution mil 100)
+    (component 7RectPAD200withPINS
+      (place T2 190000 180000 front 0)
+      (place T4 250000 180000 back 0)
+    )
+    (component 7RectPAD100withPINS
+      (place T1 190000 260000 front 0)
+      (place T3 250000 260000 back 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution mil 100)
+    (parser
+      (host_cad "FreePCB Ver 1.359")
+      (host_version "translated by: FpcROUTE Ver 1.303R")
+    )
+    (library_out 
+      (padstack DefVia
+        (shape
+          (circle Top 2800 0 0)
+        )
+        (shape
+          (circle Bottom 2800 0 0)
+        )
+      )
+    )
+    (network_out 
+      (net N00010
+        (wire
+          (path Bottom 1000
+            220000 260000
+            220000 180000
+          )
+        )
+      )
+      (net N00011
+        (wire
+          (path Bottom 1000
+            200000 180000
+            200000 187801
+          )
+        )
+        (wire
+          (path Bottom 1000
+            210000 260000
+            210000 197801
+            200000 187801
+          )
+        )
+      )
+      (net N00001
+        (wire
+          (path Top 1000
+            180000 180000
+            180000 187801
+          )
+        )
+        (wire
+          (path Top 1000
+            200000 260000
+            200000 207801
+            180000 187801
+          )
+        )
+      )
+      (net N00012
+        (wire
+          (path Bottom 1000
+            180000 180000
+            180000 187801
+          )
+        )
+        (wire
+          (path Bottom 1000
+            200000 260000
+            200000 207801
+            180000 187801
+          )
+        )
+      )
+      (net N00002
+        (wire
+          (path Top 1000
+            200000 180000
+            200000 187801
+          )
+        )
+        (wire
+          (path Top 1000
+            210000 260000
+            210000 197801
+            200000 187801
+          )
+        )
+      )
+      (net N00013
+        (wire
+          (path Bottom 1000
+            190000 260000
+            190000 217801
+            160000 187801
+          )
+        )
+        (wire
+          (path Bottom 1000
+            160000 180000
+            160000 187801
+          )
+        )
+      )
+      (net N00003
+        (wire
+          (path Top 1000
+            220000 260000
+            220000 180000
+          )
+        )
+      )
+      (net N00004
+        (wire
+          (path Top 1000
+            240000 180000
+            240000 187801
+          )
+        )
+        (wire
+          (path Top 1000
+            230000 260000
+            230000 197801
+            240000 187801
+          )
+        )
+      )
+      (net N00005
+        (wire
+          (path Top 1000
+            260000 180000
+            260000 187801
+          )
+        )
+        (wire
+          (path Top 1000
+            240000 260000
+            240000 207801
+            260000 187801
+          )
+        )
+      )
+      (net TLA1
+        (wire
+          (path Top 1000
+            160000 180000
+            160000 187801
+          )
+        )
+        (wire
+          (path Top 1000
+            190000 260000
+            190000 217801
+            160000 187801
+          )
+        )
+      )
+      (net N00006
+        (wire
+          (path Top 1000
+            280000 180000
+            280000 187801
+          )
+        )
+        (wire
+          (path Top 1000
+            250000 260000
+            250000 217801
+            280000 187801
+          )
+        )
+      )
+      (net N00007
+        (wire
+          (path Bottom 1000
+            280000 180000
+            280000 187801
+          )
+        )
+        (wire
+          (path Bottom 1000
+            250000 260000
+            250000 217801
+            280000 187801
+          )
+        )
+      )
+      (net N00008
+        (wire
+          (path Bottom 1000
+            260000 180000
+            260000 187801
+          )
+        )
+        (wire
+          (path Bottom 1000
+            240000 260000
+            240000 207801
+            260000 187801
+          )
+        )
+      )
+      (net N00009
+        (wire
+          (path Bottom 1000
+            240000 180000
+            240000 187801
+          )
+        )
+        (wire
+          (path Bottom 1000
+            230000 260000
+            230000 197801
+            240000 187801
+          )
+        )
+      )
+    )
+  )
+)

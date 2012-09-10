@@ -1,0 +1,289 @@
+(PCB "test"
+    (parser
+        (string_quote ")
+        (space_in_quoted_tokens on)
+        (host_cad "FreePCB Ver 1.359")
+        (host_version "translated by: FpcROUTE Ver 1.303R")
+        (case_sensitive on)
+    )
+    (resolution mil 100)
+    (structure
+        (boundary
+            (rect pcb 1500.00 1700.00 2900.00 2700.00)
+        )
+        (boundary
+            (path signal 0
+                1800.00  2700.00
+                2600.00  2700.00
+                2600.00  2200.00
+                2900.00  1900.00
+                2900.00  1700.00
+                1500.00  1700.00
+                1500.00  1900.00
+                1800.00  2200.00
+            )
+        )
+        (snap_angle
+            fortyfive_degree
+        )
+        (via
+            DefVia
+        )
+        (control
+            (via_at_smd off)
+        )
+        (rule
+            (width 10.0)
+            (clear 10.0)
+            (clear 10.0 (type pad_to_turn_gap))
+            (clear 10.0 (type smd_to_turn_gap))
+            (clear 10.0 (type default_area))
+            (clear 10.0 (type via_via))
+            (clear 10.0 (type via_smd))
+            (clear 10.0 (type via_pin))
+            (clear 10.0 (type pin_pin))
+            (clear 10.0 (type smd_pin))
+            (clear 10.0 (type smd_smd))
+            (clear 25.0 (type default_Outlines))
+            (clear 25.0 (type area_Outlines))
+            (clear 25.0 (type via_Outlines))
+            (clear 25.0 (type smd_Outlines))
+            (clear 25.0 (type pin_Outlines))
+            (clear 0.00 (type Outlines_Outlines))
+        )
+        (layer Top
+            (type signal)
+            (direction horizontal)
+        )
+        (layer Bottom
+            (type signal)
+            (direction vertical)
+        )
+    )
+    (placement
+        (place_control
+            (flip_style mirror_first)
+        )
+        (component "7RectPAD200withPINS"
+            (place "T2" 1900.00 1800.00 front 0)
+            (place "T4" 2500.00 1800.00 back 0)
+        )
+        (component "7RectPAD100withPINS"
+            (place "T1" 1900.00 2600.00 front 0)
+            (place "T3" 2500.00 2600.00 back 0)
+        )
+    )
+    (library
+        (image "7RectPAD200withPINS"
+            (side front)
+            (pin Pad101 (rotate 0) "1" -300.00 0.00)
+            (pin Pad101 (rotate 0) "2" -100.00 0.00)
+            (pin Pad101 (rotate 0) "3" 100.00 0.00)
+            (pin Pad101 (rotate 0) "4" 300.00 0.00)
+            (pin Pad101 (rotate 0) "5" 500.00 0.00)
+            (pin Pad101 (rotate 0) "6" 700.00 0.00)
+            (pin Pad101 (rotate 0) "7" 900.00 0.00)
+            (outline
+                (rect signal -345.43 -72.99 945.43 72.99)
+            )
+        )
+        (image "7RectPAD100withPINS"
+            (side front)
+            (pin Pad101 (rotate 0) "1" 0.00 0.00)
+            (pin Pad101 (rotate 0) "2" 100.00 0.00)
+            (pin Pad101 (rotate 0) "3" 200.00 0.00)
+            (pin Pad101 (rotate 0) "4" 300.00 0.00)
+            (pin Pad101 (rotate 0) "5" 400.00 0.00)
+            (pin Pad101 (rotate 0) "6" 500.00 0.00)
+            (pin Pad101 (rotate 0) "7" 600.00 0.00)
+            (outline
+                (rect signal -45.43 -72.99 645.43 72.99)
+            )
+        )
+        (padstack DefVia
+            (shape (circle signal 28.00))
+        )
+        (padstack Pad101
+            (shape (rect Top -35.45 -63.00 35.45 63.00))
+        )
+    )
+    (network
+        (net "VDC"
+        )
+        (net "RAW"
+        )
+        (net "N00020"
+        )
+        (net "DIn"
+        )
+        (net "N00010"
+            (pins
+                "T3"-"4"
+                "T4"-"4"
+            )
+        )
+        (net "N00021"
+        )
+        (net "Load"
+        )
+        (net "VIn"
+        )
+        (net "col1"
+        )
+        (net "N00011"
+            (pins
+                "T3"-"5"
+                "T4"-"5"
+            )
+        )
+        (net "N00022"
+        )
+        (net "col2"
+        )
+        (net "N00001"
+            (pins
+                "T1"-"2"
+                "T2"-"2"
+            )
+        )
+        (net "N00012"
+            (pins
+                "T3"-"6"
+                "T4"-"6"
+            )
+        )
+        (net "N00023"
+        )
+        (net "col3"
+        )
+        (net "N00002"
+            (pins
+                "T1"-"3"
+                "T2"-"3"
+            )
+        )
+        (net "N00013"
+            (pins
+                "T3"-"7"
+                "T4"-"7"
+            )
+        )
+        (net "N00024"
+        )
+        (net "col4"
+        )
+        (net "Col6"
+        )
+        (net "N00003"
+            (pins
+                "T1"-"4"
+                "T2"-"4"
+            )
+        )
+        (net "N00014"
+        )
+        (net "N00025"
+        )
+        (net "col5"
+        )
+        (net "N00004"
+            (pins
+                "T1"-"5"
+                "T2"-"5"
+            )
+        )
+        (net "N00015"
+        )
+        (net "Row 5"
+        )
+        (net "N00005"
+            (pins
+                "T1"-"6"
+                "T2"-"6"
+            )
+        )
+        (net "N00016"
+        )
+        (net "col7"
+        )
+        (net "DOut"
+        )
+        (net "GND"
+        )
+        (net "Row 6"
+        )
+        (net "Clock"
+        )
+        (net "TLA1"
+            (pins
+                "T1"-"1"
+                "T2"-"1"
+            )
+        )
+        (net "N00006"
+            (pins
+                "T1"-"7"
+                "T2"-"7"
+            )
+        )
+        (net "N00017"
+        )
+        (net "Row 7"
+        )
+        (net "N00007"
+            (pins
+                "T3"-"1"
+                "T4"-"1"
+            )
+        )
+        (net "N00018"
+        )
+        (net "row1"
+        )
+        (net "N00008"
+            (pins
+                "T3"-"2"
+                "T4"-"2"
+            )
+        )
+        (net "N00019"
+        )
+        (net "row2"
+        )
+        (net "N00009"
+            (pins
+                "T3"-"3"
+                "T4"-"3"
+            )
+        )
+        (net "row3"
+        )
+        (net "Clk"
+        )
+        (net "row4"
+        )
+        (net "RSet"
+        )
+        (via DefVia DefVia via)
+        (via_rule default DefVia)
+        (class default
+            "VDC"  "RAW"  "N00020"  "DIn"  
+            "N00010"  "N00021"  "Load"  "VIn"  
+            "col1"  "N00011"  "N00022"  "col2"  
+            "N00001"  "N00012"  "N00023"  "col3"  
+            "N00002"  "N00013"  "N00024"  "col4"  
+            "Col6"  "N00003"  "N00014"  "N00025"  
+            "col5"  "N00004"  "N00015"  "Row 5"  
+            "N00005"  "N00016"  "col7"  "DOut"  
+            "GND"  "Row 6"  "Clock"  "TLA1"  
+            "N00006"  "N00017"  "Row 7"  "N00007"  
+            "N00018"  "row1"  "N00008"  "N00019"  
+            "row2"  "N00009"  "row3"  "Clk"  
+            "row4"  "RSet"  
+            (clearance_class default)
+            (via_rule default)
+        )
+    )
+    (wiring
+    )
+)

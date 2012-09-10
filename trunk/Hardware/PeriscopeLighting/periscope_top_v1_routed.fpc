@@ -1,0 +1,534 @@
+[options]
+
+version: 1.359
+file_version: 1.344
+project_name: "test"
+full_library_folder: "c:\program files\freepcb\lib"
+CAM_folder: "Y:\Documents\R2D2 Build\PCB Files\PeriscopeLighting\TOP_BOARD_CAM"
+ses_file_path: "Y:\Documents\R2D2 Build\PCB Files\PeriscopeLighting\periscope_top_v1.ses"
+netlist_file_path: ""
+SMT_connect_copper: "0"
+default_glue_width: "635000"
+dsn_flags: "0"
+dsn_bounds_poly: "0"
+dsn_signals_poly: "0"
+autosave_interval: 0
+auto_ratline_disable: "0"
+auto_ratline_disable_min_pins: "100"
+netlist_import_flags: 902
+units: MIL
+
+visible_grid_spacing: 2540000.000000
+  visible_grid_item: 100MIL
+  visible_grid_item: 125MIL
+  visible_grid_item: 200MIL
+  visible_grid_item: 250MIL
+  visible_grid_item: 400MIL
+  visible_grid_item: 500MIL
+  visible_grid_item: 1000MIL
+  visible_grid_item: 1MM
+  visible_grid_item: 2MM
+  visible_grid_item: 2.5MM
+  visible_grid_item: 4MM
+  visible_grid_item: 5MM
+  visible_grid_item: 10MM
+  visible_grid_item: 20MM
+  visible_grid_item: 25MM
+  visible_grid_item: 40MM
+  visible_grid_item: 50MM
+  visible_grid_item: 100MM
+
+placement_grid_spacing: 508000.000000
+  placement_grid_item: 10MIL
+  placement_grid_item: 20MIL
+  placement_grid_item: 25MIL
+  placement_grid_item: 40MIL
+  placement_grid_item: 50MIL
+  placement_grid_item: 100MIL
+  placement_grid_item: 200MIL
+  placement_grid_item: 250MIL
+  placement_grid_item: 400MIL
+  placement_grid_item: 500MIL
+  placement_grid_item: 1000MIL
+  placement_grid_item: 0.1MM
+  placement_grid_item: 0.2MM
+  placement_grid_item: 0.25MM
+  placement_grid_item: 0.4MM
+  placement_grid_item: 0.5MM
+  placement_grid_item: 1MM
+  placement_grid_item: 2MM
+  placement_grid_item: 2.5MM
+  placement_grid_item: 4MM
+  placement_grid_item: 5MM
+  placement_grid_item: 10MM
+
+routing_grid_spacing: 508000.000000
+  routing_grid_item: 1MIL
+  routing_grid_item: 2MIL
+  routing_grid_item: 2.5MIL
+  routing_grid_item: 3.33330709MIL
+  routing_grid_item: 4MIL
+  routing_grid_item: 5MIL
+  routing_grid_item: 6.66590551MIL
+  routing_grid_item: 10MIL
+  routing_grid_item: 12.5MIL
+  routing_grid_item: 16.66590551MIL
+  routing_grid_item: 20MIL
+  routing_grid_item: 25MIL
+  routing_grid_item: 40MIL
+  routing_grid_item: 50MIL
+  routing_grid_item: 0.01MM
+  routing_grid_item: 0.02MM
+  routing_grid_item: 0.04MM
+  routing_grid_item: 0.05MM
+  routing_grid_item: 0.1MM
+  routing_grid_item: 0.2MM
+  routing_grid_item: 0.25MM
+  routing_grid_item: 0.4MM
+  routing_grid_item: 0.5MM
+  routing_grid_item: 1MM
+  routing_grid_item: 2MM
+  routing_grid_item: 2.5MM
+  routing_grid_item: 4MM
+  routing_grid_item: 5MM
+  routing_grid_item: 10MM
+
+snap_angle: 45
+
+fp_visible_grid_spacing: 2540000.000000
+  fp_visible_grid_item: 100MIL
+  fp_visible_grid_item: 125MIL
+  fp_visible_grid_item: 200MIL
+  fp_visible_grid_item: 250MIL
+  fp_visible_grid_item: 400MIL
+  fp_visible_grid_item: 500MIL
+  fp_visible_grid_item: 1000MIL
+  fp_visible_grid_item: 1MM
+  fp_visible_grid_item: 2MM
+  fp_visible_grid_item: 2.5MM
+  fp_visible_grid_item: 4MM
+  fp_visible_grid_item: 5MM
+  fp_visible_grid_item: 10MM
+  fp_visible_grid_item: 20MM
+  fp_visible_grid_item: 25MM
+  fp_visible_grid_item: 40MM
+  fp_visible_grid_item: 50MM
+  fp_visible_grid_item: 100MM
+
+fp_placement_grid_spacing: 635000.000000
+  fp_placement_grid_item: 10MIL
+  fp_placement_grid_item: 20MIL
+  fp_placement_grid_item: 25MIL
+  fp_placement_grid_item: 40MIL
+  fp_placement_grid_item: 50MIL
+  fp_placement_grid_item: 100MIL
+  fp_placement_grid_item: 200MIL
+  fp_placement_grid_item: 250MIL
+  fp_placement_grid_item: 400MIL
+  fp_placement_grid_item: 500MIL
+  fp_placement_grid_item: 1000MIL
+  fp_placement_grid_item: 0.1MM
+  fp_placement_grid_item: 0.2MM
+  fp_placement_grid_item: 0.25MM
+  fp_placement_grid_item: 0.4MM
+  fp_placement_grid_item: 0.5MM
+  fp_placement_grid_item: 1MM
+  fp_placement_grid_item: 2MM
+  fp_placement_grid_item: 2.5MM
+  fp_placement_grid_item: 4MM
+  fp_placement_grid_item: 5MM
+  fp_placement_grid_item: 10MM
+
+fp_snap_angle: 45
+
+fill_clearance: 254000
+mask_clearance: 203200
+thermal_width: 254000
+min_silkscreen_width: 127000
+board_outline_width: 127000
+hole_clearance: 381000
+pilot_diameter: 254000
+annular_ring_for_pins: 177800
+annular_ring_for_vias: 127000
+shrink_paste_mask: 0
+cam_flags: 4097
+cam_layers: 7340095
+cam_drill_file: 1
+cam_units: 2
+cam_n_x: 1
+cam_n_y: 1
+cam_space_x: 0
+cam_space_y: 0
+
+report_options: 0
+drc_check_unrouted: 0
+drc_trace_width: 254000
+drc_pad_pad: 254000
+drc_pad_trace: 254000
+drc_trace_trace: 254000
+drc_hole_copper: 381000
+drc_annular_ring_pins: 177800
+drc_annular_ring_vias: 127000
+drc_board_edge_copper: 635000
+drc_board_edge_hole: 635000
+drc_hole_hole: 635000
+drc_copper_copper: 254000
+
+default_trace_width: 254000
+default_via_pad_width: 711200
+default_via_hole_width: 355600
+n_width_menu: 7
+  width_menu_item: 1 152400 711200 355600
+  width_menu_item: 2 203200 711200 355600
+  width_menu_item: 3 254000 711200 355600
+  width_menu_item: 4 304800 711200 355600
+  width_menu_item: 5 381000 711200 355600
+  width_menu_item: 6 508000 711200 355600
+  width_menu_item: 7 635000 711200 355600
+
+n_copper_layers: 2
+  layer_info: "selection" 0 255 255 255 1
+  layer_info: "background" 1 0 0 0 1
+  layer_info: "visible grid" 2 255 255 255 1
+  layer_info: "highlight" 3 255 255 255 1
+  layer_info: "DRC error" 4 255 128 64 1
+  layer_info: "board outline" 5 0 0 255 1
+  layer_info: "rat line" 6 255 0 255 1
+  layer_info: "top silk" 7 255 255 0 1
+  layer_info: "bottom silk" 8 255 192 192 1
+  layer_info: "top sm cutout" 9 160 160 160 1
+  layer_info: "bot sm cutout" 10 95 95 95 1
+  layer_info: "thru pad" 11 0 0 255 1
+  layer_info: "top copper" 12 0 255 0 1
+  layer_info: "bottom copper" 13 255 0 0 1
+
+[footprints]
+
+name: "7RectPAD200withPINS"
+author: "Ivex"
+source: "SURFACE MOUNT DESIGN AND LAND PATTERN STANDARD SUBSECTION 8.1 (PAGE 3 OF 4)"
+  units: NM
+  sel_rect: -8774000 -1854000 24014000 1854000
+  ref_text: 1270000 1400000 2900000 0 177800
+  value_text: 1270000 1400000 360000 0 177800
+  centroid: 1 7620000 0 0
+  n_pins: 7
+    pin: "1" 0 -7620000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "2" 0 -2540000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "3" 0 2540000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "4" 0 7620000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "5" 0 12700000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "6" 0 17780000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "7" 0 22860000 0 0
+      top_pad: 3 3200000 900000 900000 0
+
+name: "7RectPAD100withPINS"
+author: "Ivex"
+source: "SURFACE MOUNT DESIGN AND LAND PATTERN STANDARD SUBSECTION 8.1 (PAGE 3 OF 4)"
+  units: NM
+  sel_rect: -1154000 -1854000 16394000 1854000
+  ref_text: 1270000 1400000 2900000 0 177800
+  value_text: 1270000 1400000 360000 0 177800
+  centroid: 1 7620000 0 0
+  n_pins: 7
+    pin: "1" 0 0 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "2" 0 2540000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "3" 0 5080000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "4" 0 7620000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "5" 0 10160000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "6" 0 12700000 0 0
+      top_pad: 3 3200000 900000 900000 0
+    pin: "7" 0 15240000 0 0
+      top_pad: 3 3200000 900000 900000 0
+
+[board]
+
+outline: 8 0
+  corner: 1 45720000 68580000 0
+  corner: 2 66040000 68580000 0
+  corner: 3 66040000 55880000 0
+  corner: 4 73660000 48260000 0
+  corner: 5 73660000 43180000 0
+  corner: 6 38100000 43180000 0
+  corner: 7 38100000 48260000 0
+  corner: 8 45720000 55880000 0
+
+[solder_mask_cutouts]
+
+
+[parts]
+
+part: T1
+  ref_text: 1270000 177800 0 1400000 2900000 0
+  package: ""
+  shape: "7RectPAD100withPINS"
+  pos: 48260000 66040000 0 0 0
+
+part: T2
+  ref_text: 1270000 177800 0 1400000 2900000 0
+  package: ""
+  shape: "7RectPAD200withPINS"
+  pos: 48260000 45720000 0 0 0
+
+part: T3
+  ref_text: 1270000 177800 0 1400000 2900000 0
+  package: ""
+  shape: "7RectPAD100withPINS"
+  pos: 63500000 66040000 1 0 0
+
+part: T4
+  ref_text: 1270000 177800 0 1400000 2900000 0
+  package: ""
+  shape: "7RectPAD200withPINS"
+  pos: 63500000 45720000 1 0 0
+
+[nets]
+
+net: "VDC" 0 0 0 0 0 0 1
+
+net: "N00020" 0 0 0 0 0 0 1
+
+net: "RAW" 0 0 0 0 0 0 1
+
+net: "N00021" 0 0 0 0 0 0 1
+
+net: "N00010" 2 1 0 0 0 0 1
+  pin: 1 T3.4
+  pin: 2 T4.4
+  connect: 1 1 0 1 0
+    vtx: 1 55880000 45720000 13 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 55880000 66040000 13 0 0 0 0
+
+net: "DIn" 0 0 0 0 0 0 1
+
+net: "N00022" 0 0 0 0 0 0 1
+
+net: "N00011" 2 1 0 0 0 0 1
+  pin: 1 T3.5
+  pin: 2 T4.5
+  connect: 1 1 0 3 0
+    vtx: 1 50800000 45720000 13 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 50800000 47701454 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 53340000 50241454 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 53340000 66040000 13 0 0 0 0
+
+net: "col1" 0 0 0 0 0 0 1
+
+net: "VIn" 0 0 0 0 0 0 1
+
+net: "Load" 0 0 0 0 0 0 1
+
+net: "N00023" 0 0 0 0 0 0 1
+
+net: "N00012" 2 1 0 0 0 0 1
+  pin: 1 T3.6
+  pin: 2 T4.6
+  connect: 1 1 0 3 0
+    vtx: 1 45720000 45720000 13 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 45720000 47701454 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 50800000 52781454 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 50800000 66040000 13 0 0 0 0
+
+net: "N00001" 2 1 0 0 0 0 1
+  pin: 1 T1.2
+  pin: 2 T2.2
+  connect: 1 1 0 3 0
+    vtx: 1 45720000 45720000 12 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 45720000 47701454 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 50800000 52781454 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 50800000 66040000 12 0 0 0 0
+
+net: "col2" 0 0 0 0 0 0 1
+
+net: "N00024" 0 0 0 0 0 0 1
+
+net: "N00013" 2 1 0 0 0 0 1
+  pin: 1 T3.7
+  pin: 2 T4.7
+  connect: 1 1 0 3 0
+    vtx: 1 40640000 45720000 13 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 40640000 47701454 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 48260000 55321454 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 48260000 66040000 13 0 0 0 0
+
+net: "N00002" 2 1 0 0 0 0 1
+  pin: 1 T1.3
+  pin: 2 T2.3
+  connect: 1 1 0 3 0
+    vtx: 1 50800000 45720000 12 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 50800000 47701454 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 53340000 50241454 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 53340000 66040000 12 0 0 0 0
+
+net: "col3" 0 0 0 0 0 0 1
+
+net: "N00025" 0 0 0 0 0 0 1
+
+net: "N00014" 0 0 0 0 0 0 1
+
+net: "N00003" 2 1 0 0 0 0 1
+  pin: 1 T1.4
+  pin: 2 T2.4
+  connect: 1 1 0 1 0
+    vtx: 1 55880000 45720000 12 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 55880000 66040000 12 0 0 0 0
+
+net: "Col6" 0 0 0 0 0 0 1
+
+net: "col4" 0 0 0 0 0 0 1
+
+net: "N00015" 0 0 0 0 0 0 1
+
+net: "N00004" 2 1 0 0 0 0 1
+  pin: 1 T1.5
+  pin: 2 T2.5
+  connect: 1 1 0 3 0
+    vtx: 1 60960000 45720000 12 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 60960000 47701454 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 58420000 50241454 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 58420000 66040000 12 0 0 0 0
+
+net: "col5" 0 0 0 0 0 0 1
+
+net: "N00016" 0 0 0 0 0 0 1
+
+net: "N00005" 2 1 0 0 0 0 1
+  pin: 1 T1.6
+  pin: 2 T2.6
+  connect: 1 1 0 3 0
+    vtx: 1 66040000 45720000 12 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 66040000 47701454 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 60960000 52781454 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 60960000 66040000 12 0 0 0 0
+
+net: "Row 5" 0 0 0 0 0 0 1
+
+net: "N00017" 0 0 0 0 0 0 1
+
+net: "N00006" 2 1 0 0 0 0 1
+  pin: 1 T1.7
+  pin: 2 T2.7
+  connect: 1 1 0 3 0
+    vtx: 1 71120000 45720000 12 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 71120000 47701454 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 63500000 55321454 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 63500000 66040000 12 0 0 0 0
+
+net: "TLA1" 2 1 0 0 0 0 1
+  pin: 1 T1.1
+  pin: 2 T2.1
+  connect: 1 1 0 3 0
+    vtx: 1 40640000 45720000 12 0 0 0 0
+    seg: 1 12 254000 0 0
+    vtx: 2 40640000 47701454 0 0 0 0 0
+    seg: 2 12 254000 0 0
+    vtx: 3 48260000 55321454 0 0 0 0 0
+    seg: 3 12 254000 0 0
+    vtx: 4 48260000 66040000 12 0 0 0 0
+
+net: "Clock" 0 0 0 0 0 0 1
+
+net: "Row 6" 0 0 0 0 0 0 1
+
+net: "GND" 0 0 0 0 0 0 1
+
+net: "DOut" 0 0 0 0 0 0 1
+
+net: "col7" 0 0 0 0 0 0 1
+
+net: "N00018" 0 0 0 0 0 0 1
+
+net: "N00007" 2 1 0 0 0 0 1
+  pin: 1 T3.1
+  pin: 2 T4.1
+  connect: 1 1 0 3 0
+    vtx: 1 71120000 45720000 13 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 71120000 47701454 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 63500000 55321454 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 63500000 66040000 13 0 0 0 0
+
+net: "Row 7" 0 0 0 0 0 0 1
+
+net: "N00019" 0 0 0 0 0 0 1
+
+net: "N00008" 2 1 0 0 0 0 1
+  pin: 1 T3.2
+  pin: 2 T4.2
+  connect: 1 1 0 3 0
+    vtx: 1 66040000 45720000 13 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 66040000 47701454 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 60960000 52781454 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 60960000 66040000 13 0 0 0 0
+
+net: "row1" 0 0 0 0 0 0 1
+
+net: "N00009" 2 1 0 0 0 0 1
+  pin: 1 T3.3
+  pin: 2 T4.3
+  connect: 1 1 0 3 0
+    vtx: 1 60960000 45720000 13 0 0 0 0
+    seg: 1 13 254000 0 0
+    vtx: 2 60960000 47701454 0 0 0 0 0
+    seg: 2 13 254000 0 0
+    vtx: 3 58420000 50241454 0 0 0 0 0
+    seg: 3 13 254000 0 0
+    vtx: 4 58420000 66040000 13 0 0 0 0
+
+net: "row2" 0 0 0 0 0 0 1
+
+net: "row3" 0 0 0 0 0 0 1
+
+net: "row4" 0 0 0 0 0 0 1
+
+net: "Clk" 0 0 0 0 0 0 1
+
+net: "RSet" 0 0 0 0 0 0 1
+
+[texts]
+
+text: "TL Connection Board" 47752000 58928000 7 0 0 1016000 101600 0
+
+[end]
