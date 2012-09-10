@@ -1,0 +1,1018 @@
+[options]
+
+version: 1.359
+file_version: 1.344
+project_name: "RSeries24SlipRing"
+full_library_folder: "y:\documents\r2d2 build\pcb files\lib"
+CAM_folder: ""
+ses_file_path: "Y:\Documents\R2D2 Build\PCB Files\RSeries24SlipRing\RSeries24SlipRing_v3.ses"
+netlist_file_path: ""
+SMT_connect_copper: "0"
+default_glue_width: "635000"
+dsn_flags: "0"
+dsn_bounds_poly: "0"
+dsn_signals_poly: "0"
+autosave_interval: 0
+auto_ratline_disable: "0"
+auto_ratline_disable_min_pins: "100"
+netlist_import_flags: 902
+units: MIL
+
+visible_grid_spacing: 5080000.000000
+  visible_grid_item: 100MIL
+  visible_grid_item: 125MIL
+  visible_grid_item: 200MIL
+  visible_grid_item: 250MIL
+  visible_grid_item: 400MIL
+  visible_grid_item: 500MIL
+  visible_grid_item: 1000MIL
+  visible_grid_item: 1MM
+  visible_grid_item: 2MM
+  visible_grid_item: 2.5MM
+  visible_grid_item: 4MM
+  visible_grid_item: 5MM
+  visible_grid_item: 10MM
+  visible_grid_item: 20MM
+  visible_grid_item: 25MM
+  visible_grid_item: 40MM
+  visible_grid_item: 50MM
+  visible_grid_item: 100MM
+
+placement_grid_spacing: 254000.000000
+  placement_grid_item: 10MIL
+  placement_grid_item: 20MIL
+  placement_grid_item: 25MIL
+  placement_grid_item: 40MIL
+  placement_grid_item: 50MIL
+  placement_grid_item: 100MIL
+  placement_grid_item: 200MIL
+  placement_grid_item: 250MIL
+  placement_grid_item: 400MIL
+  placement_grid_item: 500MIL
+  placement_grid_item: 1000MIL
+  placement_grid_item: 0.1MM
+  placement_grid_item: 0.2MM
+  placement_grid_item: 0.25MM
+  placement_grid_item: 0.4MM
+  placement_grid_item: 0.5MM
+  placement_grid_item: 1MM
+  placement_grid_item: 2MM
+  placement_grid_item: 2.5MM
+  placement_grid_item: 4MM
+  placement_grid_item: 5MM
+  placement_grid_item: 10MM
+
+routing_grid_spacing: 508000.000000
+  routing_grid_item: 1MIL
+  routing_grid_item: 2MIL
+  routing_grid_item: 2.5MIL
+  routing_grid_item: 3.33330709MIL
+  routing_grid_item: 4MIL
+  routing_grid_item: 5MIL
+  routing_grid_item: 6.66610236MIL
+  routing_grid_item: 10MIL
+  routing_grid_item: 12.5MIL
+  routing_grid_item: 16.66610236MIL
+  routing_grid_item: 20MIL
+  routing_grid_item: 25MIL
+  routing_grid_item: 40MIL
+  routing_grid_item: 50MIL
+  routing_grid_item: 0.01MM
+  routing_grid_item: 0.02MM
+  routing_grid_item: 0.04MM
+  routing_grid_item: 0.05MM
+  routing_grid_item: 0.1MM
+  routing_grid_item: 0.2MM
+  routing_grid_item: 0.25MM
+  routing_grid_item: 0.4MM
+  routing_grid_item: 0.5MM
+  routing_grid_item: 1MM
+  routing_grid_item: 2MM
+  routing_grid_item: 2.5MM
+  routing_grid_item: 4MM
+  routing_grid_item: 5MM
+  routing_grid_item: 10MM
+
+snap_angle: 45
+
+fp_visible_grid_spacing: 5080000.000000
+  fp_visible_grid_item: 100MIL
+  fp_visible_grid_item: 125MIL
+  fp_visible_grid_item: 200MIL
+  fp_visible_grid_item: 250MIL
+  fp_visible_grid_item: 400MIL
+  fp_visible_grid_item: 500MIL
+  fp_visible_grid_item: 1000MIL
+  fp_visible_grid_item: 1MM
+  fp_visible_grid_item: 2MM
+  fp_visible_grid_item: 2.5MM
+  fp_visible_grid_item: 4MM
+  fp_visible_grid_item: 5MM
+  fp_visible_grid_item: 10MM
+  fp_visible_grid_item: 20MM
+  fp_visible_grid_item: 25MM
+  fp_visible_grid_item: 40MM
+  fp_visible_grid_item: 50MM
+  fp_visible_grid_item: 100MM
+
+fp_placement_grid_spacing: 508000.000000
+  fp_placement_grid_item: 10MIL
+  fp_placement_grid_item: 20MIL
+  fp_placement_grid_item: 25MIL
+  fp_placement_grid_item: 40MIL
+  fp_placement_grid_item: 50MIL
+  fp_placement_grid_item: 100MIL
+  fp_placement_grid_item: 200MIL
+  fp_placement_grid_item: 250MIL
+  fp_placement_grid_item: 400MIL
+  fp_placement_grid_item: 500MIL
+  fp_placement_grid_item: 1000MIL
+  fp_placement_grid_item: 0.1MM
+  fp_placement_grid_item: 0.2MM
+  fp_placement_grid_item: 0.25MM
+  fp_placement_grid_item: 0.4MM
+  fp_placement_grid_item: 0.5MM
+  fp_placement_grid_item: 1MM
+  fp_placement_grid_item: 2MM
+  fp_placement_grid_item: 2.5MM
+  fp_placement_grid_item: 4MM
+  fp_placement_grid_item: 5MM
+  fp_placement_grid_item: 10MM
+
+fp_snap_angle: 45
+
+fill_clearance: 254000
+mask_clearance: 203200
+thermal_width: 254000
+min_silkscreen_width: 127000
+board_outline_width: 127000
+hole_clearance: 381000
+pilot_diameter: 254000
+annular_ring_for_pins: 177800
+annular_ring_for_vias: 127000
+shrink_paste_mask: 0
+cam_flags: 4097
+cam_layers: 15732735
+cam_drill_file: 1
+cam_units: 2
+cam_n_x: 1
+cam_n_y: 1
+cam_space_x: 0
+cam_space_y: 0
+
+report_options: 0
+drc_check_unrouted: 0
+drc_trace_width: 254000
+drc_pad_pad: 254000
+drc_pad_trace: 254000
+drc_trace_trace: 254000
+drc_hole_copper: 381000
+drc_annular_ring_pins: 177800
+drc_annular_ring_vias: 127000
+drc_board_edge_copper: 635000
+drc_board_edge_hole: 635000
+drc_hole_hole: 635000
+drc_copper_copper: 254000
+
+default_trace_width: 254000
+default_via_pad_width: 711200
+default_via_hole_width: 355600
+n_width_menu: 7
+  width_menu_item: 1 152400 711200 355600
+  width_menu_item: 2 203200 711200 355600
+  width_menu_item: 3 254000 711200 355600
+  width_menu_item: 4 304800 711200 355600
+  width_menu_item: 5 381000 711200 355600
+  width_menu_item: 6 508000 711200 355600
+  width_menu_item: 7 635000 711200 355600
+
+n_copper_layers: 2
+  layer_info: "selection" 0 255 255 255 1
+  layer_info: "background" 1 0 0 0 1
+  layer_info: "visible grid" 2 255 255 255 1
+  layer_info: "highlight" 3 255 255 255 1
+  layer_info: "DRC error" 4 255 128 64 1
+  layer_info: "board outline" 5 0 0 255 1
+  layer_info: "rat line" 6 255 0 255 1
+  layer_info: "top silk" 7 255 255 0 1
+  layer_info: "bottom silk" 8 255 192 192 1
+  layer_info: "top sm cutout" 9 160 160 160 1
+  layer_info: "bot sm cutout" 10 95 95 95 1
+  layer_info: "thru pad" 11 0 0 255 1
+  layer_info: "top copper" 12 0 255 0 1
+  layer_info: "bottom copper" 13 255 0 0 1
+
+[footprints]
+
+name: "MNT_HOLE_125_RND_150"
+  units: MIL
+  sel_rect: -85 -85 85 85
+  ref_text: 50 0 0 0 5
+  value_text: 50 0 -100 0 5
+  centroid: 0 0 0 0
+  n_pins: 1
+    pin: "1" 125 0 0 90
+      top_pad: 1 150 0 0 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 150 0 0 0
+
+name: "1X2HDR-100"
+author: "Ivex"
+source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
+  units: MIL
+  sel_rect: -65 -65 65 165
+  ref_text: 50 -60 180 0 7
+  value_text: 50 -60 80 0 7
+  centroid: 0 0 50 0
+  outline_polyline: 10 -50 150
+    next_corner: -50 -50 0
+    next_corner: 50 -50 0
+    next_corner: 50 150 0
+    close_polyline: 0
+  n_pins: 2
+    pin: "1" 40 0 0 0
+      top_pad: 2 60 25 25 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 2 60 25 25 0
+    pin: "2" 40 0 100 0
+      top_pad: 1 60 25 25 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 25 25 0
+
+name: "SCREW100"
+  units: MIL
+  sel_rect: -85 -135 185 135
+  ref_text: 100 -100 300 0 10
+  value_text: 100 -210 -420 0 10
+  centroid: 0 0 0 0
+  outline_polyline: 10 -70 120
+    next_corner: -70 -120 0
+    next_corner: 170 -120 0
+    next_corner: 170 120 0
+    close_polyline: 0
+  n_pins: 2
+    pin: "1" 40 0 0 0
+      top_pad: 1 60 0 0 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 0 0 0
+    pin: "2" 40 100 0 0
+      top_pad: 1 60 0 0 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 0 0 0
+
+name: "1X3HDR-100"
+author: "Ivex"
+source: "PRINTED CIRCUIT DESIGN METHODS PAGE 411"
+  units: MIL
+  sel_rect: -65 -65 65 265
+  ref_text: 50 0 300 0 7
+  value_text: 50 0 200 0 7
+  centroid: 0 0 100 0
+  outline_polyline: 10 -50 250
+    next_corner: -50 -50 0
+    next_corner: 50 -50 0
+    next_corner: 50 250 0
+    close_polyline: 0
+  n_pins: 3
+    pin: "1" 40 0 0 0
+      top_pad: 2 60 25 25 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 2 60 25 25 0
+    pin: "2" 40 0 100 0
+      top_pad: 1 60 25 25 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 25 25 0
+    pin: "3" 40 0 200 0
+      top_pad: 1 60 25 25 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 25 25 0
+
+name: "4SIP100 v2"
+author: "Ivex"
+source: "DIGIKEY CATALOG NO. 941, PAGE 27"
+  units: MIL
+  sel_rect: -63.5 -63.5 363.5 63.5
+  ref_text: 50 150 100 0 7
+  value_text: 50 150 0 0 7
+  centroid: 0 150 0 0
+  outline_polyline: 7 -50 50
+    next_corner: 350 50 0
+    next_corner: 350 -50 0
+    next_corner: -50 -50 0
+    close_polyline: 0
+  n_pins: 4
+    pin: "1" 40 0 0 0
+      top_pad: 2 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 2 60 30 30 0
+    pin: "2" 40 100 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "3" 40 200 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "4" 40 300 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+
+name: "DB25M-90 FIXED"
+author: "Ivex"
+source: "AMP PRODUCT GUIDE CATALOG #82750, PAGE 7028-7029"
+  units: MIL
+  sel_rect: -365 -670.5 1665 113.5
+  ref_text: 50 654 250 0 7
+  value_text: 50 654 150 0 7
+  centroid: 0 654 -5.5 0
+  outline_polyline: 7 -128 100
+    next_corner: 1436 100 0
+    next_corner: 1436 -657 0
+    next_corner: -128 -657 0
+    close_polyline: 0
+  n_pins: 27
+    pin: "1" 43 0 0 0
+      top_pad: 2 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 2 60 30 30 0
+    pin: "2" 43 109 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "3" 43 218 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "4" 43 327 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "5" 43 436 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "6" 43 545 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "7" 43 654 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "8" 43 763 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "9" 43 872 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "10" 43 981 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "11" 43 1090 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "12" 43 1199 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "13" 43 1308 0 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "14" 43 54 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "15" 43 163 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "16" 43 272 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "17" 43 381 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "18" 43 490 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "19" 43 599 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "20" 43 708 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "21" 43 817 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "22" 43 926 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "23" 43 1035 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "24" 43 1144 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "25" 43 1253 -112 0
+      top_pad: 1 60 30 30 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 60 30 30 0
+    pin: "26" 125 -280 -60 0
+      top_pad: 1 150 0 0 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 150 0 0 0
+    pin: "27" 125 1580 -60 0
+      top_pad: 1 150 0 0 0
+      inner_pad: 0 0 0 0 0 0
+      bottom_pad: 1 150 0 0 0
+
+[board]
+
+outline: 6 0
+  corner: 1 -41402000 78740000 0
+  corner: 2 27432000 78740000 0
+  corner: 3 27432000 45720000 0
+  corner: 4 -41656000 45720000 0
+  corner: 5 -41656000 78740000 0
+  corner: 6 -41148000 78740000 0
+
+[solder_mask_cutouts]
+
+
+[parts]
+
+part: DB25
+  ref_text: 1270000 177800 180 18796000 4572000 0
+  package: ""
+  shape: "DB25M-90 FIXED"
+  pos: 9398000 70358000 0 180 0
+
+part: S1
+  ref_text: 762000 177800 180 508000 -1524000 1
+  package: ""
+  shape: "1X3HDR-100"
+  pos: -4318000 60198000 0 180 0
+
+part: S2
+  ref_text: 762000 177800 180 508000 -1524000 -842150451
+  package: ""
+  shape: "1X3HDR-100"
+  pos: -1778000 60198000 0 180 0
+
+part: S3
+  ref_text: 762000 177800 180 508000 -1524000 -842150451
+  package: ""
+  shape: "1X3HDR-100"
+  pos: 762000 60198000 0 180 0
+
+part: S4
+  ref_text: 762000 177800 180 508000 -1524000 -842150451
+  package: ""
+  shape: "1X3HDR-100"
+  pos: 3302000 60198000 0 180 0
+
+part: S5
+  ref_text: 762000 177800 180 508000 -1524000 -842150451
+  package: ""
+  shape: "1X3HDR-100"
+  pos: 5842000 60198000 0 180 0
+
+part: S6
+  ref_text: 762000 177800 180 508000 -1524000 -842150451
+  package: ""
+  shape: "1X3HDR-100"
+  pos: 8382000 60198000 0 180 0
+
+part: MNT1
+  ref_text: 1270000 127000 0 0 0 0
+  package: ""
+  shape: "MNT_HOLE_125_RND_150"
+  pos: -37846000 76200000 0 0 0
+
+part: MNT2
+  ref_text: 1270000 127000 0 0 0 0
+  package: ""
+  shape: "MNT_HOLE_125_RND_150"
+  pos: -37846000 48514000 0 0 0
+
+part: SW8
+  ref_text: 1270000 127000 0 0 0 0
+  package: ""
+  shape: "MNT_HOLE_125_RND_150"
+  pos: 23622000 48514000 0 0 0
+
+part: MNT4
+  ref_text: 1270000 127000 0 0 0 0
+  package: ""
+  shape: "MNT_HOLE_125_RND_150"
+  pos: 23622000 76200000 0 0 0
+
+part: JP1
+  ref_text: 762000 76200 180 1016000 5080000 1
+  package: ""
+  shape: "1X2HDR-100"
+  pos: 12446000 59944000 0 180 0
+
+part: JP2
+  ref_text: 1270000 177800 180 -1524000 4572000 0
+  package: ""
+  shape: "1X2HDR-100"
+  pos: 14986000 59944000 0 180 0
+
+part: Audio1
+  ref_text: 1016000 177800 0 -2286000 -3048000 1
+  package: ""
+  shape: "1X3HDR-100"
+  pos: -27940000 57912000 0 0 0
+
+part: Audio2
+  ref_text: 1016000 177800 0 -2540000 -3048000 1
+  package: ""
+  shape: "1X3HDR-100"
+  pos: -21336000 57912000 0 0 0
+
+part: POWER
+  ref_text: 762000 76200 0 -1016000 3556000 0
+  package: ""
+  shape: "SCREW100"
+  pos: -37846000 55880000 0 90 0
+
+part: P2L
+  ref_text: 2540000 254000 0 -2540000 7620000 0
+  package: ""
+  shape: "SCREW100"
+  pos: -37846000 62738000 0 90 0
+
+part: P1L
+  ref_text: 2540000 254000 0 -2540000 7620000 0
+  package: ""
+  shape: "SCREW100"
+  pos: -37846000 69596000 0 90 0
+
+part: SSERVOR
+  ref_text: 762000 76200 0 -1016000 3556000 0
+  package: ""
+  shape: "SCREW100"
+  pos: 23622000 55880000 0 90 0
+
+part: P2L1
+  ref_text: 2540000 254000 0 -2540000 7620000 0
+  package: ""
+  shape: "SCREW100"
+  pos: 23622000 62738000 0 90 0
+
+part: P1L1
+  ref_text: 2540000 254000 0 -2540000 7620000 0
+  package: ""
+  shape: "SCREW100"
+  pos: 23622000 67056000 0 270 0
+
+part: I2C
+  ref_text: 1016000 177800 90 -3302000 1270000 1
+  package: ""
+  shape: "4SIP100 v2"
+  pos: -15494000 55118000 0 270 0
+
+part: I2C2
+  ref_text: 1016000 177800 90 -3302000 1270000 -842150451
+  package: ""
+  shape: "4SIP100 v2"
+  pos: -9144000 55118000 0 270 0
+
+[nets]
+
+net: "PWR2+" 5 4 0 1016000 711200 355600 1
+  pin: 1 DB25.14
+  pin: 2 DB25.1
+  pin: 3 JP1.1
+  pin: 4 P2L.1
+  pin: 5 P2L1.1
+  connect: 1 1 0 1 0
+    vtx: 1 9398000 70358000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 8026400 73202800 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 12446000 59944000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 9398000 70358000 11 0 0 0 0
+  connect: 3 4 2 1 0
+    vtx: 1 23622000 62738000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 12446000 59944000 11 0 0 0 0
+  connect: 4 3 0 1 0
+    vtx: 1 -37846000 62738000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 8026400 73202800 11 0 0 0 0
+
+net: "AJ2_TIP" 2 1 0 0 0 0 1
+  pin: 1 DB25.22
+  pin: 2 Audio2.3
+  connect: 1 1 0 1 0
+    vtx: 1 -21336000 62992000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -14122400 73202800 11 0 0 0 0
+
+net: "AJ2_RING" 2 1 0 0 0 0 1
+  pin: 1 DB25.9
+  pin: 2 Audio2.2
+  connect: 1 1 0 1 0
+    vtx: 1 -21336000 60452000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -12750800 70358000 11 0 0 0 0
+
+net: "S1" 2 1 0 0 0 0 1
+  pin: 1 S1.1
+  pin: 2 DB25.18
+  connect: 1 1 0 1 0
+    vtx: 1 -3048000 73202800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -4318000 60198000 11 0 0 0 0
+
+net: "PWR1+" 4 3 0 1016000 711200 355600 1
+  pin: 1 DB25.25
+  pin: 2 DB25.13
+  pin: 3 P1L.1
+  pin: 4 P1L1.2
+  connect: 1 1 0 1 0
+    vtx: 1 -23825200 70358000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -22428200 73202800 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -37846000 69596000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -23825200 70358000 11 0 0 0 0
+  connect: 3 3 0 1 0
+    vtx: 1 23622000 69596000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -22428200 73202800 11 0 0 0 0
+
+net: "AJ1_SHIELD" 2 1 0 0 0 0 1
+  pin: 1 DB25.11
+  pin: 2 Audio1.1
+  connect: 1 1 0 1 0
+    vtx: 1 -27940000 57912000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -18288000 70358000 11 0 0 0 0
+
+net: "AJ1_RING" 2 1 0 0 0 0 1
+  pin: 1 DB25.10
+  pin: 2 Audio1.2
+  connect: 1 1 0 1 0
+    vtx: 1 -27940000 60452000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -15519400 70358000 11 0 0 0 0
+
+net: "S2" 2 1 0 0 0 0 1
+  pin: 1 S2.1
+  pin: 2 DB25.5
+  connect: 1 1 0 1 0
+    vtx: 1 -1676400 70358000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -1778000 60198000 11 0 0 0 0
+
+net: "PWR2+_$G1" 0 0 0 0 0 0 1
+
+net: "PWR2-" 5 4 0 1016000 711200 355600 1
+  pin: 1 DB25.15
+  pin: 2 DB25.2
+  pin: 3 JP2.1
+  pin: 4 P2L.2
+  pin: 5 P2L1.2
+  connect: 1 1 0 1 0
+    vtx: 1 6629400 70358000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 5257800 73202800 11 0 0 0 0
+  connect: 2 4 2 1 0
+    vtx: 1 23622000 60198000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 14986000 59944000 11 0 0 0 0
+  connect: 3 2 1 1 0
+    vtx: 1 14986000 59944000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 6629400 70358000 11 0 0 0 0
+  connect: 4 3 0 1 0
+    vtx: 1 -37846000 60198000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 5257800 73202800 11 0 0 0 0
+
+net: "S3" 2 1 0 0 0 0 1
+  pin: 1 S3.1
+  pin: 2 DB25.17
+  connect: 1 1 0 1 0
+    vtx: 1 -279400 73202800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 762000 60198000 11 0 0 0 0
+
+net: "PWR1+_$G1" 0 0 0 0 0 0 1
+
+net: "SV+_$G1" 0 0 0 0 0 0 1
+
+net: "PWR2+_$G2" 0 0 0 0 0 0 1
+
+net: "PWR1-" 4 3 0 1016000 711200 355600 1
+  pin: 1 DB25.24
+  pin: 2 DB25.12
+  pin: 3 P1L.2
+  pin: 4 P1L1.1
+  connect: 1 1 0 1 0
+    vtx: 1 -21056600 70358000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -19659600 73202800 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -37846000 67056000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -21056600 70358000 11 0 0 0 0
+  connect: 3 3 0 1 0
+    vtx: 1 23622000 67056000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -19659600 73202800 11 0 0 0 0
+
+net: "S4" 2 1 0 0 0 0 1
+  pin: 1 S4.1
+  pin: 2 DB25.4
+  connect: 1 1 0 1 0
+    vtx: 1 1092200 70358000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 3302000 60198000 11 0 0 0 0
+
+net: "PWR2-_$G1" 0 0 0 0 0 0 1
+
+net: "PWR1+_$G2" 0 0 0 0 0 0 1
+
+net: "SV+_$G2" 0 0 0 0 0 0 1
+
+net: "S5" 2 1 0 0 0 0 1
+  pin: 1 S5.1
+  pin: 2 DB25.16
+  connect: 1 1 0 1 0
+    vtx: 1 2489200 73202800 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 5842000 60198000 11 0 0 0 0
+
+net: "PWR1-_$G1" 0 0 0 0 0 0 1
+
+net: "SV-_$G1" 0 0 0 0 0 0 1
+
+net: "PWR2-_$G2" 0 0 0 0 0 0 1
+
+net: "S6" 2 1 0 0 0 0 1
+  pin: 1 S6.1
+  pin: 2 DB25.3
+  connect: 1 1 0 1 0
+    vtx: 1 3860800 70358000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 8382000 60198000 11 0 0 0 0
+
+net: "N00001" 0 0 0 0 0 0 1
+
+net: "I2CGND" 3 2 0 635000 711200 355600 1
+  pin: 1 I2C.1
+  pin: 2 DB25.6
+  pin: 3 I2C2.1
+  connect: 1 2 0 1 0
+    vtx: 1 -9144000 55118000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -15494000 55118000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -9144000 55118000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -4445000 70358000 11 0 0 0 0
+
+net: "PWR1-_$G2" 0 0 0 0 0 0 1
+
+net: "SV-_$G2" 0 0 0 0 0 0 1
+
+net: "SV+" 9 8 0 1016000 711200 355600 1
+  pin: 1 S1.2
+  pin: 2 S2.2
+  pin: 3 S3.2
+  pin: 4 S4.2
+  pin: 5 S5.2
+  pin: 6 S6.2
+  pin: 7 JP1.2
+  pin: 8 POWER.1
+  pin: 9 SSERVOR.1
+  connect: 1 1 0 1 0
+    vtx: 1 -1778000 57658000 11 0 0 0 0
+    seg: 1 12 1016000 0 0
+    vtx: 2 -4318000 57658000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 762000 57658000 11 0 0 0 0
+    seg: 1 12 1016000 0 0
+    vtx: 2 -1778000 57658000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 3302000 57658000 11 0 0 0 0
+    seg: 1 12 1016000 0 0
+    vtx: 2 762000 57658000 11 0 0 0 0
+  connect: 4 4 3 1 0
+    vtx: 1 5842000 57658000 11 0 0 0 0
+    seg: 1 12 1016000 0 0
+    vtx: 2 3302000 57658000 11 0 0 0 0
+  connect: 5 5 4 1 0
+    vtx: 1 8382000 57658000 11 0 0 0 0
+    seg: 1 12 1016000 0 0
+    vtx: 2 5842000 57658000 11 0 0 0 0
+  connect: 6 6 5 1 0
+    vtx: 1 12446000 57404000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 8382000 57658000 11 0 0 0 0
+  connect: 7 8 6 1 0
+    vtx: 1 23622000 55880000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 12446000 57404000 11 0 0 0 0
+  connect: 8 7 0 1 0
+    vtx: 1 -37846000 55880000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -4318000 57658000 11 0 0 0 0
+
+net: "SCL" 3 2 0 0 0 0 1
+  pin: 1 I2C.3
+  pin: 2 DB25.20
+  pin: 3 I2C2.3
+  connect: 1 2 0 1 0
+    vtx: 1 -9144000 60198000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -15494000 60198000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -9144000 60198000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -8585200 73202800 11 0 0 0 0
+
+net: "AJ2_SHIELD" 2 1 0 0 0 0 1
+  pin: 1 DB25.21
+  pin: 2 Audio2.1
+  connect: 1 1 0 1 0
+    vtx: 1 -21336000 57912000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -11353800 73202800 11 0 0 0 0
+
+net: "L1" 0 0 0 0 0 0 1
+
+net: "UNCONNECTED" 1 0 0 0 0 0 1
+  pin: 1 DB25.7
+
+net: "L2" 0 0 0 0 0 0 1
+
+net: "SV-" 9 8 0 1244600 711200 355600 1
+  pin: 1 S1.3
+  pin: 2 S2.3
+  pin: 3 S3.3
+  pin: 4 S4.3
+  pin: 5 S5.3
+  pin: 6 S6.3
+  pin: 7 JP2.2
+  pin: 8 POWER.2
+  pin: 9 SSERVOR.2
+  connect: 1 1 0 1 0
+    vtx: 1 -1778000 55118000 11 0 0 0 0
+    seg: 1 12 1244600 0 0
+    vtx: 2 -4318000 55118000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 762000 55118000 11 0 0 0 0
+    seg: 1 12 1244600 0 0
+    vtx: 2 -1778000 55118000 11 0 0 0 0
+  connect: 3 3 2 1 0
+    vtx: 1 3302000 55118000 11 0 0 0 0
+    seg: 1 12 1244600 0 0
+    vtx: 2 762000 55118000 11 0 0 0 0
+  connect: 4 4 3 1 0
+    vtx: 1 5842000 55118000 11 0 0 0 0
+    seg: 1 12 1244600 0 0
+    vtx: 2 3302000 55118000 11 0 0 0 0
+  connect: 5 5 4 1 0
+    vtx: 1 8382000 55118000 11 0 0 0 0
+    seg: 1 12 1244600 0 0
+    vtx: 2 5842000 55118000 11 0 0 0 0
+  connect: 6 6 5 1 0
+    vtx: 1 14986000 57404000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 8382000 55118000 11 0 0 0 0
+  connect: 7 8 6 1 0
+    vtx: 1 23622000 53340000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 14986000 57404000 11 0 0 0 0
+  connect: 8 7 0 1 0
+    vtx: 1 -37846000 53340000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -4318000 55118000 11 0 0 0 0
+
+net: "L3" 0 0 0 0 0 0 1
+
+net: "L4" 0 0 0 0 0 0 1
+
+net: "L5" 0 0 0 0 0 0 1
+
+net: "SDA" 3 2 0 0 0 0 1
+  pin: 1 I2C.4
+  pin: 2 DB25.8
+  pin: 3 I2C2.4
+  connect: 1 2 0 1 0
+    vtx: 1 -9144000 62738000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -15494000 62738000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -9144000 62738000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -9982200 70358000 11 0 0 0 0
+
+net: "I2CVCC" 3 2 0 635000 711200 355600 1
+  pin: 1 I2C.2
+  pin: 2 DB25.19
+  pin: 3 I2C2.2
+  connect: 1 2 0 1 0
+    vtx: 1 -9144000 57658000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -15494000 57658000 11 0 0 0 0
+  connect: 2 2 1 1 0
+    vtx: 1 -9144000 57658000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -5816600 73202800 11 0 0 0 0
+
+net: "AJ1_TIP" 2 1 0 0 0 0 1
+  pin: 1 DB25.23
+  pin: 2 Audio1.3
+  connect: 1 1 0 1 0
+    vtx: 1 -27940000 62992000 11 0 0 0 0
+    seg: 1 6 0 0 0
+    vtx: 2 -16891000 73202800 11 0 0 0 0
+
+[texts]
+
+text: "GND" -13462000 54610000 7 0 0 762000 76200 0
+
+text: "Ring" -25400000 59944000 7 0 0 762000 76200 0
+
+text: "Tip" -25400000 62484000 7 0 0 762000 76200 0
+
+text: "Gnd" -25400000 57404000 7 0 0 762000 76200 0
+
+text: "+" 19304000 70866000 7 0 0 762000 76200 0
+
+text: "-" 19304000 66040000 7 90 0 762000 76200 0
+
+text: "+" -34290000 70612000 7 0 0 762000 76200 0
+
+text: "+" -34290000 63754000 7 0 0 762000 76200 0
+
+text: "+" -34290000 56642000 7 0 0 762000 76200 0
+
+text: "-" -34290000 52070000 7 90 0 762000 76200 0
+
+text: "-" -34290000 58674000 7 90 0 762000 76200 0
+
+text: "-" -34290000 65786000 7 90 0 762000 76200 0
+
+text: "SERVO" -34290000 56388000 7 90 0 762000 76200 0
+
+text: "POWER2" -34290000 63500000 7 90 0 762000 76200 0
+
+text: "POWER1" -34290000 70358000 7 90 0 762000 76200 0
+
+text: "JP2" 13970000 54864000 7 0 0 762000 76200 0
+
+text: "+5V" -13462000 57150000 7 0 0 762000 76200 0
+
+text: "+" 20066000 64770000 7 180 0 762000 76200 0
+
+text: "+" 20066000 57404000 7 180 0 762000 76200 0
+
+text: "-" 20066000 51308000 7 270 0 762000 76200 0
+
+text: "-" 20066000 58166000 7 270 0 762000 76200 0
+
+text: "SERVO" 20066000 52324000 7 270 0 762000 76200 0
+
+text: "POWER2" 20066000 59182000 7 270 0 762000 76200 0
+
+text: "POWER1" 20066000 66294000 7 270 0 762000 76200 0
+
+text: "+5V" 11176000 61722000 7 0 0 762000 76200 0
+
+text: "GND" 14224000 61722000 7 0 0 762000 76200 0
+
+text: "R-Series 24 Wire Slip Ring Interface v3" -14478000 49530000 7 0 0 1016000 177800 0
+
+text: "Royal Engineers of Naboo" -14478000 46482000 7 0 0 1016000 177800 0
+
+text: "CCv3 SA BY - 2012 Michael Erwin" -14478000 48006000 7 0 0 1016000 177800 0
+
+text: "SDA" -13462000 62230000 7 0 0 762000 76200 0
+
+text: "SCL" -13462000 59690000 7 0 0 762000 76200 0
+
+[end]
