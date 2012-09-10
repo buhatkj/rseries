@@ -1,0 +1,103 @@
+G04 FreePCB version 1.359*
+G04 Y:\Documents\R2D2 Build\PCB Files\RSeries Data Port\RSeries Data Port v3 CAM\bottom_paste_mask.grb*
+G04 bottom paste mask layer *
+G04 Scale: 100 percent, Rotated: No, Reflected: No *
+%FSLAX24Y24*%
+%MOIN*%
+%LN bottom paste mask *%
+G04 Rounded Rectangle Macro, params: W/2, H/2, R *
+%AMRNDREC*
+21,1,$1+$1,$2+$2-$3-$3,0,0,0*
+21,1,$1+$1-$3-$3,$2+$2,0,0,0*
+1,1,$3+$3,$1-$3,$2-$3*
+1,1,$3+$3,$3-$1,$2-$3*
+1,1,$3+$3,$1-$3,$3-$2*
+1,1,$3+$3,$3-$1,$3-$2*%
+G04 Rectangular Thermal Macro, params: W/2, H/2, T/2 *
+%AMRECTHERM*
+$4=$3/2*
+21,1,$1-$3,$2-$3,0-$1/2-$4,0-$2/2-$4,0*
+21,1,$1-$3,$2-$3,0-$1/2-$4,$2/2+$4,0*
+21,1,$1-$3,$2-$3,$1/2+$4,0-$2/2-$4,0*
+21,1,$1-$3,$2-$3,$1/2+$4,$2/2+$4,0*%
+%ADD10C,0.005000*%
+G90*
+G70D02*
+
+G04 Step and Repeat for panelization *
+
+G04 ----------------------- Draw board outline (positive)*
+%LPD*%
+G54D10*
+G01X3200Y4200D02*
+G01X5000Y2400D01*
+G04 end of side 1*
+G01X21600Y2400D01*
+G04 end of side 2*
+G01X25000Y5800D01*
+G04 end of side 3*
+G01X25000Y50200D01*
+G04 end of side 4*
+G01X23200Y52000D01*
+G04 end of side 5*
+G01X2000Y52000D01*
+G04 end of side 6*
+G01X200Y50200D01*
+G04 end of side 7*
+G01X200Y38000D01*
+G04 end of side 8*
+G01X2200Y36000D01*
+G04 end of side 9*
+G01X15000Y36000D01*
+G04 end of side 10*
+G01X16800Y34200D01*
+G04 end of side 11*
+G01X16800Y13800D01*
+G04 end of side 12*
+G01X15000Y12000D01*
+G04 end of side 13*
+G01X4000Y12000D01*
+G04 end of side 14*
+G01X3200Y11200D01*
+G04 end of side 15*
+G01X3200Y4200D01*
+
+G04 -------------- Draw Parts, Pads, Traces, Vias and Text (positive)*
+%LPD*%
+G04 Draw part IC1*
+G04 Draw part L1*
+G04 Draw part L11*
+G04 Draw part L12*
+G04 Draw part L13*
+G04 Draw part L14*
+G04 Draw part L15*
+G04 Draw part L16*
+G04 Draw part H1*
+G04 Draw part C1*
+G04 Draw part C2*
+G04 Draw part R1*
+G04 Draw part L2*
+G04 Draw part L3*
+G04 Draw part L4*
+G04 Draw part L5*
+G04 Draw part L6*
+G04 Draw part L17*
+G04 Draw part L18*
+G04 Draw part LB1*
+G04 Draw part LB2*
+G04 Draw part LB3*
+G04 Draw part LB4*
+G04 Draw part LB5*
+G04 Draw part LB6*
+G04 Draw part LB7*
+G04 Draw part LB8*
+G04 Draw part LB9*
+G04 Draw part LB10*
+G04 Draw part LB11*
+G04 Draw part LB12*
+
+G04 Draw traces*
+
+G04 Draw Text*
+M00*
+M02*
