@@ -1,0 +1,79 @@
+G04 FreePCB version 1.359*
+G04 Y:\Documents\R2D2 Build\PCB Files\Charging Bay Indicators\RSeries CBI v3 CAM\bottom_paste_mask.grb*
+G04 bottom paste mask layer *
+G04 Scale: 100 percent, Rotated: No, Reflected: No *
+%FSLAX24Y24*%
+%MOIN*%
+%LN bottom paste mask *%
+G04 Rounded Rectangle Macro, params: W/2, H/2, R *
+%AMRNDREC*
+21,1,$1+$1,$2+$2-$3-$3,0,0,0*
+21,1,$1+$1-$3-$3,$2+$2,0,0,0*
+1,1,$3+$3,$1-$3,$2-$3*
+1,1,$3+$3,$3-$1,$2-$3*
+1,1,$3+$3,$1-$3,$3-$2*
+1,1,$3+$3,$3-$1,$3-$2*%
+G04 Rectangular Thermal Macro, params: W/2, H/2, T/2 *
+%AMRECTHERM*
+$4=$3/2*
+21,1,$1-$3,$2-$3,0-$1/2-$4,0-$2/2-$4,0*
+21,1,$1-$3,$2-$3,0-$1/2-$4,$2/2+$4,0*
+21,1,$1-$3,$2-$3,$1/2+$4,0-$2/2-$4,0*
+21,1,$1-$3,$2-$3,$1/2+$4,$2/2+$4,0*%
+%ADD10C,0.005000*%
+G90*
+G70D02*
+
+G04 Step and Repeat for panelization *
+
+G04 ----------------------- Draw board outline (positive)*
+%LPD*%
+G54D10*
+G01X20600Y37800D02*
+G01X37200Y37800D01*
+G04 end of side 1*
+G01X37200Y32800D01*
+G04 end of side 2*
+G01X31200Y32800D01*
+G04 end of side 3*
+G01X31200Y17000D01*
+G04 end of side 4*
+G01X20600Y17000D01*
+G04 end of side 5*
+G01X20600Y37800D01*
+
+G04 -------------- Draw Parts, Pads, Traces, Vias and Text (positive)*
+%LPD*%
+G04 Draw part IC1*
+G04 Draw part L1*
+G04 Draw part L2*
+G04 Draw part L3*
+G04 Draw part L4*
+G04 Draw part L5*
+G04 Draw part L6*
+G04 Draw part L7*
+G04 Draw part L8*
+G04 Draw part L9*
+G04 Draw part L10*
+G04 Draw part L11*
+G04 Draw part L12*
+G04 Draw part L13*
+G04 Draw part L14*
+G04 Draw part L15*
+G04 Draw part L16*
+G04 Draw part L17*
+G04 Draw part L18*
+G04 Draw part L19*
+G04 Draw part L20*
+G04 Draw part H1*
+G04 Draw part C1*
+G04 Draw part C2*
+G04 Draw part R1*
+G04 Draw part SW1*
+G04 Draw part LED*
+
+G04 Draw traces*
+
+G04 Draw Text*
+M00*
+M02*
