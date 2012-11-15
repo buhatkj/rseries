@@ -45,8 +45,11 @@ The X-CTU application is downloadable from [http://www.digi.com/support/productd
 Write down the last 8 digits of the serial number (probably starting with 40) and note where you will be using this XBee (is it going in the controller or the receiver?). In order to communicate with each other, the receiver Arduino will need to know the serial number of the controller's XBee and vice versa. Later we will edit our Arduino sketches with these serial numbers.
 
 == More Information ==
-More Information about configuration of the XBEE radios for windows can be found in this PDF: http://astromech.net/gallery2/main.php?g2_view=core.DownloadItem&g2_itemId=62276&g2_GALLERYSID=6f2bc30f5e8e668c90a2ffd58fb96b76
+More Information about configuration of the XBEE radios for windows can be found in this PDF: 
+http://astromech.net/gallery2/main.php?g2_view=core.DownloadItem&g2_itemId=62276&g2_GALLERYSID=6f2bc30f5e8e668c90a2ffd58fb96b76
 
 And for Mac, in these two forum posts:
+
 http://astromech.net/forums/showpost.php?p=150410&postcount=327
+
 http://astromech.net/forums/showpost.php?p=150413&postcount=328
