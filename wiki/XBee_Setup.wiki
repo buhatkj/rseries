@@ -46,6 +46,7 @@ Write down the last 8 digits of the serial number (probably starting with 40) an
 
 == More Information ==
 More Information about configuration of the XBEE radios for windows can be found in this PDF: 
+
 http://astromech.net/gallery2/main.php?g2_view=core.DownloadItem&g2_itemId=62276&g2_GALLERYSID=6f2bc30f5e8e668c90a2ffd58fb96b76
 
 And for Mac, in these two forum posts:
