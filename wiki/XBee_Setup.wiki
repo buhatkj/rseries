@@ -42,7 +42,9 @@ The X-CTU application is downloadable from [http://www.digi.com/support/productd
  * Serial Number = 13A200 *40XXXXXX*
 
 == Serial Numbers ==
-Write down the last 8 digits of the serial number (probably starting with 40) and note where you will be using this XBee (is it going in the controller or the receiver?). In order to communicate with each other, the receiver Arduino will need to know the serial number of the controller's XBee and vice versa. Later we will edit our Arduino sketches with these serial numbers.
+Write down the last 8 digits of the serial number (probably starting with 40) and note where you will be using this XBee (is it going in the controller or the receiver?). In order to communicate with each other, the receiver Arduino will need to know the serial number of the controller's XBee and vice versa. Later we will edit our Arduino sketches with these serial numbers. These numbers can also be found printed on the belly of the XBees themselves as shown below.
+
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/XBee_Address_ID.jpg https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/XBee_Address_ID_sm.jpg]
 
 == More Information ==
 More Information about configuration of the XBEE radios for windows can be found in this PDF: 
