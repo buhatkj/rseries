@@ -101,7 +101,7 @@ ModemStatusResponse msr = ModemStatusResponse();
 
 
 // SH + SL Address of receiving XBee (Since this the receiver code, we need to use Controller address
-XBeeAddress64 addr64 = XBeeAddress64(0x0013a200, 0x405e0b99); // Destination (Controller) address
+XBeeAddress64 addr64 = XBeeAddress64(0x0013a200, 0x4098b5e1); // Destination (Controller) address
 
 uint8_t payload[] = { '0', '0', '0', '0', '0', '0'}; // Our XBee Payload of 6 values (rxVCC=2, rxVCA=2, future=2)
 
@@ -236,6 +236,11 @@ void setup() {
 //  chan9servo.attach(servo9Pin);  // create servo object to control a servo 
 //  chan10servo.attach(servo10Pin);// create servo object to control a servo 
 
+  chan1servo.write(chan1Center);      // Update Channel 1 servo 
+  chan2servo.write(chan2Center);      // Update Channel 2 servo
+  chan3servo.write(chan3Center);      // Update Channel 3 servo
+  delay(50);                   // Allow servos to move
+
   
   pinMode(analogVCCinput, INPUT);
 
@@ -275,14 +280,14 @@ void loop() {
     triggerEvent = rx.getData()[7];// TriggerEvent
 //    int futureEvent = rx.getData()[8]; // Future Event Payload
 
-/*                                                                                // DEBUG CODE
+                                                                                // DEBUG CODE
     Serial.print(">> joyx =");Serial.print(joyx);                                 // DEBUG CODE
     Serial.print("\tjoyy =");Serial.print(joyy);                                  // DEBUG CODE
     Serial.print("\taccx =");Serial.print(accx);                                  // DEBUG CODE
     Serial.print("\taccy =");Serial.print(accy);                                  // DEBUG CODE
     Serial.print("\taccz =");Serial.print(accz);                                  // DEBUG CODE
     Serial.print("\ttriggerEvent =");Serial.println(triggerEvent);                // DEBUG CODE
-*/
+
 
 
 // Dome Rotation FX
@@ -303,7 +308,7 @@ if (accx == 60) {accx=chan3Min;}     // Left
     chan1servo.write(joyx);      // Update Channel 1 servo 
     chan2servo.write(joyy);      // Update Channel 2 servo
     chan3servo.write(accx);      // Update Channel 3 servo
-//    delay(50);                   // Allow servos to move
+    delay(50);                   // Allow servos to move
     if (triggerEvent > 0 && AudioFX1module==true) {sendAudioFX1();} // if AudioFX1Module is installed, send every event
     if (ServoFX1module==true && triggerEvent > 0) {sendServoFX1();} // if ServoFX1Module is installed, send every event
  

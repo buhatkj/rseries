@@ -16,11 +16,11 @@
  * Gabriel Bianconi  http://www.gabrielbianconi.com/projects/arduinonunchuk/
 */ 
 
-#define astromechName "R2-D2"   // This will display on the screen, Keep length to 6 chars or less
+#define astromechName "R4-I9"   // This will display on the screen, Keep length to 6 chars or less
 
 #define VERSION "beta 0.4.5"    // You don't think we're done do you?
 
-#define OWNER "Your Name"    // Display on the Splash Screen
+#define OWNER "Ted Koenig"    // Display on the Splash Screen
 
 
 /* 
@@ -134,7 +134,7 @@ ModemStatusResponse msr = ModemStatusResponse();
  
                                                               // SH + SL Address of other XBee
                                    //SH Address  SL Address   // You should only edit the SL
-XBeeAddress64 addr64 = XBeeAddress64(0x0013a200, 0x405e0b97); // Destination (Receiver) address
+XBeeAddress64 addr64 = XBeeAddress64(0x0013a200, 0x408d9cfb); // Destination (Receiver) address
 ZBTxRequest zbTx = ZBTxRequest(addr64, payload, sizeof(payload));
 ZBTxStatusResponse txStatus = ZBTxStatusResponse();
 
@@ -461,7 +461,7 @@ uint16_t touchedX;
                     // For better pressure precision, we need to know the resistance
                     // between X+ and X- Use any multimeter to read it
                     // For the one we're using, its 300 ohms across the X plate
-TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);    // Orig (XP, YP, XM, YM, 300)
+TouchScreen ts = TouchScreen(XP, YP, XM, YM);    // Orig (XP, YP, XM, YM, 300)
 
 
 #define LCD_CS A3
@@ -579,12 +579,12 @@ void loop() {
           cbut = nunchuk.cButton; // either 0 or 1
           
         
-        Serial.print("joyx: "); Serial.print((byte)joyx,DEC);          // DEBUG CODE
+       /* Serial.print("joyx: "); Serial.print((byte)joyx,DEC);          // DEBUG CODE
         Serial.print("\tjoyy: "); Serial.print((byte)joyy,DEC);        // DEBUG CODE
         Serial.print("\taccx: "); Serial.print((byte)accx,DEC);        // DEBUG CODE
         Serial.print("\tzbut: "); Serial.print((byte)zbut,DEC);        // DEBUG CODE
         Serial.print("\tcbut: "); Serial.println((byte)cbut,DEC);      // DEBUG CODE
-        
+      */  
         
                                                // Left & Right w Proporational Speed
   if (joyx < 82) {joyx = joyx;}                // Emulate Dead Stick Zone on joyx
@@ -970,14 +970,6 @@ tft.fillCircle(31,10, 4, BLUE);             // Signal =4
 tft.fillCircle(42,10, 5, GRAY);             // Signal =5
 */
                                             // Signal Bars, Well its good enough for Apple.
-  
-
-  
-
-
-
-
-
 
 void displayOPTIONS() {                  // Display Event Trigger Options 
 
@@ -1206,8 +1198,8 @@ void displayPOST() {       // Power Up Self Test and Init
   
   while(telemetrystatus == false) {
       RXdata();
- //     Serial.print("POST Received Telemetry -->> rxVCC =");Serial.print(rxVCC);  // DEBUG CODE
- //     Serial.print("\trxVCA =");Serial.println(rxVCA);                                  // DEBUG CODE
+      //Serial.print("POST Received Telemetry -->> rxVCC =");Serial.print(rxVCC);  // DEBUG CODE
+      //Serial.print("\trxVCA =");Serial.println(rxVCA);                                  // DEBUG CODE
 
     if (rxVCC > 0 && rxVCA > 0){
       telemetrystatus = true;
@@ -1443,7 +1435,7 @@ void displayBATT() {                        // Display Local Battery Status
 
   if (vin >= vinSTRONG) {   
     tft.fillRect(85, 3, 6, 14, GREEN);    // If Battery is strong then GREEN  
-  } else if (vin >=vinWEAK) {
+  } else if (vin >= vinWEAK) {
    tft.fillRect(85, 8, 6, 9, YELLOW);    // If Battery is medium then YELLOW
   } else {
     tft.fillRect(85, 12, 6, 4, RED);    // If Battery is low then RED & Sound Warning

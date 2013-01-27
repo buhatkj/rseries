@@ -14,7 +14,7 @@
 // 3+ uses insert sort to get the median value.
 // We found 2 is precise yet not too slow so we suggest sticking with it!
 
-#define NUMSAMPLES 2
+#define NUMSAMPLES 1
 
 Point::Point(void) {
   x = y = 0;
@@ -161,7 +161,7 @@ TouchScreen::TouchScreen(uint8_t xp, uint8_t yp, uint8_t xm, uint8_t ym) {
   _ym = ym;
   _xp = xp;
   _rxplate = 0;
-  pressureThreshhold = 10;
+  pressureThreshhold = 1;
 }
 
 
@@ -173,7 +173,7 @@ TouchScreen::TouchScreen(uint8_t xp, uint8_t yp, uint8_t xm, uint8_t ym,
   _xp = xp;
   _rxplate = rxplate;
 
-  pressureThreshhold = 10;
+  pressureThreshhold = 1;
 }
 
 int TouchScreen::readTouchX(void) {
