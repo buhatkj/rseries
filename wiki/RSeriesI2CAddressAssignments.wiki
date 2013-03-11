@@ -32,6 +32,8 @@ I2C Addresses are in decimal
   * 17 Magnetic Rear Grappler
   * 18 232 Fusion Controller 
   * 19 TBD
+  * 20 Magic Dome Panel
+
 
 
   * 64 PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
