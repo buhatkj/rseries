@@ -37,7 +37,7 @@ I2C Addresses are in decimal
   * 22 TBA
   * 23 TBA
   * 24 TBA  
-  * 25 RN 171 XV FX I2C Interface (Roving Networks XV Support)
+  * 25 TBA
 
 
   * 64 PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
@@ -45,4 +45,7 @@ I2C Addresses are in decimal
   * 66 PCA9685 - Body Servos #1  (16 servos)
   * 67 PCA9685 - Body Servos #2  (16 servos)
 
+
+  * 125 RN 171 XV FX I2C Interface (Roving Networks XV Support)
+  * 126 RSeries FX Demo Cartridge
   * 127 MAX
