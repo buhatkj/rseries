@@ -47,5 +47,5 @@ I2C Addresses are in decimal
 
 
   * 125 RN 171 XV FX I2C Interface (Roving Networks XV Support)
-  * 126 RSeries FX Demo Cartridge
+  * 126 RSeries FX Demo Module
   * 127 MAX
