@@ -19,7 +19,7 @@ I2C Addresses are in decimal
   * 6 I2C FX Module #4 - Servos, VCSensor,  
   * 7 Voice Recognition / Droid Caller Controller 
   * 8 Telemetry & VCSensor
-  * 9 Reserved
+  * 9 Character ID System
 
 
   * 10 Teeces Dome Logics
@@ -32,10 +32,12 @@ I2C Addresses are in decimal
   * 17 Magnetic Rear Grappler
   * 18 232 Fusion Controller
   * 19 TBA
-  * 20 Magic Panel (ia-parts.com)
+  * 20 Magic Panel (rotopod, ia-parts.com)
   * 21 TBA
-  * 22 
-
+  * 22 TBA
+  * 23 TBA
+  * 24 TBA  
+  * 25 RN 171 XV FX I2C Interface (Roving Networks XV Support)
 
 
   * 64 PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
