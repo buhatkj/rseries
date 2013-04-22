@@ -27,7 +27,7 @@ I2C Addresses are in decimal
   * 12 Charging Bay (vader)
   * 13 TBA
   * 14 Periscope & LFS Lifters (JAG)
-  * 15 Dome Controller (rotopod, ia-parts.com)
+  * 15 Dome Bump Controller (rotopod, ia-parts.com)
   * 16 CPU Arm & Gripper Arm
   * 17 Magnetic Rear Grappler
   * 18 232 Fusion Controller
@@ -39,13 +39,16 @@ I2C Addresses are in decimal
   * 24 TBA  
   * 25 TBA
 
+  * 30 Rear Logics + Rear PSI
+  * 31 Front Logics + Front PSI
+
 
   * 64 PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
   * 65 PCA9685 - Dome Servos #2 (16 servos)
   * 66 PCA9685 - Body Servos #1  (16 servos)
   * 67 PCA9685 - Body Servos #2  (16 servos)
 
-
-  * 125 RN 171 XV FX I2C Interface (Roving Networks XV Support)
+  * 124 JEDI FX I2C Adapter
+  * 125 RN 171 XV FX I2C Interface (Roving Networks XV WiFly Support for Android & iOS apps)
   * 126 RSeries FX Demo Module
   * 127 MAX
