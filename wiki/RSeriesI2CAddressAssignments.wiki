@@ -47,10 +47,10 @@ I2C Addresses are in decimal
   * 66 PCA9685 - Body Servos #1  (16 servos)
   * 67 PCA9685 - Body Servos #2  (16 servos)
 
-  * 68 DroidCONuino - 6 Servos, Maxim 72xx bus
+  * 68 DroidCONuino - 6 Servos, Maxim72xx LED control bus
 
 
   * 124 JEDI FX I2C Adapter
   * 125 RN 171 XV FX I2C Interface (Roving Networks XV WiFly Support for Android & iOS apps)
-  * 126 RSeries I2C FX Demo Module
+  * 126 RSeries FX I2C Demo Module
   * 127 MAX
