@@ -19,7 +19,7 @@ I2C Addresses are in decimal
   * 6 I2C FX Module #4 - Servos, VCSensor,  
   * 7 Voice Recognition / Droid Caller Controller 
   * 8 Telemetry & VCSensor
-  * 9 Character ID System
+  * 9 TBA
 
 
   * 10 Teeces Dome Logics
@@ -31,24 +31,26 @@ I2C Addresses are in decimal
   * 16 CPU Arm & Gripper Arm
   * 17 Magnetic Rear Grappler
   * 18 232 Fusion Controller
-  * 19 TBA
+  * 19 Character ID System
+
   * 20 Magic Panel (rotopod, ia-parts.com)
-  * 21 TBA
-  * 22 TBA
-  * 23 TBA
+  * 21 Fire Extinguisher & Saber Launcher
+  * 22 Rear Logics + Rear PSI
+  * 23 Front Logics + Front PSI
   * 24 TBA  
   * 25 TBA
 
-  * 30 Rear Logics + Rear PSI
-  * 31 Front Logics + Front PSI
-
+  * 30 Character ID System Receiver
 
   * 64 PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
   * 65 PCA9685 - Dome Servos #2 (16 servos)
   * 66 PCA9685 - Body Servos #1  (16 servos)
   * 67 PCA9685 - Body Servos #2  (16 servos)
 
+  * 68 DroidCONuino - 6 Servos, Maxim 72xx bus
+
+
   * 124 JEDI FX I2C Adapter
   * 125 RN 171 XV FX I2C Interface (Roving Networks XV WiFly Support for Android & iOS apps)
-  * 126 RSeries FX Demo Module
+  * 126 RSeries I2C FX Demo Module
   * 127 MAX
