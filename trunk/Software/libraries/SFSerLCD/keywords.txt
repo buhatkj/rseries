@@ -1,0 +1,12 @@
+SFSerLCD  	KEYWORD1
+selectLineOne	KEYWORD2
+selectLineTwo	KEYWORD2
+selectLineThree	KEYWORD2
+selectLineFour	KEYWORD2
+goTo		KEYWORD2
+clearLCD	KEYWORD2
+backlightOn	KEYWORD2
+backlightOff	KEYWORD2
+backlight50	KEYWORD2
+serCommand	KEYWORD2
+printStr	KEYWORD2
