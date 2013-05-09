@@ -34,7 +34,7 @@ I2C Addresses are in decimal
 
   * 20 Magic Panel (rotopod, ia-parts.com)
   * 21 Fire Extinguisher & Saber Launcher
-  * 22 Lifter Module #1 (Periscope & LFS)
+  * 22 Periscope & LFS Lifter Module
   * 23 TBA
   * 24 TBA
   
