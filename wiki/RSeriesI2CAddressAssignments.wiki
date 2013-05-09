@@ -16,31 +16,37 @@ I2C Addresses are in decimal
   * 3 MP3 Player #1 - Primary Sound FX - R2 Vocal FX
   * 4 MP3 Player #2 - Secondary Sound FX - R2 Operational FX
   * 5 MP3 Player #3 - Tertiary Sound FX - Soundscapes & Background Music etc.
-  * 6 I2C FX Module #4 - Servos, VCSensor,  
+  * 6 I2C FX Module #4 - Servos, 72xx Bus, VCSensor Breakout  
   * 7 Voice Recognition / Droid Caller Controller 
-  * 8 Telemetry & VCSensor
+  * 8 VCSensor
   * 9 TBA
 
-
-  * 10 Teeces Dome Logics
-  * 11 Body Logics CBI, DataPort, Brooks Boosters FX
-  * 12 Charging Bay (vader)
-  * 13 TBA
-  * 14 Periscope & LFS Lifters (JAG)
+  * 10 Rear Logics RLD + Rear PSI (teeces)
+  * 11 Front Logics FLD +  Front PSI (teeces)
+  * 12 Rear PSI (teeces, TBA)
+  * 13 Front PSI (teeces,TBA)
+  * 14 Charging Bay Indicator (vader, RSeries)
   * 15 Dome Bump Controller (rotopod, ia-parts.com)
-  * 16 CPU Arm & Gripper Arm
-  * 17 Magnetic Rear Grappler
+  * 16 DataPort (RSeries)
+  * 17 TBA
   * 18 232 Fusion Controller
-  * 19 Character ID System
+  * 19 Character ID System Receiver
 
   * 20 Magic Panel (rotopod, ia-parts.com)
   * 21 Fire Extinguisher & Saber Launcher
-  * 22 Rear Logics + Rear PSI
-  * 23 Front Logics + Front PSI
-  * 24 TBA  
-  * 25 TBA
+  * 22 Lifter Module #1 (Periscope & LFS)
+  * 23 TBA
+  * 24 TBA
+  
+  
+  * 30 TBA
+  * 31 TBA
+  * 32 CPU Arm
+  * 33 Gripper Arm
+  * 34 Magnetic Rear Grappler
+  * 35 TBA
+  * 36 Brooks Booster FX
 
-  * 30 Character ID System Receiver
 
   * 64 PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
   * 65 PCA9685 - Dome Servos #2 (16 servos)
@@ -50,7 +56,7 @@ I2C Addresses are in decimal
   * 68 DroidCONuino - 6 Servos, Maxim72xx LED control bus
 
 
-  * 124 JEDI FX I2C Adapter
-  * 125 RN 171 XV FX I2C Interface (Roving Networks XV WiFly Support for Android & iOS apps)
+  * 124 JEDI FX I2C Bridge Adapter
+  * 125 RN 171 XV FX I2C Bridge Adapter (Roving Networks XV WiFly Support for Android & iOS apps)
   * 126 RSeries FX I2C Demo Module
   * 127 MAX
