@@ -1,6 +1,6 @@
 /*
 
-RAINBOWDUINO CODE FOR LOGIC DISPLAYS : 2013-05-08
+RAINBOWDUINO CODE FOR LOGIC DISPLAYS : 2013-05-09
 by Paul Murphy (joymonkey@gmail.com)
 
 The goal of this sketch is to get a Rainbowduino and 8x8 RGB LED Matrix to
@@ -22,10 +22,10 @@ unsigned int KeyColors[NUM_KEY_COLORS][3] = { {0,0,20} , {0,0,120} , {0,20,255} 
 each LED will loop back and forth between these key colors (not always reaching bright white),
 pausing for a random time as each key color is hit.
 */
-#define SPEED 1 //speed of color transition (smaller is faster)
-#define STEPS 10 //number of 'tween' colors between the KeyColors
-#define TWEENPAUSE 1 //default pause time to use for TWEEN colors
-#define KEYPAUSE 500 //default pause time for KeyColors (eventually I'd like this to be an array so each key color can pause for a different time)
+#define SPEED 2 //speed of color transition (smaller is faster)
+#define STEPS 20 //number of 'tween' colors between the KeyColors. increase this for smoother (but slower) transitions
+#define TWEENPAUSE 0 //default pause time to use for TWEEN colors
+#define KEYPAUSE 100 //default pause time for KeyColors (eventually I'd like this to be an array so each key color can pause for a different time)
 //
 //#define DEBUG
 //
@@ -39,7 +39,7 @@ unsigned int LEDdirection[64]; // an array holding the current diection of each 
 unsigned int LEDpauseTime[64]; // an array holding the current pause time of each LED (LED should remain current color until this hits 0)
 //
 void setup() {
-  Serial.begin(115200); //used for debugging
+  Serial.begin(9600); //used for debugging
   Serial.println();Serial.print(NUM_KEY_COLORS); Serial.print(" KeyColors with "); Serial.print(STEPS); Serial.println(" Tween colorws between each pair.");
   Serial.print("Total colors is ");Serial.print(TOTAL_COLORS);Serial.print(" (0 thru ");Serial.print(TOTAL_COLORS-1);Serial.println(")");
   Rb.init(); //initialize Rainbowduino driver
@@ -124,7 +124,7 @@ void setup() {
 
 void loop() {
   //
-  unsigned long timeNew=micros();
+  unsigned long timeNew=millis();
   RandomLogic(timeNew);
   
 }
@@ -189,14 +189,15 @@ void RandomLogic(unsigned long elapsed) {
   timeLast = elapsed; 
   //ENOUGH TIME HAS PASSED, MAKE STUFF HAPPEN HERE...  
   unsigned int LEDnumber=0;
+  unsigned int prevColorNumber=0;
   for(int x=0;x<8;x++) {
      for(int y=0;y<8;y++) {
+       prevColorNumber=LEDcolor[LEDnumber]; //hold the last color number of this LED
        updateLED(LEDnumber); //the updateLED function will change array values for this LED number
-	   
-       Rb.setPixelXY(x,y,AllColors[LEDcolor[LEDnumber]][0],AllColors[LEDcolor[LEDnumber]][1],AllColors[LEDcolor[LEDnumber]][2]);
-	   /* to reduce CPU use, the line above should probable only happen if
-	   the color was changed by the	updateLED command. Might want to update this */
-		
+       if (LEDcolor[LEDnumber]!=prevColorNumber) {
+         //set the LED color if it has changed since the last loop	   
+         Rb.setPixelXY(x,y,AllColors[LEDcolor[LEDnumber]][0],AllColors[LEDcolor[LEDnumber]][1],AllColors[LEDcolor[LEDnumber]][2]);
+       }
        LEDnumber++; 
      }
   }
