@@ -37,6 +37,9 @@ I2C Addresses are in decimal
   * 22 Periscope & LFS Lifter Module
   * 23 TBA
   * 24 TBA
+  * 25 Front HoloProjector (RSeries)
+  * 26 Top HoloProjector (RSeries)
+  * 27 Rear HoloProject (RSeries)
   
   
   * 30 TBA
