@@ -25,7 +25,7 @@ I2C Addresses are in decimal
   * 11 Front Logics FLD +  Front PSI (teeces)
   * 12 Rear PSI (teeces, TBA)
   * 13 Front PSI (teeces,TBA)
-  * 14 Charging Bay Indicator + DataPort (vader, RSeries)
+  * 14 Charging Bay Indicator + DataPort (Vader, RSeries)
   * 15 Dome Bump Controller (rotopod, ia-parts.com)
   * 16 DataPort (RSeries)
   * 17 TBA
