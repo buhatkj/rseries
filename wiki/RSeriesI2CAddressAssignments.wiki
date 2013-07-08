@@ -40,8 +40,8 @@ I2C Addresses are in decimal
   * 25 Front Holo Projector (RSeries)
   * 26 Top Holo Projector (RSeries)
   * 27 Rear Holo Project (RSeries)
-  * 28 SELgusto Bus 1 (Vader)
-  * 29 SELgusto Bus 2 (Vader)
+  * 28 TBA Bus 1 (Vader)
+  * 29 TBA Bus 2 (Vader)
 
   
   
