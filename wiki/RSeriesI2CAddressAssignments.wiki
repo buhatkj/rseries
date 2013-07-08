@@ -40,7 +40,9 @@ I2C Addresses are in decimal
   * 25 Front Holo Projector (RSeries)
   * 26 Top Holo Projector (RSeries)
   * 27 Rear Holo Project (RSeries)
- 
+  * 28 SELgusto Bus 1 (Vader)
+  * 29 SELgusto Bus 2 (Vader)
+
   
   
   * 30 TBA
@@ -51,11 +53,10 @@ I2C Addresses are in decimal
   * 35 TBA
   * 36 Brooks Booster FX
 
-
-  * 64 PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
-  * 65 PCA9685 - Dome Servos #2 (16 servos)
-  * 66 PCA9685 - Body Servos #1  (16 servos)
-  * 67 PCA9685 - Body Servos #2  (16 servos)
+  * 64 Servo I2C #1 DOME (RSeries, AdaFruit) PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
+  * 65 Servo I2C #2 DOME (RSeries, AdaFruit)  PCA9685 - Dome Servos #2 (16 servos)
+  * 66  Servo I2C #1 BODY (RSeries, AdaFruit) PCA9685 - Body Servos #1  (16 servos)
+  * 67  Servo I2C #2 BODY (RSeries, AdaFruit) PCA9685 - Body Servos #2  (16 servos)
 
   * 68 DroidCONuino - 6 Servos, Maxim72xx LED control bus
 
