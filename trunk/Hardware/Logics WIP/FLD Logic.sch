@@ -2881,8 +2881,6 @@ Metric Code Size 5664</description>
 </class>
 </classes>
 <parts>
-<part name="GND3" library="supply0" deviceset="GND" device=""/>
-<part name="V9" library="supply0" deviceset="+5V" device=""/>
 <part name="LED1" library="adafruit" deviceset="WS2812" device=""/>
 <part name="LED2" library="adafruit" deviceset="WS2812" device=""/>
 <part name="LED3" library="adafruit" deviceset="WS2812" device=""/>
@@ -3084,21 +3082,21 @@ Metric Code Size 5664</description>
 <part name="V41" library="supply0" deviceset="+5V" device=""/>
 <part name="GND80" library="supply0" deviceset="GND" device=""/>
 <part name="GND81" library="supply0" deviceset="GND" device=""/>
-<part name="GND82" library="supply0" deviceset="GND" device=""/>
-<part name="V42" library="supply0" deviceset="+5V" device=""/>
 <part name="OUT" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="H1" library="holes" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="H2" library="holes" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="H3" library="holes" deviceset="MOUNT-HOLE" device="3.3"/>
 <part name="H4" library="holes" deviceset="MOUNT-HOLE" device="3.3"/>
+<part name="V9" library="supply0" deviceset="+5V" device=""/>
+<part name="GND3" library="supply0" deviceset="GND" device=""/>
+<part name="V42" library="supply0" deviceset="+5V" device=""/>
+<part name="GND82" library="supply0" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 </plain>
 <instances>
-<instance part="GND3" gate="1" x="266.7" y="213.36" rot="R270"/>
-<instance part="V9" gate="1" x="274.32" y="226.06"/>
 <instance part="LED1" gate="G$1" x="66.04" y="154.94"/>
 <instance part="LED2" gate="G$1" x="99.06" y="154.94"/>
 <instance part="LED3" gate="G$1" x="132.08" y="154.94"/>
@@ -3300,13 +3298,15 @@ Metric Code Size 5664</description>
 <instance part="V41" gate="1" x="289.56" y="-30.48"/>
 <instance part="GND80" gate="1" x="264.16" y="-73.66"/>
 <instance part="GND81" gate="1" x="297.18" y="-73.66"/>
-<instance part="GND82" gate="1" x="304.8" y="213.36" rot="R270"/>
-<instance part="V42" gate="1" x="312.42" y="226.06"/>
 <instance part="OUT" gate="A" x="325.12" y="213.36"/>
 <instance part="H1" gate="G$1" x="-7.62" y="-81.28"/>
 <instance part="H2" gate="G$1" x="0" y="170.18"/>
 <instance part="H3" gate="G$1" x="391.16" y="160.02"/>
 <instance part="H4" gate="G$1" x="381" y="-76.2"/>
+<instance part="V9" gate="1" x="266.7" y="213.36" rot="R90"/>
+<instance part="GND3" gate="1" x="274.32" y="226.06" rot="R180"/>
+<instance part="V42" gate="1" x="304.8" y="213.36" rot="R90"/>
+<instance part="GND82" gate="1" x="312.42" y="226.06" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -3326,11 +3326,6 @@ Metric Code Size 5664</description>
 <pinref part="C3" gate="G$1" pin="2"/>
 <pinref part="GND6" gate="1" pin="GND"/>
 <wire x1="144.78" y1="165.1" x2="144.78" y2="162.56" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="IN" gate="A" pin="2"/>
-<wire x1="284.48" y1="213.36" x2="269.24" y2="213.36" width="0.1524" layer="91"/>
-<pinref part="GND3" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="LED1" gate="G$1" pin="GND"/>
@@ -3718,8 +3713,15 @@ Metric Code Size 5664</description>
 <wire x1="297.18" y1="-68.58" x2="297.18" y2="-71.12" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="OUT" gate="A" pin="2"/>
-<wire x1="322.58" y1="213.36" x2="307.34" y2="213.36" width="0.1524" layer="91"/>
+<pinref part="IN" gate="A" pin="1"/>
+<wire x1="284.48" y1="215.9" x2="274.32" y2="215.9" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="215.9" x2="274.32" y2="223.52" width="0.1524" layer="91"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="OUT" gate="A" pin="1"/>
+<wire x1="322.58" y1="215.9" x2="312.42" y2="215.9" width="0.1524" layer="91"/>
+<wire x1="312.42" y1="215.9" x2="312.42" y2="223.52" width="0.1524" layer="91"/>
 <pinref part="GND82" gate="1" pin="GND"/>
 </segment>
 </net>
@@ -3768,12 +3770,6 @@ Metric Code Size 5664</description>
 <pinref part="LED3" gate="G$1" pin="VDD"/>
 <wire x1="137.16" y1="170.18" x2="137.16" y2="177.8" width="0.1524" layer="91"/>
 <junction x="137.16" y="177.8"/>
-</segment>
-<segment>
-<pinref part="IN" gate="A" pin="1"/>
-<wire x1="284.48" y1="215.9" x2="274.32" y2="215.9" width="0.1524" layer="91"/>
-<wire x1="274.32" y1="215.9" x2="274.32" y2="223.52" width="0.1524" layer="91"/>
-<pinref part="V9" gate="1" pin="+5V"/>
 </segment>
 <segment>
 <pinref part="V1" gate="1" pin="+5V"/>
@@ -4331,9 +4327,13 @@ Metric Code Size 5664</description>
 <junction x="302.26" y="-35.56"/>
 </segment>
 <segment>
-<pinref part="OUT" gate="A" pin="1"/>
-<wire x1="322.58" y1="215.9" x2="312.42" y2="215.9" width="0.1524" layer="91"/>
-<wire x1="312.42" y1="215.9" x2="312.42" y2="223.52" width="0.1524" layer="91"/>
+<pinref part="IN" gate="A" pin="2"/>
+<wire x1="284.48" y1="213.36" x2="269.24" y2="213.36" width="0.1524" layer="91"/>
+<pinref part="V9" gate="1" pin="+5V"/>
+</segment>
+<segment>
+<pinref part="OUT" gate="A" pin="2"/>
+<wire x1="322.58" y1="213.36" x2="307.34" y2="213.36" width="0.1524" layer="91"/>
 <pinref part="V42" gate="1" pin="+5V"/>
 </segment>
 </net>
