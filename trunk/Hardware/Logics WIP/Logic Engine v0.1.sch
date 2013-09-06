@@ -3439,6 +3439,22 @@ LETTER landscape</description>
 <rectangle x1="6.042659375" y1="6.31825" x2="6.06551875" y2="6.33933125" layer="121"/>
 <rectangle x1="6.042659375" y1="6.33933125" x2="6.06551875" y2="6.36066875" layer="121"/>
 </package>
+<package name="3364">
+<description>&lt;b&gt;Bourns 3364 W/X&lt;/b&gt;&lt;br&gt;
+433 Square Trimpot</description>
+<wire x1="-2" y1="2" x2="-2" y2="-2" width="0.254" layer="51"/>
+<circle x="0" y="0" radius="1.15" width="0.1016" layer="51"/>
+<smd name="2" x="0" y="2" dx="2.4" dy="1.1" layer="1" rot="R180"/>
+<smd name="1" x="-1.45" y="-1.8" dx="1.3" dy="1.5" layer="1"/>
+<smd name="3" x="1.45" y="-1.8" dx="1.3" dy="1.5" layer="1"/>
+<text x="-2.405" y="-2.105" size="1" layer="25" font="vector" rot="R90">&gt;NAME</text>
+<text x="2.375" y="-2.105" size="1" layer="27" font="vector" rot="R90" align="top-left">&gt;VALUE</text>
+<rectangle x1="-1.15" y1="-0.15" x2="1.15" y2="0.15" layer="51"/>
+<rectangle x1="-0.15" y1="-1.15" x2="0.15" y2="1.15" layer="51"/>
+<wire x1="-2" y1="-2" x2="2" y2="-2" width="0.254" layer="51"/>
+<wire x1="-2" y1="2" x2="2" y2="2" width="0.254" layer="51"/>
+<wire x1="2" y1="2" x2="2" y2="-2" width="0.254" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="RSERIES-OSHW-LOGO">
@@ -7020,6 +7036,23 @@ LETTER landscape</description>
 <wire x1="2.6035" y1="11.557" x2="2.667" y2="11.557" width="0.0635" layer="94"/>
 <text x="-5.08" y="2.54" size="2.54" layer="94" ratio="15">RSERIES</text>
 </symbol>
+<symbol name="TRIMPOT">
+<wire x1="-0.762" y1="2.54" x2="-0.762" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0.762" y1="-2.54" x2="0.762" y2="2.54" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="1.651" y2="0" width="0.1524" layer="94"/>
+<wire x1="1.651" y1="0" x2="-1.8796" y2="1.7526" width="0.1524" layer="94"/>
+<wire x1="0.762" y1="2.54" x2="-0.762" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-0.762" y1="-2.54" x2="0.762" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="-0.508" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-0.508" x2="-3.048" y2="-1.524" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-0.508" x2="-2.032" y2="-1.524" width="0.1524" layer="94"/>
+<wire x1="-2.1597" y1="1.2939" x2="-1.7018" y2="2.2352" width="0.1524" layer="94"/>
+<text x="-5.969" y="-3.81" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<text x="-3.81" y="-3.81" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="A" x="0" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
+<pin name="E" x="0" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
+<pin name="S" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="RSERIES-OSHW-LOGO">
@@ -7038,6 +7071,25 @@ LETTER landscape</description>
 </technologies>
 </device>
 <device name="SMALL" package="RSERIES-OSHW-LOGO-SMALL">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TRIMPOT" uservalue="yes">
+<description>SMT trimmer potentiometer part number TC33X
+&lt;p&gt;http://www.ladyada.net/library/eagle&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="TRIMPOT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="3364W" package="3364">
+<connects>
+<connect gate="G$1" pin="A" pad="1"/>
+<connect gate="G$1" pin="E" pad="3"/>
+<connect gate="G$1" pin="S" pad="2"/>
+</connects>
 <technologies>
 <technology name=""/>
 </technologies>
@@ -7388,24 +7440,6 @@ Based on the following sources:&lt;p&gt;
 <pad name="6" x="1.27" y="-2.54" drill="0.9" diameter="1.6256"/>
 <text x="-3.048" y="-3.048" size="1.27" layer="25" rot="R90">&gt;NAME</text>
 <text x="-3.048" y="3.556" size="1.016" layer="21" font="vector">1</text>
-</package>
-<package name="TC33X">
-<wire x1="-1.45" y1="1.75" x2="-1.45" y2="-1.65" width="0.254" layer="51"/>
-<wire x1="-1.45" y1="-1.65" x2="1.45" y2="-1.65" width="0.254" layer="51"/>
-<wire x1="1.45" y1="-1.65" x2="1.45" y2="1.75" width="0.254" layer="51"/>
-<wire x1="1.45" y1="1.75" x2="-1.45" y2="1.75" width="0.254" layer="51"/>
-<wire x1="-1.45" y1="-0.4" x2="-1.45" y2="1.75" width="0.254" layer="21"/>
-<wire x1="-1.45" y1="1.75" x2="-0.85" y2="1.75" width="0.254" layer="21"/>
-<wire x1="1.45" y1="-0.4" x2="1.45" y2="1.75" width="0.254" layer="21"/>
-<wire x1="1.45" y1="1.75" x2="0.85" y2="1.75" width="0.254" layer="21"/>
-<circle x="0" y="0" radius="1.15" width="0.1016" layer="51"/>
-<smd name="2" x="0" y="1.5" dx="1.5" dy="1.6" layer="1"/>
-<smd name="1" x="-1" y="-1.825" dx="1.2" dy="1.2" layer="1"/>
-<smd name="3" x="1" y="-1.825" dx="1.2" dy="1.2" layer="1"/>
-<text x="-1.905" y="-1.905" size="1.27" layer="25" rot="R90">&gt;NAME</text>
-<text x="3.175" y="-1.905" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-<rectangle x1="-1.15" y1="-0.15" x2="1.15" y2="0.15" layer="51"/>
-<rectangle x1="-0.15" y1="-1.15" x2="0.15" y2="1.15" layer="51"/>
 </package>
 <package name="C0402">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
@@ -10402,23 +10436,6 @@ type 0309, grid 2.5 mm</description>
 <pin name="MOSI" x="15.24" y="0" length="middle" direction="out" rot="R180"/>
 <pin name="VCC" x="15.24" y="2.54" length="middle" direction="pwr" rot="R180"/>
 </symbol>
-<symbol name="TRIMPOT">
-<wire x1="-0.762" y1="2.54" x2="-0.762" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0.762" y1="-2.54" x2="0.762" y2="2.54" width="0.254" layer="94"/>
-<wire x1="2.54" y1="0" x2="1.651" y2="0" width="0.1524" layer="94"/>
-<wire x1="1.651" y1="0" x2="-1.8796" y2="1.7526" width="0.1524" layer="94"/>
-<wire x1="0.762" y1="2.54" x2="-0.762" y2="2.54" width="0.254" layer="94"/>
-<wire x1="-0.762" y1="-2.54" x2="0.762" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="-0.508" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="-0.508" x2="-3.048" y2="-1.524" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="-0.508" x2="-2.032" y2="-1.524" width="0.1524" layer="94"/>
-<wire x1="-2.1597" y1="1.2939" x2="-1.7018" y2="2.2352" width="0.1524" layer="94"/>
-<text x="-5.969" y="-3.81" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<text x="-3.81" y="-3.81" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="A" x="0" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="E" x="0" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
-<pin name="S" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
-</symbol>
 <symbol name="C-US">
 <wire x1="-2.54" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
 <wire x1="0" y1="-1.016" x2="0" y2="-2.54" width="0.1524" layer="94"/>
@@ -10478,25 +10495,6 @@ Standard 6 pin header for AVR programming</description>
 <connect gate="G$1" pin="RST" pad="5"/>
 <connect gate="G$1" pin="SCK" pad="3"/>
 <connect gate="G$1" pin="VCC" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="TRIMPOT" uservalue="yes">
-<description>SMT trimmer potentiometer part number TC33X
-&lt;p&gt;http://www.ladyada.net/library/eagle&lt;/p&gt;</description>
-<gates>
-<gate name="G$1" symbol="TRIMPOT" x="0" y="0"/>
-</gates>
-<devices>
-<device name="TC33X" package="TC33X">
-<connects>
-<connect gate="G$1" pin="A" pad="1"/>
-<connect gate="G$1" pin="E" pad="3"/>
-<connect gate="G$1" pin="S" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -12672,13 +12670,9 @@ Used, eg, on the Arduino Pro/ Pro Mini boards.&lt;br&gt;
 <part name="FRNT/REAR" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
-<part name="DELAY" library="adafruit" deviceset="TRIMPOT" device="TC33X"/>
 <part name="SPEED" library="pinhead" deviceset="PINHD-1X3" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="FADE" library="adafruit" deviceset="TRIMPOT" device="TC33X"/>
-<part name="BRIGHT" library="adafruit" deviceset="TRIMPOT" device="TC33X"/>
-<part name="COLOR" library="adafruit" deviceset="TRIMPOT" device="TC33X"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="P+7" library="supply1" deviceset="+5V" device=""/>
 <part name="REG" library="joymonkey" deviceset="TPS6213X" device="" value="TPS62133"/>
@@ -12700,6 +12694,10 @@ Used, eg, on the Arduino Pro/ Pro Mini boards.&lt;br&gt;
 <part name="Y1" library="SparkFun-FreqCtrl" deviceset="RESONATOR" device="16MHZ" value="16MHz"/>
 <part name="C1" library="adafruit" deviceset="C-US" device="C0805K" value="0.1uF"/>
 <part name="F1" library="adafruit" deviceset="PTCFUSE" device="-1812"/>
+<part name="DELAY" library="rseries" deviceset="TRIMPOT" device="3364W"/>
+<part name="FADE" library="rseries" deviceset="TRIMPOT" device="3364W"/>
+<part name="BRIGHT" library="rseries" deviceset="TRIMPOT" device="3364W"/>
+<part name="COLOR" library="rseries" deviceset="TRIMPOT" device="3364W"/>
 </parts>
 <sheets>
 <sheet>
@@ -12777,25 +12775,9 @@ Used, eg, on the Arduino Pro/ Pro Mini boards.&lt;br&gt;
 <instance part="FRNT/REAR" gate="A" x="231.14" y="137.16"/>
 <instance part="P+5" gate="1" x="220.98" y="147.32"/>
 <instance part="GND6" gate="1" x="220.98" y="129.54"/>
-<instance part="DELAY" gate="G$1" x="228.6" y="114.3" smashed="yes" rot="R90">
-<attribute name="NAME" x="229.87" y="110.871" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="232.41" y="110.49" size="1.778" layer="96" rot="R180"/>
-</instance>
 <instance part="SPEED" gate="A" x="198.12" y="101.6"/>
 <instance part="P+3" gate="1" x="187.96" y="111.76"/>
 <instance part="GND3" gate="1" x="187.96" y="93.98"/>
-<instance part="FADE" gate="G$1" x="228.6" y="101.6" smashed="yes" rot="R90">
-<attribute name="NAME" x="229.87" y="98.171" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="232.41" y="97.79" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="BRIGHT" gate="G$1" x="228.6" y="88.9" smashed="yes" rot="R90">
-<attribute name="NAME" x="229.87" y="85.471" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="232.41" y="85.09" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="COLOR" gate="G$1" x="228.6" y="76.2" smashed="yes" rot="R90">
-<attribute name="NAME" x="229.87" y="72.771" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="232.41" y="72.39" size="1.778" layer="96" rot="R180"/>
-</instance>
 <instance part="GND7" gate="1" x="238.76" y="73.66"/>
 <instance part="P+7" gate="1" x="210.82" y="76.2" rot="R90"/>
 <instance part="REG" gate="G$1" x="83.82" y="149.86" rot="R180"/>
@@ -12821,6 +12803,22 @@ Used, eg, on the Arduino Pro/ Pro Mini boards.&lt;br&gt;
 <instance part="Y1" gate="G$1" x="22.86" y="66.04" rot="R270"/>
 <instance part="C1" gate="G$1" x="152.4" y="93.98"/>
 <instance part="F1" gate="G$1" x="147.32" y="119.38"/>
+<instance part="DELAY" gate="G$1" x="228.6" y="114.3" smashed="yes" rot="R90">
+<attribute name="NAME" x="232.41" y="110.871" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="232.41" y="110.49" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="FADE" gate="G$1" x="228.6" y="101.6" smashed="yes" rot="R90">
+<attribute name="NAME" x="232.41" y="98.171" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="232.41" y="97.79" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="BRIGHT" gate="G$1" x="228.6" y="88.9" smashed="yes" rot="R90">
+<attribute name="NAME" x="232.41" y="85.471" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="232.41" y="85.09" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="COLOR" gate="G$1" x="228.6" y="76.2" smashed="yes" rot="R90">
+<attribute name="NAME" x="232.41" y="72.771" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="232.41" y="72.39" size="1.778" layer="96" rot="R180"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -12931,18 +12929,18 @@ Used, eg, on the Arduino Pro/ Pro Mini boards.&lt;br&gt;
 <wire x1="187.96" y1="99.06" x2="187.96" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
+<wire x1="233.68" y1="114.3" x2="233.68" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="101.6" x2="233.68" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="GND7" gate="1" pin="GND"/>
+<wire x1="233.68" y1="88.9" x2="233.68" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="76.2" x2="238.76" y2="76.2" width="0.1524" layer="91"/>
 <pinref part="DELAY" gate="G$1" pin="A"/>
 <pinref part="FADE" gate="G$1" pin="A"/>
-<wire x1="233.68" y1="114.3" x2="233.68" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="BRIGHT" gate="G$1" pin="A"/>
-<wire x1="233.68" y1="101.6" x2="233.68" y2="88.9" width="0.1524" layer="91"/>
 <junction x="233.68" y="101.6"/>
-<pinref part="COLOR" gate="G$1" pin="A"/>
-<wire x1="233.68" y1="88.9" x2="233.68" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="BRIGHT" gate="G$1" pin="A"/>
 <junction x="233.68" y="88.9"/>
+<pinref part="COLOR" gate="G$1" pin="A"/>
 <junction x="233.68" y="76.2"/>
-<pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="233.68" y1="76.2" x2="238.76" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND9" gate="1" pin="GND"/>
@@ -13054,18 +13052,18 @@ Used, eg, on the Arduino Pro/ Pro Mini boards.&lt;br&gt;
 <wire x1="187.96" y1="104.14" x2="187.96" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
+<wire x1="223.52" y1="114.3" x2="223.52" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="101.6" x2="223.52" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="P+7" gate="1" pin="+5V"/>
+<wire x1="223.52" y1="88.9" x2="223.52" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="223.52" y1="76.2" x2="213.36" y2="76.2" width="0.1524" layer="91"/>
 <pinref part="DELAY" gate="G$1" pin="E"/>
 <pinref part="FADE" gate="G$1" pin="E"/>
-<wire x1="223.52" y1="114.3" x2="223.52" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="BRIGHT" gate="G$1" pin="E"/>
-<wire x1="223.52" y1="101.6" x2="223.52" y2="88.9" width="0.1524" layer="91"/>
 <junction x="223.52" y="101.6"/>
-<pinref part="COLOR" gate="G$1" pin="E"/>
-<wire x1="223.52" y1="88.9" x2="223.52" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="BRIGHT" gate="G$1" pin="E"/>
 <junction x="223.52" y="88.9"/>
+<pinref part="COLOR" gate="G$1" pin="E"/>
 <junction x="223.52" y="76.2"/>
-<pinref part="P+7" gate="1" pin="+5V"/>
-<wire x1="223.52" y1="76.2" x2="213.36" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="17.78" y1="83.82" x2="12.7" y2="83.82" width="0.1524" layer="91"/>
@@ -13187,9 +13185,9 @@ Used, eg, on the Arduino Pro/ Pro Mini boards.&lt;br&gt;
 <pinref part="IC1" gate="1" pin="PC0(ADC0/PCINT8)"/>
 </segment>
 <segment>
-<pinref part="DELAY" gate="G$1" pin="S"/>
 <wire x1="228.6" y1="119.38" x2="218.44" y2="119.38" width="0.1524" layer="91"/>
 <label x="215.9" y="119.38" size="1.778" layer="95"/>
+<pinref part="DELAY" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="ANALOG1" class="0">
@@ -13205,9 +13203,9 @@ Used, eg, on the Arduino Pro/ Pro Mini boards.&lt;br&gt;
 <wire x1="104.14" y1="81.28" x2="101.6" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="FADE" gate="G$1" pin="S"/>
 <wire x1="228.6" y1="106.68" x2="218.44" y2="106.68" width="0.1524" layer="91"/>
 <label x="210.82" y="106.68" size="1.778" layer="95"/>
+<pinref part="FADE" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="ANALOG2" class="0">
@@ -13223,9 +13221,9 @@ Used, eg, on the Arduino Pro/ Pro Mini boards.&lt;br&gt;
 <wire x1="106.68" y1="78.74" x2="101.6" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="BRIGHT" gate="G$1" pin="S"/>
 <wire x1="228.6" y1="93.98" x2="218.44" y2="93.98" width="0.1524" layer="91"/>
 <label x="210.82" y="93.98" size="1.778" layer="95"/>
+<pinref part="BRIGHT" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="ANALOG3" class="0">
@@ -13241,9 +13239,9 @@ Used, eg, on the Arduino Pro/ Pro Mini boards.&lt;br&gt;
 <wire x1="109.22" y1="76.2" x2="101.6" y2="76.2" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="COLOR" gate="G$1" pin="S"/>
 <wire x1="228.6" y1="81.28" x2="218.44" y2="81.28" width="0.1524" layer="91"/>
 <label x="210.82" y="81.28" size="1.778" layer="95"/>
+<pinref part="COLOR" gate="G$1" pin="S"/>
 </segment>
 </net>
 <net name="ANALOG4" class="0">
