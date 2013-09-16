@@ -832,7 +832,7 @@ Various fiducial points for machine vision alignment.</description>
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
-<class number="1" name="supply" width="0.3048" drill="0.1524">
+<class number="1" name="supply" width="0.4064" drill="0.3302">
 <clearance class="1" value="0.2032"/>
 </class>
 </classes>
@@ -1046,6 +1046,9 @@ Various fiducial points for machine vision alignment.</description>
 <part name="FID1" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
 <part name="FID2" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
 <part name="FID3" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
+<part name="FID4" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
+<part name="FID5" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
+<part name="FID6" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
 </parts>
 <sheets>
 <sheet>
@@ -1261,6 +1264,9 @@ Various fiducial points for machine vision alignment.</description>
 <instance part="FID1" gate="G$1" x="81.28" y="198.12"/>
 <instance part="FID2" gate="G$1" x="91.44" y="198.12"/>
 <instance part="FID3" gate="G$1" x="101.6" y="198.12"/>
+<instance part="FID4" gate="G$1" x="81.28" y="193.04"/>
+<instance part="FID5" gate="G$1" x="91.44" y="193.04"/>
+<instance part="FID6" gate="G$1" x="101.6" y="193.04"/>
 </instances>
 <busses>
 </busses>
