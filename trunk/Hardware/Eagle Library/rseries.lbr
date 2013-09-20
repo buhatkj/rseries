@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -10235,6 +10235,34 @@ NOTE: Will need to disable force field
 <wire x1="2.54" y1="2.1" x2="2.54" y2="1.7" width="0.127" layer="21"/>
 <wire x1="-2.54" y1="2.1" x2="-2.54" y2="1.7" width="0.127" layer="21"/>
 </package>
+<package name="MICROSD_SMALL">
+<wire x1="6" y1="-2.35" x2="6" y2="1" width="0.127" layer="21"/>
+<wire x1="6" y1="1" x2="-5.4" y2="1" width="0.127" layer="21"/>
+<wire x1="-5.4" y1="1" x2="-5.4" y2="-1.9" width="0.127" layer="21"/>
+<wire x1="-5.4" y1="-5.9" x2="-4.2" y2="-7.1" width="0.127" layer="21" curve="90"/>
+<wire x1="-4.2" y1="-7.1" x2="5" y2="-7.1" width="0.127" layer="21"/>
+<wire x1="5" y1="-7.1" x2="6.3" y2="-6" width="0.127" layer="21" curve="90"/>
+<wire x1="-5.4" y1="-6.8" x2="-4.2" y2="-8" width="0.127" layer="21" curve="90"/>
+<wire x1="-4.2" y1="-8" x2="5" y2="-8" width="0.127" layer="21"/>
+<wire x1="5" y1="-8" x2="6.3" y2="-6.9" width="0.127" layer="21" curve="90"/>
+<wire x1="-5.4" y1="-10.6" x2="-4.2" y2="-11.8" width="0.127" layer="21" curve="90"/>
+<wire x1="-4.2" y1="-11.8" x2="5" y2="-11.8" width="0.127" layer="21"/>
+<wire x1="5" y1="-11.8" x2="6.3" y2="-10.7" width="0.127" layer="21" curve="90"/>
+<smd name="MT1" x="-5" y="-3.8" dx="1.2" dy="3.8" layer="1"/>
+<smd name="MT2" x="5.475" y="-3.05" dx="1.45" dy="1.4" layer="1"/>
+<smd name="CD1" x="4.775" y="-5.275" dx="0.85" dy="0.95" layer="1" rot="R90"/>
+<smd name="CD2" x="5.7" y="-4.3" dx="0.6" dy="1" layer="1" rot="R90"/>
+<smd name="8" x="-3.85" y="-0.05" dx="0.6" dy="1.25" layer="1"/>
+<smd name="7" x="-2.75" y="-0.05" dx="0.6" dy="1.25" layer="1"/>
+<smd name="6" x="-1.65" y="-0.05" dx="0.6" dy="1.25" layer="1"/>
+<smd name="5" x="-0.55" y="-0.05" dx="0.6" dy="1.25" layer="1"/>
+<smd name="4" x="0.55" y="-0.05" dx="0.6" dy="1.25" layer="1"/>
+<smd name="3" x="1.65" y="-0.05" dx="0.6" dy="1.25" layer="1"/>
+<smd name="2" x="2.75" y="-0.05" dx="0.6" dy="1.25" layer="1"/>
+<smd name="1" x="3.85" y="-0.05" dx="0.6" dy="1.25" layer="1"/>
+<text x="-3.1" y="-3.29" size="1.27" layer="25">&gt;NAME</text>
+<wire x1="4.3" y1="-5.5" x2="-4.4" y2="-5.5" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="ROYAL-ENGINEERS-OF-NABOO-SYM">
@@ -16255,6 +16283,31 @@ NOTE: Will need to disable force field
 <pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="3" x="-2.54" y="-2.54" visible="pad" length="short" direction="pas" function="dot"/>
 </symbol>
+<symbol name="TRANSFLASH">
+<wire x1="-15.24" y1="20.32" x2="-15.24" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-25.4" x2="5.08" y2="20.32" width="0.254" layer="94"/>
+<wire x1="5.08" y1="20.32" x2="-15.24" y2="20.32" width="0.254" layer="94"/>
+<wire x1="-15.24" y1="-22.86" x2="-10.16" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-22.86" x2="-7.62" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-25.4" x2="-5.08" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-25.4" x2="-5.08" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-22.86" x2="-2.54" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-22.86" x2="-2.54" y2="-25.4" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-25.4" x2="5.08" y2="-25.4" width="0.254" layer="94"/>
+<text x="-2.54" y="0" size="2.1844" layer="94" rot="R270">SD &amp; MMC</text>
+<pin name="CS" x="-17.78" y="0" length="short" direction="in"/>
+<pin name="DATA_IN" x="-17.78" y="5.08" length="short" direction="in"/>
+<pin name="VSS" x="-17.78" y="-12.7" length="short" direction="sup"/>
+<pin name="VDD" x="-17.78" y="-10.16" length="short" direction="sup"/>
+<pin name="SCLK" x="-17.78" y="2.54" length="short" direction="in"/>
+<pin name="DATA_OUT" x="-17.78" y="7.62" length="short" direction="out"/>
+<pin name="DAT1" x="-17.78" y="-2.54" length="short"/>
+<pin name="DAT2" x="-17.78" y="-5.08" length="short"/>
+<pin name="CARD_DETECT" x="-17.78" y="17.78" length="short" direction="pas"/>
+<pin name="GND" x="-17.78" y="-20.32" length="short" direction="sup"/>
+<pin name="GND1" x="-17.78" y="-17.78" length="short" direction="sup"/>
+<pin name="CARD_DETECT1" x="-17.78" y="15.24" length="short" direction="pas"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="ROYAL-ENGINEERS-OF-NABOO">
@@ -16777,6 +16830,35 @@ http://arduino.cc/en/Main/ArduinoBoardMega</description>
 <connect gate="A" pin="1" pad="1"/>
 <connect gate="A" pin="2" pad="2"/>
 <connect gate="A" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MICROSD">
+<description>&lt;b&gt;Micro-SD / Transflash card holder with SPI pinout&lt;/b&gt;
+&lt;p&gt;
+For the Molex 0473093751 small-footprint MicroSD holder.</description>
+<gates>
+<gate name="G$1" symbol="TRANSFLASH" x="5.08" y="10.16"/>
+</gates>
+<devices>
+<device name="" package="MICROSD_SMALL">
+<connects>
+<connect gate="G$1" pin="CARD_DETECT" pad="CD1"/>
+<connect gate="G$1" pin="CARD_DETECT1" pad="CD2"/>
+<connect gate="G$1" pin="CS" pad="2"/>
+<connect gate="G$1" pin="DAT1" pad="8"/>
+<connect gate="G$1" pin="DAT2" pad="1"/>
+<connect gate="G$1" pin="DATA_IN" pad="3"/>
+<connect gate="G$1" pin="DATA_OUT" pad="7"/>
+<connect gate="G$1" pin="GND" pad="MT1"/>
+<connect gate="G$1" pin="GND1" pad="MT2"/>
+<connect gate="G$1" pin="SCLK" pad="5"/>
+<connect gate="G$1" pin="VDD" pad="4"/>
+<connect gate="G$1" pin="VSS" pad="6"/>
 </connects>
 <technologies>
 <technology name=""/>
