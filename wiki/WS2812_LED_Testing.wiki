@@ -1,0 +1,17 @@
+#current, temperature and brightness tests for the WS2812 LED's
+
+= Introduction =
+
+Tests were done using the first FLD prototype with 40 WS2812 LEDs spaced 0.25" on center and 0.1uF 0805 caps on the bottom side of the board. LED's were lit pure white and temperature was measured after 5 minutes of continuous lighting (with all LEDs turned on all of the time).
+
+
+= Results =
+
+|| *Minutes* || *All 128* || *Current* ||
+|| 1 || 37C || 470mA ||
+|| 2 || 45C || 470mA ||
+|| 3 || 49C || 470mA ||
+|| 4 || 52C || 470mA ||
+|| 5 || 53C || 470mA ||
+|| 7 || 55C || 470mA ||
+|| 10 || 56.5C || 470mA ||
