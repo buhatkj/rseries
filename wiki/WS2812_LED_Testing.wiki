@@ -7,11 +7,11 @@ Tests were done using the first FLD prototype with 40 WS2812 LEDs spaced 0.25" o
 
 = Results =
 
-|| *Minutes* || *All 128* || *Current* ||
-|| 1 || 37C || 470mA ||
-|| 2 || 45C || 470mA ||
-|| 3 || 49C || 470mA ||
-|| 4 || 52C || 470mA ||
-|| 5 || 53C || 470mA ||
-|| 7 || 55C || 470mA ||
-|| 10 || 56.5C || 470mA ||
+|| *Minutes* || *All 128 (470mA)* || *All 100 (280mA)* ||
+|| 1 || 37C || 33C ||
+|| 2 || 45C || 35C ||
+|| 3 || 49C || 36C ||
+|| 4 || 52C || 36.5C ||
+|| 5 || 53C ||  ||
+|| 7 || 55C ||  ||
+|| 10 || 56.5C ||  ||
