@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.03125" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.0625" altunitdist="inch" altunit="inch"/>
+<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.0625" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -127,15 +127,19 @@
 </layers>
 <board>
 <plain>
-<text x="16.66875" y="44.45" size="1.397" layer="26" font="vector" rot="MR270">+ -</text>
+<text x="23.8125" y="49.2125" size="1.397" layer="26" font="vector" rot="MR270">+ -</text>
 <wire x1="0" y1="0" x2="0" y2="41.275" width="0" layer="20"/>
 <wire x1="0" y1="41.275" x2="123.825" y2="41.275" width="0" layer="20"/>
 <wire x1="123.825" y1="41.275" x2="123.825" y2="0" width="0" layer="20"/>
 <wire x1="123.825" y1="0" x2="0" y2="0" width="0" layer="20"/>
-<hole x="3.96875" y="48.41875" drill="3.1"/>
-<hole x="11.1125" y="46.83125" drill="3.1"/>
+<hole x="61.9125" y="35.8775" drill="3.1"/>
+<hole x="8.255" y="35.8775" drill="3.1"/>
 <text x="125.857" y="19.7485" size="0.889" layer="21" font="vector" distance="35" rot="R90" align="center">Your eyesight will
 return in time</text>
+<hole x="8.255" y="5.3975" drill="3.1"/>
+<hole x="61.9125" y="5.3975" drill="3.1"/>
+<hole x="115.57" y="35.8775" drill="3.1"/>
+<hole x="115.57" y="5.3975" drill="3.1"/>
 </plain>
 <libraries>
 <library name="rseries">
@@ -428,15 +432,15 @@ Please make sure your boards conform to these design rules.</description>
 <element name="C7" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="66.675" y="36.5125" smashed="yes" rot="MR270"/>
 <element name="LED8" library="rseries" package="WS2812" value="WS2812" x="74.6125" y="36.5125"/>
 <element name="C8" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="74.6125" y="34.925" smashed="yes" rot="MR180"/>
-<element name="FID1" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="25.4" y="56.35625"/>
-<element name="FID2" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="13.335" y="56.1975"/>
-<element name="FID3" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="21.43125" y="56.35625"/>
-<element name="FID4" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="4.7625" y="56.35625" rot="MR0"/>
-<element name="FID5" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="17.4625" y="56.35625" rot="MR0"/>
-<element name="FID6" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="8.73125" y="56.35625" rot="MR0"/>
-<element name="IN" library="adafruit" package="1X03" value="" x="8.89" y="38.89375" smashed="yes" rot="R180">
-<attribute name="NAME" x="7.2517" y="40.4622" size="1.143" layer="26" font="vector" ratio="10" rot="MR0"/>
-<attribute name="VALUE" x="12.7" y="42.06875" size="1.27" layer="27" rot="R180"/>
+<element name="FID1" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="121.285" y="38.735"/>
+<element name="FID2" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="2.54" y="2.54"/>
+<element name="FID3" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="2.54" y="38.735"/>
+<element name="FID4" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="2.54" y="2.54" rot="MR0"/>
+<element name="FID5" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="121.285" y="38.735" rot="MR0"/>
+<element name="FID6" library="SparkFun-Aesthetics" package="FIDUCIAL-1.5X3" value="FIDUCIAL1.5X3" x="2.54" y="38.735" rot="MR0"/>
+<element name="IN" library="adafruit" package="1X03" value="" x="15.24" y="35.8775" smashed="yes" rot="R180">
+<attribute name="NAME" x="13.6017" y="37.44595" size="1.143" layer="26" font="vector" ratio="10" rot="MR0"/>
+<attribute name="VALUE" x="19.05" y="39.0525" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="LED9" library="rseries" package="WS2812" value="WS2812" x="80.9625" y="36.5125" rot="R90"/>
 <element name="C9" library="SparkFun-Capacitors" package="0805" value="0.1uF" x="79.375" y="36.5125" smashed="yes" rot="MR270"/>
@@ -1125,7 +1129,7 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="2.7625" y1="15.7625" x2="3.175" y2="16.5625" width="0" layer="19" extent="1-16"/>
 <wire x1="2.7625" y1="28.4625" x2="5.6625" y2="22.225" width="0" layer="19" extent="1-16"/>
 <wire x1="3.175" y1="29.2625" x2="2.7625" y2="28.4625" width="0" layer="19" extent="1-16"/>
-<wire x1="11.43" y1="38.89375" x2="12.0125" y2="28.575" width="0" layer="19" extent="16-16"/>
+<wire x1="17.78" y1="35.8775" x2="12.0125" y2="28.575" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="+5V" class="1">
 <contactref element="C1" pad="1"/>
@@ -1728,12 +1732,12 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="3.0625" y1="13.1125" x2="2.7625" y2="17.4625" width="0" layer="19" extent="1-1"/>
 <wire x1="3.8625" y1="9.525" x2="3.0625" y2="13.1125" width="0" layer="19" extent="1-16"/>
 <wire x1="4.7625" y1="9.1125" x2="3.8625" y2="9.525" width="0" layer="19" extent="1-16"/>
-<wire x1="8.89" y1="38.89375" x2="9.4125" y2="32.1625" width="0" layer="19" extent="1-1"/>
+<wire x1="15.24" y1="35.8775" x2="9.4125" y2="32.1625" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="DIN">
 <contactref element="LED1" pad="DI"/>
 <contactref element="IN" pad="3"/>
-<wire x1="6.35" y1="38.89375" x2="25.8125" y2="36.5125" width="0" layer="19" extent="1-1"/>
+<wire x1="12.7" y1="35.8775" x2="25.8125" y2="36.5125" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$1">
 <contactref element="LED1" pad="DO"/>
