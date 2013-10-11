@@ -654,67 +654,6 @@ Standard 0603 ceramic capacitor, and 0.1" leaded capacitor.</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="SparkFun-Aesthetics">
-<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
-In this library you'll find non-functional items- supply symbols, logos, notations, frame blocks, etc.&lt;br&gt;&lt;br&gt;
-We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
-&lt;br&gt;&lt;br&gt;
-&lt;b&gt;Licensing:&lt;/b&gt; CC v3.0 Share-Alike You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
-<packages>
-<package name="FIDUCIAL-1.5X3">
-<circle x="0" y="0" radius="0.9055" width="1.27" layer="29"/>
-<smd name="1" x="0" y="0" dx="1.5" dy="1.5" layer="1" roundness="100" cream="no"/>
-</package>
-<package name="FIDUCIAL-1X2">
-<smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100" cream="no"/>
-</package>
-<package name="FIDUCIAL-1X2.5">
-<circle x="0" y="0" radius="0.9" width="1.27" layer="29"/>
-<smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100" cream="no"/>
-</package>
-<package name="MICRO-FIDUCIAL">
-<smd name="1" x="0" y="0" dx="0.635" dy="0.635" layer="1" roundness="100" cream="no"/>
-</package>
-</packages>
-<symbols>
-<symbol name="FIDUCIAL">
-<wire x1="-0.762" y1="0.762" x2="0.762" y2="-0.762" width="0.254" layer="94"/>
-<wire x1="0.762" y1="0.762" x2="-0.762" y2="-0.762" width="0.254" layer="94"/>
-<circle x="0" y="0" radius="1.27" width="0.254" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="FIDUCIAL" prefix="FID">
-<description>&lt;b&gt;Fiducial Alignment Points&lt;/b&gt;
-Various fiducial points for machine vision alignment.</description>
-<gates>
-<gate name="G$1" symbol="FIDUCIAL" x="0" y="0"/>
-</gates>
-<devices>
-<device name="1.5X3" package="FIDUCIAL-1.5X3">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="1X2" package="FIDUCIAL-1X2">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="1X2.5" package="FIDUCIAL-1X2.5">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="UFIDUCIAL" package="MICRO-FIDUCIAL">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="adafruit">
 <packages>
 <package name="1X03">
@@ -797,6 +736,45 @@ Various fiducial points for machine vision alignment.</description>
 <connect gate="A" pin="2" pad="2"/>
 <connect gate="A" pin="3" pad="3"/>
 </connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="SmallBatchLibPre1">
+<packages>
+<package name="FIDUCIAL_G15">
+<description>&lt;b&gt;Global Fiducial&lt;/b&gt;&lt;p&gt;
+1.5 MM Diameter&lt;p&gt;
+Vision reference for SMD placement equipment</description>
+<wire x1="0" y1="1.25" x2="0" y2="-1.25" width="0.0508" layer="51"/>
+<wire x1="-1.25" y1="0" x2="1.25" y2="0" width="0.0508" layer="51"/>
+<circle x="0" y="0" radius="0.75" width="0" layer="1"/>
+<circle x="0" y="0" radius="1.25" width="0" layer="29"/>
+<circle x="0" y="0" radius="1.2747" width="0.0508" layer="51"/>
+<circle x="0" y="0" radius="0.7099" width="0" layer="41"/>
+<circle x="0" y="0" radius="1.0606" width="0" layer="41"/>
+<circle x="0" y="0" radius="0.7071" width="0.0508" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="FIDUCIAL">
+<circle x="0" y="0" radius="2.54" width="0.254" layer="94"/>
+<text x="3.302" y="1.27" size="1.778" layer="94">&gt;NAME</text>
+<text x="3.302" y="-2.032" size="1.778" layer="94">&gt;VALUE</text>
+<text x="-0.762" y="-1.016" size="1.778" layer="94">F</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="FIDUCIAL" prefix="FID" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="FIDUCIAL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="FIDUCIAL_G15">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -1018,18 +996,18 @@ Various fiducial points for machine vision alignment.</description>
 <part name="V41" library="supply0" deviceset="+5V" device=""/>
 <part name="GND80" library="supply0" deviceset="GND" device=""/>
 <part name="GND81" library="supply0" deviceset="GND" device=""/>
-<part name="FID1" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
-<part name="FID2" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
-<part name="FID3" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
-<part name="FID4" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
-<part name="FID5" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
-<part name="FID6" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1.5X3"/>
 <part name="IN" library="adafruit" deviceset="PINHD-1X3" device=""/>
 <part name="GND83" library="supply0" deviceset="GND" device=""/>
 <part name="V43" library="supply0" deviceset="+5V" device=""/>
 <part name="OUT" library="adafruit" deviceset="PINHD-1X3" device=""/>
 <part name="GND84" library="supply0" deviceset="GND" device=""/>
 <part name="V44" library="supply0" deviceset="+5V" device=""/>
+<part name="FID7" library="SmallBatchLibPre1" deviceset="FIDUCIAL" device=""/>
+<part name="FID8" library="SmallBatchLibPre1" deviceset="FIDUCIAL" device=""/>
+<part name="FID9" library="SmallBatchLibPre1" deviceset="FIDUCIAL" device=""/>
+<part name="FID10" library="SmallBatchLibPre1" deviceset="FIDUCIAL" device=""/>
+<part name="FID11" library="SmallBatchLibPre1" deviceset="FIDUCIAL" device=""/>
+<part name="FID12" library="SmallBatchLibPre1" deviceset="FIDUCIAL" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1236,18 +1214,18 @@ Various fiducial points for machine vision alignment.</description>
 <instance part="V41" gate="1" x="299.72" y="-15.24"/>
 <instance part="GND80" gate="1" x="314.96" y="-30.48"/>
 <instance part="GND81" gate="1" x="304.8" y="-53.34"/>
-<instance part="FID1" gate="G$1" x="81.28" y="198.12"/>
-<instance part="FID2" gate="G$1" x="91.44" y="198.12"/>
-<instance part="FID3" gate="G$1" x="101.6" y="198.12"/>
-<instance part="FID4" gate="G$1" x="81.28" y="193.04"/>
-<instance part="FID5" gate="G$1" x="91.44" y="193.04"/>
-<instance part="FID6" gate="G$1" x="101.6" y="193.04"/>
 <instance part="IN" gate="A" x="292.1" y="215.9"/>
 <instance part="GND83" gate="1" x="281.94" y="228.6" rot="R180"/>
 <instance part="V43" gate="1" x="274.32" y="215.9" rot="R90"/>
 <instance part="OUT" gate="A" x="322.58" y="215.9"/>
 <instance part="GND84" gate="1" x="312.42" y="228.6" rot="R180"/>
 <instance part="V44" gate="1" x="304.8" y="215.9" rot="R90"/>
+<instance part="FID7" gate="G$1" x="119.38" y="200.66"/>
+<instance part="FID8" gate="G$1" x="132.08" y="200.66"/>
+<instance part="FID9" gate="G$1" x="144.78" y="200.66"/>
+<instance part="FID10" gate="G$1" x="119.38" y="193.04"/>
+<instance part="FID11" gate="G$1" x="132.08" y="193.04"/>
+<instance part="FID12" gate="G$1" x="144.78" y="193.04"/>
 </instances>
 <busses>
 </busses>
