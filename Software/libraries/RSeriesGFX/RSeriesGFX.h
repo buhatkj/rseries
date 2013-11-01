@@ -61,6 +61,26 @@
 #define MENU_INDEX_MAX 20
 
 
+// Minimal class to replace std::vector
+template<typename Data>
+class Vector {
+   size_t d_size; // Stores no. of actually stored objects
+   size_t d_capacity; // Stores allocated capacity
+   Data *d_data; // Stores data
+   public:
+     Vector() : d_size(0), d_capacity(0), d_data(0) {}; // Default constructor
+     Vector(Vector const &other) : d_size(other.d_size), d_capacity(other.d_capacity), d_data(0) { d_data = (Data *)malloc(d_capacity*sizeof(Data)); memcpy(d_data, other.d_data, d_size*sizeof(Data)); }; // Copy constuctor
+     ~Vector() { free(d_data); }; // Destructor
+     Vector &operator=(Vector const &other) { free(d_data); d_size = other.d_size; d_capacity = other.d_capacity; d_data = (Data *)malloc(d_capacity*sizeof(Data)); memcpy(d_data, other.d_data, d_size*sizeof(Data)); return *this; }; // Needed for memory management
+     void push_back(Data const &x) { if (d_capacity == d_size) resize(); d_data[d_size++] = x; }; // Adds new value. If needed, allocates more space
+     size_t size() const { return d_size; }; // Size getter
+     Data const &operator[](size_t idx) const { return d_data[idx]; }; // Const getter
+     Data &operator[](size_t idx) { return d_data[idx]; }; // Changeable getter
+   private:
+     void resize() { d_capacity = d_capacity ? d_capacity*2 : 1; Data *newdata = (Data *)malloc(d_capacity*sizeof(Data)); memcpy(newdata, d_data, d_size * sizeof(Data)); free(d_data); d_data = newdata; };// Allocates double the old space
+};
+
+
 class rsButton{
   public:
   	int x, y, width, height, style, commandCode;
@@ -82,19 +102,27 @@ class rsMenuSet{
   	{
   		currentBtnIdx = 0;
   		currentMenuIdx = 0;
-  		for(int i=0;i<MENU_INDEX_MAX;i++)
-  			buttonCounts[i] = 0;
   	};
 
+    void setMenuCount(int menuCount)
+    {
+      for(int i=0; i<menuCount; i++)
+      {
+        Vector<rsButton> tmp;   
+        buttons.push_back(tmp); 
+      }
+    };
+
   	void addButton(rsButton inButton, int menuIndex){
-  		buttons[menuIndex][buttonCounts[menuIndex]] = inButton;
-  		buttonCounts[menuIndex]++;
+  		buttons[menuIndex].push_back(inButton);
   	};
 
   	void drawButtons(Adafruit_TFTLCD tft)
   	{
-  		for(int i=0;i<buttonCounts[currentMenuIdx];i++)
+      Serial.println("rsMenuSet::drawButtons");
+  		for(int i=0;i<buttons[currentMenuIdx].size();i++)
   		{
+        Serial.println("rsMenuSet::drawButtons - button");
   			buttons[currentMenuIdx][i].draw(tft);
   		}
   	};
@@ -102,21 +130,21 @@ class rsMenuSet{
   	void nextBtn()
   	{ 
 	  	currentBtnIdx++; 
-	  	if(currentBtnIdx >= BTN_INDEX_MAX)
+	  	if(currentBtnIdx >= buttons[currentMenuIdx].size())
 	  		currentBtnIdx = 0;
-	};
+	  };
 
   	void prevBtn()
   	{ 
-		currentBtnIdx--; 
-		if(currentBtnIdx < 0)
-	  		currentBtnIdx = (BTN_INDEX_MAX-1);
-	};
+  		currentBtnIdx--; 
+  		if(currentBtnIdx < 0)
+  	  		currentBtnIdx = (buttons[currentMenuIdx].size()-1);
+	  };
 
   	void nextMenu()
   	{
   		currentMenuIdx++;
-  		if(currentMenuIdx >= MENU_INDEX_MAX)
+  		if(currentMenuIdx >= buttons.size())
 	  		currentMenuIdx = 0;
   	};
 
@@ -124,20 +152,48 @@ class rsMenuSet{
   	{
 	  	currentMenuIdx--;
 	  	if(currentMenuIdx < 0)
-	  		currentMenuIdx = (MENU_INDEX_MAX-1);
-	};
+	  		currentMenuIdx = (buttons.size()-1);
+	  };
+
+    void setMenuIndex(int inIdx)
+    {
+      if((inIdx >= 0)&&(inIdx < buttons.size()))
+      {
+        currentMenuIdx = inIdx;
+      }
+    };
+
+    void checkButtons(Point testPoint)
+    {
+      for(int i=0;i<buttons[currentMenuIdx].size();i++)
+      {
+        buttons[currentMenuIdx][i].checkButton(testPoint);
+      }
+    };
 
   private:	
   	int currentBtnIdx;
   	int currentMenuIdx;
-  	rsButton buttons[MENU_INDEX_MAX][BTN_INDEX_MAX];
-  	int buttonCounts[MENU_INDEX_MAX];
+    Vector<Vector<rsButton> > buttons;
 };
+
+
+// class defaultMenu{
+  
+//   public:
+//     virtual void setup(rsMenuSet &menus);
+//     void setDefaultCallback(void (*inCallback)(int cc));
+
+//   private:
+//     void (*callback)(int cc);
+// };
 
 
 class RSeriesGFX{
   public:
   	RSeriesGFX();
+    void initDisplay();
+    void displayOPTIONS();
   	void displaySCROLL();
   	void displaySPLASH(String owner, String version);
   	void displayBATT(float vin, float vinSTRONG, float vinWEAK);
@@ -157,12 +213,24 @@ class RSeriesGFX{
                      float vinSTRONG, 
                      float vinWEAK);
     void displayRSSI(unsigned long RSSIduration);
+    void clearScreen(){tft.fillScreen(BLACK);};
+    void displaySendClear() { tft.fillRect(80, 21, 220, 17, BLACK); };// Clear Trigger Message
+    void displaySendMessage(int triggerItem);
 
+    void displayPOSTStage1();
+    void displayPOSTStage2();
+    void displayPOSTStage3();
+    void displayPOSTStage4();
+    void displayPOSTStage5();
+
+    void processTouch();
+
+    rsMenuSet menus; //public for debugging
 
   private:
   	TouchScreen ts;
   	Adafruit_TFTLCD tft;
-  	rsMenuSet menus;
+  	//rsMenuSet menus;
   	Point getTouch();
 
 };
