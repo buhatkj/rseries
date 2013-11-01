@@ -62,6 +62,129 @@ void rsButton::draw(Adafruit_TFTLCD tft)
 RSeriesGFX::RSeriesGFX():tft(LCD_CS, LCD_CD, LCD_WR, LCD_RD, LCD_RESET), ts(XP, YP, XM, YM){}
 
 
+void RSeriesGFX::initDisplay()
+{
+  tft.reset();
+  uint16_t identifier = tft.readRegister(0x0);
+  if (identifier == 0x9325) {
+    Serial.println("Found ILI9325");
+  } 
+  else if (identifier == 0x9328) {
+    Serial.println("Found ILI9328");
+  } 
+  else if (identifier == 0x7575) {
+    Serial.println("Found HX8347G");
+  } 
+  else {
+    Serial.print("Unknown driver chip ");
+    Serial.println(identifier, HEX);
+    return;
+  }  
+
+  tft.begin(identifier);
+  tft.setRotation(rotation); 
+  tft.fillScreen(BLACK);
+}
+
+
+void RSeriesGFX::processTouch()
+{
+  menus.checkButtons(getTouch());
+}
+
+void RSeriesGFX::displayOPTIONS()
+{
+  Serial.println("RSeriesGFX::displayOPTIONS");
+  menus.drawButtons(tft);
+}
+
+void RSeriesGFX::displayPOSTStage1()
+{
+  tft.setCursor(0, 0);
+  tft.setTextColor(GREEN);
+  tft.setTextSize(2);
+  tft.println("Testing...");
+  tft.setCursor(20,20);
+  tft.println("Hand Controller:");
+  tft.setCursor(220,20);
+  tft.setTextColor(RED);
+  tft.println("waiting");
+}
+
+
+void RSeriesGFX::displayPOSTStage2()
+{
+  tft.fillRect(220, 20, 100, 17, BLACK);// Clear Waiting Message
+  tft.setCursor(220,20);
+  tft.setTextColor(GREEN);
+  tft.println("OK");
+
+  tft.setTextColor(GREEN);
+  tft.setCursor(20,40);
+  tft.println("Transmitter:");
+  tft.setCursor(220,40);
+  tft.setTextColor(RED);
+  tft.println("waiting");
+}
+
+
+void RSeriesGFX::displayPOSTStage3()
+{
+  tft.fillRect(220, 40, 100, 17, BLACK);// Clear Waiting Message
+  tft.setCursor(220,40);
+  tft.setTextColor(GREEN);
+  tft.println("OK");  
+
+  tft.setTextColor(GREEN);
+  tft.setCursor(20,60);
+  tft.println("Receiver:");
+  tft.setCursor(220,60);
+  tft.setTextColor(RED);
+  tft.println("waiting");
+  tft.setCursor(220,60);
+  tft.setTextColor(GREEN);
+
+  tft.setCursor(220,60);
+}
+
+
+void RSeriesGFX::displayPOSTStage4()
+{
+  tft.fillRect(220, 60, 100, 17, BLACK);// Clear Waiting Message
+  tft.setCursor(220,60);
+  tft.setTextColor(GREEN);
+  tft.println("OK");  
+
+  // Looking for the Volts & Amperage from Receiver (Router)
+  tft.setTextColor(GREEN);
+  tft.setCursor(20,80);
+  tft.println("Telemetry:");
+  tft.setCursor(220,80);
+  tft.setTextColor(RED);
+  tft.println("waiting");
+}
+
+
+void RSeriesGFX::displayPOSTStage5()
+{
+  tft.fillRect(220, 80, 100, 17, BLACK);// Clear Waiting Message
+  tft.setCursor(220,80);
+  tft.setTextColor(GREEN);
+  tft.println("OK");  
+}
+
+
+void RSeriesGFX::displaySendMessage(int triggerItem)
+{
+  tft.setCursor(80, 22);
+  tft.setTextColor(GREEN);
+  tft.setTextSize(2);
+  tft.println("Sending:");
+  tft.setCursor(180, 22);
+  tft.println(int(triggerItem)); // using INT to make the byte readable on the display as a number vs a single byte
+}
+
+
 Point RSeriesGFX::getTouch()
 {
 	Point p = ts.getPoint();
@@ -69,7 +192,7 @@ Point RSeriesGFX::getTouch()
 	if (p.z > ts.pressureThreshhold)
 	{
 		touch.y = map(p.x, TS_MINX, TS_MAXX, 240, 0);        // Notice mapping touchedY to p.x
-    	touch.x = map(p.y, TS_MAXY, TS_MINY, 320, 0);        // Notice mapping touchedX to p.y
+    touch.x = map(p.y, TS_MAXY, TS_MINY, 320, 0);        // Notice mapping touchedX to p.y
 	}
 	return touch;
 }
@@ -296,3 +419,36 @@ void RSeriesGFX::displayRSSI(unsigned long RSSIduration)
     tft.drawFastVLine(121, 1, 13, WHITE);
   }
 }
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////                  DEFAULT menu                  ////////////////////////////////////
+
+// void defaultMenu::setDefaultCallback(void (*inCallback)(int cc))
+// {
+//   callback = inCallback;
+// }
+
+
+// void defaultMenu::setup(rsMenuSet &menus)
+// {
+//   menus.setMenuCount(10);
+
+//   rsButton Alarm = rsButton(70, 40, 100, 30, BTN_STYLE_BOX, TAN, "Alarm", 1, callback);
+//   rsButton Leia = rsButton(70, 70, 100, 30, BTN_STYLE_BOX, TAN, "Leia", 2, callback);
+//   rsButton Failure = rsButton(70, 100, 100, 30, BTN_STYLE_BOX, TAN, "Failure", 3, callback);
+//   rsButton Happy = rsButton(70, 130, 100, 30, BTN_STYLE_BOX, TAN, "Happy", 4, callback);
+//   rsButton Whistle = rsButton(70, 160, 100, 30, BTN_STYLE_BOX, TAN, "Whistle", 5, callback);
+//   rsButton Razzberry = rsButton(70, 190, 100, 30, BTN_STYLE_BOX, TAN, "Razzberry", 6, callback);
+//   rsButton Annoyed = rsButton(70, 220, 100, 30, BTN_STYLE_BOX, TAN, "Annoyed", 7, callback);
+//   menus.addButton(Alarm, 0);
+//   menus.addButton(Leia, 0);
+//   menus.addButton(Failure, 0);
+//   menus.addButton(Happy, 0);
+//   menus.addButton(Whistle, 0);
+//   menus.addButton(Razzberry, 0);
+//   menus.addButton(Annoyed, 0);
+
+// }
