@@ -2,7 +2,7 @@
 #include "RSeriesGFX.h"
 
           
-rsButton::rsButton(int inX, int inY, int inWidth, int inHeight, int inBtnStyle, uint16_t inColor, String inLabel, int inCommandCode, void (*inCallback)(int cc))
+rsButton::rsButton(int inX, int inY, int inWidth, int inHeight, int inBtnStyle, uint16_t inColor, char* inLabel, int inCommandCode, void (*inCallback)(int cc))
 {
 	x = inX;
 	y = inY;
@@ -41,7 +41,7 @@ void rsButton::draw(Adafruit_TFTLCD tft)
 	}
 	else if(style == BTN_STYLE_ROUND_BOX)
 	{
-		tft.drawRoundRect(x, y, width, height,2, color);
+		tft.drawRoundRect(x, y, width, height,5, color);
 	}
 	else if(style == BTN_STYLE_TRIANGLE_UP)
 	{
@@ -51,11 +51,17 @@ void rsButton::draw(Adafruit_TFTLCD tft)
 	{
 		tft.drawTriangle((x+(width/2)), (y+height), x, (y), (x+width), (y), color); 
 	}
-	else if(style == BTN_STYLE_CIRCLE)
+	else if(style == BTN_STYLE_CIRCLE) //these don't look real good, the text doesnt center well...
 	{
 		int r = (width / 2);
 		tft.drawCircle((x+r),(y+r), r, color);
 	}
+
+  // Now draw the button label
+  tft.setTextColor(color);
+  tft.setTextSize(2); // Seems OK to me
+  tft.setCursor(x+5, y+2+(height/2)-10); //small offset to center text better
+  tft.println(label);
 }
 
 
@@ -89,12 +95,28 @@ void RSeriesGFX::initDisplay()
 
 void RSeriesGFX::processTouch()
 {
-  menus.checkButtons(getTouch());
+  Point touch = getTouch();
+  menus.checkButtons(touch);
+  // Now check for scroll events
+  if (touch.y >= 40 && touch.x < 60) {       // Scroll Button Area Touched
+      if (touch.y >=40 && touch.y <=105) {     // Up Arrow Pressed?
+        menus.prevMenu();  
+        displayOPTIONS(); 
+        displaySCROLL();    
+      }                                          // Finshed with Up Arrow
+      if (touch.y >=180 && touch.x < 60) {    // Down Arrow Pressed?
+        menus.nextMenu();
+        displayOPTIONS();
+        displaySCROLL();
+      }                                          // Finished with Down Arrow
+    }                                            // Finished with Scroll Area
 }
 
 void RSeriesGFX::displayOPTIONS()
 {
   Serial.println("RSeriesGFX::displayOPTIONS");
+  tft.fillRect(0, 21, 310, 17, BLACK);   // Clear Message Area and leave scroll indicator
+  tft.fillRect(69, 38, 241, 202, BLACK); // Clear options, leave scroll bar
   menus.drawButtons(tft);
 }
 
@@ -199,6 +221,7 @@ Point RSeriesGFX::getTouch()
 
 
 void RSeriesGFX::displaySCROLL() {                // Display Scroll Buttons
+  tft.fillRect(0, 21, 60, 235, BLACK); // Clear scroll area
   tft.drawTriangle(30, 40,            // Up Scroll Button
   0, 100,
   60,100, BLUE); 
@@ -215,6 +238,10 @@ void RSeriesGFX::displaySCROLL() {                // Display Scroll Buttons
   tft.setTextColor(WHITE);
   tft.setTextSize(2);
   tft.println("DN");
+
+  tft.setCursor(20, 130); // Display current menu page
+  tft.setTextSize(3);
+  tft.println(menus.getMenuPage());
 }
 
 
@@ -283,6 +310,7 @@ void RSeriesGFX::displaySTATUS(
                    float vinSTRONG, 
                    float vinWEAK) 
 {          // This builds the status line at top of display when in normal operation on the controller
+  tft.fillRect(0, 0, 320, 19, BLACK);       // Erase Status area
   tft.setCursor(0, 0);
   tft.setTextColor(color);
   tft.setTextSize(2);
@@ -336,9 +364,6 @@ void RSeriesGFX::displaySTATUS(
   tft.println("A");
 
   tft.drawFastHLine(0, 19, tft.width(), BLUE);
-
-  //lastStatusBarUpdate = millis();        // Could remove this one now..
-  //nextStatusBarUpdate = millis() + updateSTATUSdelay; // Update Status Bar on Display every X + millis();
 }
 
 
@@ -419,36 +444,3 @@ void RSeriesGFX::displayRSSI(unsigned long RSSIduration)
     tft.drawFastVLine(121, 1, 13, WHITE);
   }
 }
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////                  DEFAULT menu                  ////////////////////////////////////
-
-// void defaultMenu::setDefaultCallback(void (*inCallback)(int cc))
-// {
-//   callback = inCallback;
-// }
-
-
-// void defaultMenu::setup(rsMenuSet &menus)
-// {
-//   menus.setMenuCount(10);
-
-//   rsButton Alarm = rsButton(70, 40, 100, 30, BTN_STYLE_BOX, TAN, "Alarm", 1, callback);
-//   rsButton Leia = rsButton(70, 70, 100, 30, BTN_STYLE_BOX, TAN, "Leia", 2, callback);
-//   rsButton Failure = rsButton(70, 100, 100, 30, BTN_STYLE_BOX, TAN, "Failure", 3, callback);
-//   rsButton Happy = rsButton(70, 130, 100, 30, BTN_STYLE_BOX, TAN, "Happy", 4, callback);
-//   rsButton Whistle = rsButton(70, 160, 100, 30, BTN_STYLE_BOX, TAN, "Whistle", 5, callback);
-//   rsButton Razzberry = rsButton(70, 190, 100, 30, BTN_STYLE_BOX, TAN, "Razzberry", 6, callback);
-//   rsButton Annoyed = rsButton(70, 220, 100, 30, BTN_STYLE_BOX, TAN, "Annoyed", 7, callback);
-//   menus.addButton(Alarm, 0);
-//   menus.addButton(Leia, 0);
-//   menus.addButton(Failure, 0);
-//   menus.addButton(Happy, 0);
-//   menus.addButton(Whistle, 0);
-//   menus.addButton(Razzberry, 0);
-//   menus.addButton(Annoyed, 0);
-
-// }

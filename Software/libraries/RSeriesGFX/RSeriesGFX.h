@@ -57,37 +57,18 @@
 #define BTN_STYLE_TRIANGLE_DOWN 4
 #define BTN_STYLE_CIRCLE 5
 
-#define BTN_INDEX_MAX 20
-#define MENU_INDEX_MAX 20
-
-
-// Minimal class to replace std::vector
-template<typename Data>
-class Vector {
-   size_t d_size; // Stores no. of actually stored objects
-   size_t d_capacity; // Stores allocated capacity
-   Data *d_data; // Stores data
-   public:
-     Vector() : d_size(0), d_capacity(0), d_data(0) {}; // Default constructor
-     Vector(Vector const &other) : d_size(other.d_size), d_capacity(other.d_capacity), d_data(0) { d_data = (Data *)malloc(d_capacity*sizeof(Data)); memcpy(d_data, other.d_data, d_size*sizeof(Data)); }; // Copy constuctor
-     ~Vector() { free(d_data); }; // Destructor
-     Vector &operator=(Vector const &other) { free(d_data); d_size = other.d_size; d_capacity = other.d_capacity; d_data = (Data *)malloc(d_capacity*sizeof(Data)); memcpy(d_data, other.d_data, d_size*sizeof(Data)); return *this; }; // Needed for memory management
-     void push_back(Data const &x) { if (d_capacity == d_size) resize(); d_data[d_size++] = x; }; // Adds new value. If needed, allocates more space
-     size_t size() const { return d_size; }; // Size getter
-     Data const &operator[](size_t idx) const { return d_data[idx]; }; // Const getter
-     Data &operator[](size_t idx) { return d_data[idx]; }; // Changeable getter
-   private:
-     void resize() { d_capacity = d_capacity ? d_capacity*2 : 1; Data *newdata = (Data *)malloc(d_capacity*sizeof(Data)); memcpy(newdata, d_data, d_size * sizeof(Data)); free(d_data); d_data = newdata; };// Allocates double the old space
-};
+#define BTN_INDEX_MAX 10
+#define MENU_INDEX_MAX 10
 
 
 class rsButton{
   public:
   	int x, y, width, height, style, commandCode;
   	uint16_t color;
-  	String label;
+  	//String label;
+    char* label;
   	rsButton();
-  	rsButton(int inX, int inY, int inWidth, int inHeight, int inBtnStyle, uint16_t inColor, String inLabel, int inCommandCode, void (*inCallback)(int cc));
+  	rsButton(int inX, int inY, int inWidth, int inHeight, int inBtnStyle, uint16_t inColor, char* inLabel, int inCommandCode, void (*inCallback)(int cc));
   	void checkButton(Point testPoint);
   	void onButton();
   	void draw(Adafruit_TFTLCD tft);
@@ -104,33 +85,33 @@ class rsMenuSet{
   		currentMenuIdx = 0;
   	};
 
-    void setMenuCount(int menuCount)
+    void setMenuCount(int inMenuCount)
     {
-      for(int i=0; i<menuCount; i++)
-      {
-        Vector<rsButton> tmp;   
-        buttons.push_back(tmp); 
+      menuCount = inMenuCount;
+      for(int j=0; j<10;j++){
+        buttonCounts[j] = 0;
       }
     };
 
-  	void addButton(rsButton inButton, int menuIndex){
-  		buttons[menuIndex].push_back(inButton);
+  	void addButton(rsButton *inButton, int menuIndex){
+  		buttons[menuIndex][buttonCounts[menuIndex]] = inButton;
+      buttonCounts[menuIndex]+=1;
   	};
 
   	void drawButtons(Adafruit_TFTLCD tft)
   	{
       Serial.println("rsMenuSet::drawButtons");
-  		for(int i=0;i<buttons[currentMenuIdx].size();i++)
+  		for(int i=0;i<buttonCounts[currentMenuIdx];i++)
   		{
         Serial.println("rsMenuSet::drawButtons - button");
-  			buttons[currentMenuIdx][i].draw(tft);
+  			buttons[currentMenuIdx][i]->draw(tft);
   		}
   	};
 
   	void nextBtn()
   	{ 
 	  	currentBtnIdx++; 
-	  	if(currentBtnIdx >= buttons[currentMenuIdx].size())
+	  	if(currentBtnIdx >= buttonCounts[currentMenuIdx])
 	  		currentBtnIdx = 0;
 	  };
 
@@ -138,13 +119,13 @@ class rsMenuSet{
   	{ 
   		currentBtnIdx--; 
   		if(currentBtnIdx < 0)
-  	  		currentBtnIdx = (buttons[currentMenuIdx].size()-1);
+  	  		currentBtnIdx = (buttonCounts[currentMenuIdx]-1);
 	  };
 
   	void nextMenu()
   	{
   		currentMenuIdx++;
-  		if(currentMenuIdx >= buttons.size())
+  		if(currentMenuIdx >= menuCount)
 	  		currentMenuIdx = 0;
   	};
 
@@ -152,12 +133,12 @@ class rsMenuSet{
   	{
 	  	currentMenuIdx--;
 	  	if(currentMenuIdx < 0)
-	  		currentMenuIdx = (buttons.size()-1);
+	  		currentMenuIdx = (menuCount-1);
 	  };
 
     void setMenuIndex(int inIdx)
     {
-      if((inIdx >= 0)&&(inIdx < buttons.size()))
+      if((inIdx >= 0)&&(inIdx < (menuCount-1) ))
       {
         currentMenuIdx = inIdx;
       }
@@ -165,28 +146,21 @@ class rsMenuSet{
 
     void checkButtons(Point testPoint)
     {
-      for(int i=0;i<buttons[currentMenuIdx].size();i++)
+      for(int i=0;i<buttonCounts[currentMenuIdx];i++)
       {
-        buttons[currentMenuIdx][i].checkButton(testPoint);
+        buttons[currentMenuIdx][i]->checkButton(testPoint);
       }
     };
+
+    int getMenuPage(){ return currentMenuIdx; };
 
   private:	
   	int currentBtnIdx;
   	int currentMenuIdx;
-    Vector<Vector<rsButton> > buttons;
+    rsButton* buttons[MENU_INDEX_MAX][BTN_INDEX_MAX];
+    int buttonCounts[MENU_INDEX_MAX];
+    int menuCount;
 };
-
-
-// class defaultMenu{
-  
-//   public:
-//     virtual void setup(rsMenuSet &menus);
-//     void setDefaultCallback(void (*inCallback)(int cc));
-
-//   private:
-//     void (*callback)(int cc);
-// };
 
 
 class RSeriesGFX{
@@ -225,12 +199,11 @@ class RSeriesGFX{
 
     void processTouch();
 
-    rsMenuSet menus; //public for debugging
+    rsMenuSet menus; //public for now
 
   private:
   	TouchScreen ts;
   	Adafruit_TFTLCD tft;
-  	//rsMenuSet menus;
   	Point getTouch();
 
 };

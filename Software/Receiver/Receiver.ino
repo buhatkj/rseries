@@ -90,26 +90,28 @@ Calculates an Estimated run time = Future
 boolean AudioFX1module = true;     // Set to true if you have installed AudioFX1module on I2C Bus as 4
 boolean AudioFX2module = true;     // Set to true if you have installed AudioFX2module on I2C Bus as 5
 boolean ServoFX1module = true;     // Set to true if you have installed ServoFX1module on I2C Bus as 6
+boolean ShoulderControlmodule = true; // Set to true if you have installed ShoulderControlmodule on I2C Bus as 7
+
+int registeredAddressCount = 4; // Make sure to update this count when you add registered addresses, or your added one will be missed
+int registeredI2CAddresses[] = {
+                                3,   // MP3 Player #1 - Primary Sound FX - R2 Vocal FX
+                                4,   // MP3 Player #2 - Secondary Sound FX - R2 Operational FX
+                                5,   // MP3 Player #3 - Tertiary Sound FX - Soundscapes & Background Music etc.
+                                37,  // Relay controller
+                               };
 
 int xbeebps = 19200; // Bits Per Second (baud). Avoid 57600 Arduino UNO issue.
-
 XBee xbee = XBee();
 XBeeResponse response = XBeeResponse();
 // create reusable response objects for responses we expect to handle 
 ZBRxResponse rx = ZBRxResponse();
 ModemStatusResponse msr = ModemStatusResponse();
 
-
 // SH + SL Address of receiving XBee (Since this the receiver code, we need to use Controller address
 XBeeAddress64 addr64 = XBeeAddress64(0x0013a200, 0x4098b5e1); // Destination (Controller) address
-
 uint8_t payload[] = { '0', '0', '0', '0', '0', '0'}; // Our XBee Payload of 6 values (rxVCC=2, rxVCA=2, future=2)
-
-
 ZBTxRequest zbTx = ZBTxRequest(addr64, payload, sizeof(payload));
 ZBTxStatusResponse txStatus = ZBTxStatusResponse();
-
-
 byte xbAPIidResponse = 0x00;
 
 Servo chan1servo;       // create servo object to control a servo 
@@ -123,7 +125,6 @@ Servo chan8servo;       // create servo object to control a servo -- Due to the 
 Servo chan9servo;       // create servo object to control a servo -- via the i2C bus
 Servo chan10servo;      // create servo object to control a servo -- to add unlimited servos
 
-
 // Define which digital pins on the arduino are for servo data signals 
 int servo1Pin = 2;    // Channel 1 - Left Right                joyx
 int servo2Pin = 3;    // Channel 2 - Forward & Reverse Speed   joyy
@@ -136,14 +137,10 @@ int servo8Pin = 10;   // Channel 8
 int servo9Pin = 11;   // Channel 9
 int servo10Pin = 12;  // Channel 10
 
-
-
-
 // Servo Center Adjustment 
 int chan1Center = 90;   // Channel 1 - Left Right  
 int chan2Center = 90;   // Channel 2 - Forward & Reverse Speed
 int chan3Center = 85;   // Channel 3 - Dome Rotation 
-
 
 // Channel Adjustment 
 int chan1Adjust = 0;    // Channel 1 - Left Right  
@@ -165,7 +162,6 @@ int chan1Width = 16;    // Channel 1 - Left Right
 int chan2Width = 16;    // Channel 2 - Forward & Reverse Speed
 int chan3Width = 16;    // Channel 3 - Dome Rotation 
 
-
                         // End Points Channel Adjustment 
 int chan1Min = 30;      // Channel 1 Min - Left Right  
 int chan1Max = 220;     // Channel 1 Max - Left Right
@@ -174,50 +170,31 @@ int chan2Max = 220;     // Channel 2 Max - Forward & Reverse Speed
 int chan3Min = 100;      // Channel 3 Min - Dome Rotation LEFT 
 int chan3Max = 87;     // Channel 3 Max - Dome Rotation RIGHT
 
-
-
 int loop_cnt=0;
-
 byte joyx, joyy, accx, accy, accz, zbut, cbut;
-
 int triggerEvent;
-
 unsigned long timeEvent = 0;
 unsigned long timeEventElapsed = 0;
 unsigned long timeEventLast = 0;
-
 //byte triggerEventMSB;
 //byte triggerEventLSB;
 byte triggerFX1item;  // Used for Sound FX on FX Module #1
 byte triggerFX2item;  // Used for Sound FX on FX Module #2
-
 boolean domerotation = false;
 boolean rxpacketstart = false;     // RX Packet Start
-
 byte telemetryVCCMSB;    // MSB of Voltage VCC
 byte telemetryVCCLSB;    // LSB of Voltage VCC
- 
 byte telemetryVCAMSB;    // MSB of Current VCA
 byte telemetryVCALSB;    // LSB of Current VCA
-
 unsigned int rxVCC = 0;
 unsigned int rxVCA = 0;
-
 int rxErrorCount = 0;
-
 int analogVCCinput = 5; // RSeries Receiver default VCC input is A5
 float R1 = 47000.0;     // >> resistance of R1 in ohms << the more accurate these values are
 float R2 = 24000.0;     // >> resistance of R2 in ohms << the more accurate the measurement will be
 float vout = 0.0;       // for voltage out measured analog input
 int VCCvalue = 0;          // used to hold the analog value coming out of the voltage divider
 float vin = 0.0;        // voltage calulcated... since the divider allows for 15 volts
-
-
-boolean DroidRACEmode = false;    // LEAVE set to false - triggered by triggerEvent=250, triggerEvent=254 sets it back to false
-boolean DroidRACEstart = false;   // LEAVE set to false - triggered by forward JOYX & JOYY>100 from controller
-
-// long timeEvent =0
-
 
 void setup() {  
   xbee.setSerial(Serial1);                     // Setup xbee to use Serial1
@@ -235,52 +212,38 @@ void setup() {
 //  chan8servo.attach(servo8Pin);  // create servo object to control a servo 
 //  chan9servo.attach(servo9Pin);  // create servo object to control a servo 
 //  chan10servo.attach(servo10Pin);// create servo object to control a servo 
-
   chan1servo.write(chan1Center);      // Update Channel 1 servo 
   chan2servo.write(chan2Center);      // Update Channel 2 servo
   chan3servo.write(chan3Center);      // Update Channel 3 servo
   delay(50);                   // Allow servos to move
-
-  
   pinMode(analogVCCinput, INPUT);
-
-
 //Serial.println("Starting up debug...");        // DEBUG CODE
-
 }
 
 // continuously reads packets, looking for ZB Receive or Modem Status
 void loop() {
   loop_cnt++;
   timeEvent=millis();
-  
-  
   if (loop_cnt > 50) {                      // Every 50 loops send a telemetry packet to controller  
       sendTelemetry();                      // Send the telemetry to the controller
        loop_cnt = 0;                        // Reset loop_cnt to 0
   }
-//  Serial.println("Sent zbTx & zerod loop_cnt");         // DEBUG CODE
- 
+  //  Serial.println("Sent zbTx & zerod loop_cnt");         // DEBUG CODE
   // after sending a tx request, we expect a status response
   // wait up to half second for the status response
-
   xbee.readPacket(100);        // Allow 100 msec to see if Xbee packet is available
-
-//  Serial.print("1 XBee Response= >>>   ");Serial.println(xbee.getResponse().getApiId(), HEX);  // DEBUG CODE
- 
+  //  Serial.print("1 XBee Response= >>>   ");Serial.println(xbee.getResponse().getApiId(), HEX);  // DEBUG CODE
   if (xbee.getResponse().getApiId() == ZB_RX_RESPONSE) {
     rxErrorCount=0;
-    xbee.getResponse().getZBRxResponse(rx);
-       
+    xbee.getResponse().getZBRxResponse(rx);  
     int joyx = rx.getData()[0];    // Left Right
     int joyy = rx.getData()[1];    // Fwd Back
     int accx = rx.getData()[2];    // Dome
-//    int accy = rx.getData()[3];  // Nunchuk Y Acceleramator 
-//    int accz = rx.getData()[4];  // Nunchuk Z Acceleramator
+    //    int accy = rx.getData()[3];  // Nunchuk Y Acceleramator 
+    //    int accz = rx.getData()[4];  // Nunchuk Z Acceleramator
     triggerEvent = rx.getData()[7];// TriggerEvent
-//    int futureEvent = rx.getData()[8]; // Future Event Payload
-
-                                                                                // DEBUG CODE
+    //    int futureEvent = rx.getData()[8]; // Future Event Payload
+    
     Serial.print(">> joyx =");Serial.print(joyx);                                 // DEBUG CODE
     Serial.print("\tjoyy =");Serial.print(joyy);                                  // DEBUG CODE
     Serial.print("\taccx =");Serial.print(accx);                                  // DEBUG CODE
@@ -288,135 +251,72 @@ void loop() {
     Serial.print("\taccz =");Serial.print(accz);                                  // DEBUG CODE
     Serial.print("\ttriggerEvent =");Serial.println(triggerEvent);                // DEBUG CODE
 
-
-
-// Dome Rotation FX
-    if (AudioFX2module==true) {
-      if (accx == 60 && domerotation==false) {triggerFX2item = 200; domerotation = true; sendAudioFX2();}    
-        else if (accx == 120 && domerotation==false) {triggerFX2item = 201; domerotation = true; sendAudioFX2();}
-        else if (accx == 90 && domerotation==true) {triggerFX2item = 202; domerotation = false; sendAudioFX2();}  // Dome Rotation Stop FX
-    }
-
-// Dome Rotation Reversal Code & Adjustment 
-if (accx == 90) {accx=chan3Neutral;} // Neutral
-if (accx == 120) {accx=chan3Max;}    // Right
-if (accx == 60) {accx=chan3Min;}     // Left
-
-//    Serial.print("\taccx =");Serial.print(accx);                                  // DEBUG CODE
-
- 
+    // Dome Rotation Reversal Code & Adjustment 
+    if (accx == 90) {accx=chan3Neutral;} // Neutral
+    if (accx == 120) {accx=chan3Max;}    // Right
+    if (accx == 60) {accx=chan3Min;}     // Left
+    //    Serial.print("\taccx =");Serial.print(accx);                                  // DEBUG CODE
     chan1servo.write(joyx);      // Update Channel 1 servo 
     chan2servo.write(joyy);      // Update Channel 2 servo
     chan3servo.write(accx);      // Update Channel 3 servo
     delay(50);                   // Allow servos to move
-    if (triggerEvent > 0 && AudioFX1module==true) {sendAudioFX1();} // if AudioFX1Module is installed, send every event
-    if (ServoFX1module==true && triggerEvent > 0) {sendServoFX1();} // if ServoFX1Module is installed, send every event
- 
-    //---------------------- Install DroidRACEmode Code Below ---------------------- 
- 
-    if (triggerEvent == 27 && AudioFX2module==true) {triggerFX2item = 250; sendAudioFX2(); DroidRACEmode=true; DroidRACEstart=false;timeEventLast=millis();} // if AudioFX2Module is installed, send event   
-    if (triggerEvent == 28 && AudioFX2module==true) {triggerFX2item = 254; sendAudioFX2(); DroidRACEmode=false;DroidRACEstart=false;} // if AudioFX2Module is installed, send event     
-
-    timeEventElapsed=timeEvent-timeEventLast;
+    if (triggerEvent > 0) {sendAllLocalI2C();} // Forward all commands to all local registered I2C addresses
     
-    if (DroidRACEmode == true && timeEventElapsed > 1000) {
-      if (joyy > 130 && DroidRACEstart==false) {triggerFX2item = 251; sendAudioFX2(); DroidRACEstart=true;timeEventLast=millis();} // Race start
-      else if (joyx > 120 && DroidRACEstart==true) {triggerEvent = 252; sendAudioFX1();timeEventLast=millis();} // RIGHT Tire Skid FX
-      else if (joyx < 60 && DroidRACEstart==true) {triggerEvent = 253; sendAudioFX1();timeEventLast=millis();}  // LEFT Tire Skid FX
-      else if (joyy < 10 && DroidRACEstart==true) {triggerFX2item = 254; sendAudioFX2(); DroidRACEstart=false; DroidRACEmode=false;} // Stop Race Mode FX
-    }
-    // Stop Race Mode FX
-    //------------------------ End DroidRACEmode Code Above ------------------------ 
- 
-    //---------------------- Install Addtional Module Code Below ---------------------- 
- 
- 
-   
-   
-    //------------------------ End Addtional Module Code Above ------------------------ 
-    
-  } else if (xbee.getResponse().getApiId() == MODEM_STATUS_RESPONSE) {
-        xbee.getResponse().getModemStatusResponse(msr);
-        // the local XBee sends this response on certain events, like association/dissociation
-        if (msr.getStatus() == COORDINATOR_STARTED) {
+  }else if (xbee.getResponse().getApiId() == MODEM_STATUS_RESPONSE) {
+     xbee.getResponse().getModemStatusResponse(msr);
+     // the local XBee sends this response on certain events, like association/dissociation
+     if (msr.getStatus() == COORDINATOR_STARTED) {
+        rxErrorCount = 0;
+        //Serial.println("COORDINATOR_STARTED");                //DEBUG CODE
+      }else if (msr.getStatus() == ASSOCIATED) {
           rxErrorCount = 0;
-          //Serial.println("COORDINATOR_STARTED");                //DEBUG CODE
-        } else if (msr.getStatus() == ASSOCIATED) {
-            rxErrorCount = 0;
-            //Serial.println("ASSOCIATED");                       //DEBUG CODE
-        } else if (msr.getStatus() == DISASSOCIATED) {
-            rxErrorCount++;
-            //Serial.println("DISASSOCIATED");                    //DEBUG CODE
-        } else if (msr.getStatus() == SYNCHRONIZATION_LOST) {
-            rxErrorCount++;
-            //Serial.println("SYNCHRONIZATION_LOST");             //DEBUG CODE
-          }  
-      } else if (xbee.getResponse().isError()) {
-        rxErrorCount++;
-//        Serial.print("Error reading packet.  Error code: ");    //DEBUG CODE
-//        Serial.println(xbee.getResponse().getErrorCode());      //DEBUG CODE
-  }
-  if (rxErrorCount > 20) {failsafe();}  // If rxErrorCoun
+          //Serial.println("ASSOCIATED");                       //DEBUG CODE
+      }else if (msr.getStatus() == DISASSOCIATED) {
+          rxErrorCount++;
+          //Serial.println("DISASSOCIATED");                    //DEBUG CODE
+      }else if (msr.getStatus() == SYNCHRONIZATION_LOST) {
+          rxErrorCount++;
+          //Serial.println("SYNCHRONIZATION_LOST");             //DEBUG CODE
+      }  
+   }else if (xbee.getResponse().isError()) {
+      rxErrorCount++;
+      //        Serial.print("Error reading packet.  Error code: ");    //DEBUG CODE
+      //        Serial.println(xbee.getResponse().getErrorCode());      //DEBUG CODE
+   }
+   if (rxErrorCount > 20) {failsafe();}  // If rxErrorCoun
 }
 
 void failsafe() { //  go into failsafe mode and require a restart.
-
-        chan1servo.write(chan1Neutral);       // Update Chanel 1 servo 
-        chan2servo.write(chan2Neutral);       // Update Chanel 2 servo
-        chan3servo.write(chan3Neutral);       // Update Chanel 3 servo
-
+    chan1servo.write(chan1Neutral);       // Update Chanel 1 servo 
+    chan2servo.write(chan2Neutral);       // Update Chanel 2 servo
+    chan3servo.write(chan3Neutral);       // Update Chanel 3 servo
 //        Serial.println("Receiver went into failsafe mode.");  //DEBUG CODE
-
-        while(1){                   // Loop here until restart.
-        }
+    while(1){ }                  // Loop here until restart.
 }
 
-void sendAudioFX1() {
-        Wire.beginTransmission(4);  // transmit to device #4 which is the Audio FX#1 rMP3
-        Wire.write(triggerEvent);   // sends Trigger Event LSB 
-        Wire.endTransmission();     // stop transmitting
+void sendAllLocalI2C(){
+  for(int i=0; i < registeredAddressCount; i++){
+    Wire.beginTransmission(registeredI2CAddresses[i]);  // transmit to device address
+    Wire.write(triggerEvent);   // sends Trigger Event
+    Wire.endTransmission();     // stop transmitting
+  } 
 }
-
-void sendAudioFX2() {
-        Wire.beginTransmission(5);  // transmit to device #5 which is the Audio FX#2 Module rMP3
-        Wire.write(triggerFX2item); // sends Trigger Event LSB 
-        Wire.endTransmission();     // stop transmitting
-}
-
-void sendServoFX1() {
-        Wire.beginTransmission(6);  // transmit to device #6 which is the Servo FX#1 Module rMP3
-        Wire.write(triggerEvent);   // sends Trigger Event LSB 
-        Wire.endTransmission();     // stop transmitting
-}
-
-  
 
 void sendTelemetry() {  
   getVCC();
   getVCA();
-  
  //Serial.print("rxVCC=");  Serial.print(rxVCC);     // DEBUG CODE
  //Serial.print("\trxVCA=");  Serial.println(rxVCA); // DEBUG CODE
-
  // Take the value of stored in rxVCC & rxVCA, and convert them to MSB & LSB 2 bytes via a bitshift operation 
-
-
 //    telemetryVCAMSB = highByte(rxVCA);
 //    telemetryVCALSB = lowByte(rxVCA);
-
-
 //    telemetryVCCMSB = highByte(rxVCC);
 //    telemetryVCCLSB = lowByte(rxVCC);
-
-
-
     telemetryVCAMSB = (rxVCA >> 8) & 0xFF;  
     telemetryVCALSB = rxVCA & 0xFF;
 
     telemetryVCCMSB = (rxVCC >> 8) & 0xFF;  
     telemetryVCCLSB = rxVCC & 0xFF;
-
-
 /*
     Serial.print("rxVCC =");Serial.print(rxVCC);                        // DEBUG CODE                                          // DEBUG CODE
     Serial.print("\trxVCA =");Serial.print(rxVCA);                      // DEBUG CODE
