@@ -52,6 +52,7 @@ I2C Addresses are in decimal
   * 34 Magnetic Rear Grappler
   * 35 TBA
   * 36 Brooks Booster FX
+  * 37 Quad relay controller (tentative)
 
   * 64 Servo I2C #1 DOME (RSeries, AdaFruit) PCA9685 - Dome Servos #1 (16 servos) A40S0 to A40S15 4 Dome Panels, 6 Pie Panels 3 HP (2 Servos Each)
   * 65 Servo I2C #2 DOME (RSeries, AdaFruit)  PCA9685 - Dome Servos #2 (16 servos)
