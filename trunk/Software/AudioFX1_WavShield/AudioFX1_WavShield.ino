@@ -136,7 +136,8 @@ void waitForSound()
   // Allow sounds to play to completion
   while (snd.wave.isplaying) 
   {
-      delay(100);
+    x = 0;
+    delay(100);
   }
 }
 
@@ -147,6 +148,7 @@ void playSoundCommand()
   {
     if(allSounds[i].commandCode == x)
     {
+      x = 0;
       strcpy (path, allSounds[i].fileName);               // copy filename char variable, to path
       if(allSounds[i].fileCount > 0)
       {
