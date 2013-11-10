@@ -606,6 +606,7 @@ void TXdata() {      // Build & TX Payload Packet
   payload[8]=0x00;           // 25 - Future USE
   // Frame Data Payload END
   xbee.send(zbTx);
+  triggeritem = 0;
 }  
 
 
