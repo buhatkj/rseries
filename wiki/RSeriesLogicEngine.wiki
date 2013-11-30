@@ -1,0 +1,29 @@
+#summary Overview of the RSeries Logic Engine system.
+
+= Introduction =
+The RSeries Logic Engine combines Arduino, RGB LEDs and fiber-optics to accurately emulate the color-wheel logic patterns seen in the original Star Wars trilogy.
+
+At it's heart is an AVR Board (with Arduino Pro Mini bootloader) which runs a series of WS2812B LEDs. These RGB LEDs cross-fade between set colors. For example the Front logic LEDs fade from black to blue to white and back again. As it arrives at each "key" color, that LED is paused for a random length of time - this creates constantly evolving color patterns that appear almost random at first glance.
+
+Fiber-optic cable is used to route the light from each LED to specific 'pixels' on the logic bezel, which is what is finally seen on your droid. 
+
+= Assembly =
+- video goes here -
+
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/Logic_Engine_Parts.png]
+
+= Standard Settings =
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LogicEngineAVRBoard.png]
+
+The AVR board can be set to produce standard R2-D2 logic colors and speeds for both the Front (FLD) and Rear (RLD) Logic Displays.
+
+By default the AVR board will output FLD colors (black, blues, whites) & speeds. Placing a jumper/shunt on the *S4* pin switches it to RLD mode (slower black, greens, yellows, reds).
+
+= Custom Settings =
+The *BRIGHT* and *COLOR* trimpots on the AVR board are used to adjust global brightness and hue values of all LEDs.
+
+Using a small screwdriver to turn the *BRIGHT* trimpot completely counter-clockwise sets the LEDs to their darkest levels (ie black). Turning the *BRIGHT* trimpot slowly clockwise will increase brightness until the maximum brightness is achieved. This maximum brightness value is set to 50% of the LED's possible brightness. This limit is in place to keep current consumption and heat generation down, and also to prevent anyone from being blinded (they're insanely bright at 100%!!). To bypass this safety feature and get 100% brightness a jumper may be placed on the S2 pin - this not recommended for long periods of time so do so at your own risk.
+
+Similarly turning the *COLOR* trimpot completely counter-clockwise sets the color palette to their default hues (FLD will be black/blue/white, RLD will be black/green/yellow/red). Slowly turning the *COLOR* trimpot clockwise will shift the hues of all colors through the full color spectrum, finally arriving at the same default hues again when turned completely clockwise. 
+
+Additionally, if different speeds are desired a jumper can be placed on the *S3* pin to enable the *DELAY* and *FADE* trimpots. Delay controls how long each key color is paused for. Fade controls how long each "tween" color is paused for - this adjusts how long each key color takes to cross-fade into the next color. When turned completely counter-clockwise the LEDs will behave fastest, turning clockwise slows the LEDs.
