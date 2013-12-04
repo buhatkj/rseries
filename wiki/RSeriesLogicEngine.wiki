@@ -8,8 +8,6 @@ At it's heart is an AVR Board (with Arduino Pro Mini bootloader) which runs a se
 Fiber-optic cable is used to route the light from each LED to specific 'pixels' on the logic bezel, which is what is finally seen on your droid. 
 
 = Assembly =
-- video goes here -
-
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/Logic_Engine_Parts.png]
 
 = Standard Settings =
@@ -37,3 +35,6 @@ In order to pack all the LEDs to closely on the PCBs, they have been wired in a 
 <img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/Logic-Engine-LED-board-front.png" width="210">
 <a href="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/Logic-Engine-LED-board-rear.png">
 <img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/Logic-Engine-LED-board-rear.png" width="400">
+
+= Where'd this come from? =
+These logics are the result of a couple of years of tinkering and development. The Teeces logics are great, but the PWM fading seen in JEDI logics was always a much sought after feature. I worked with John (Teeces) for some time to come up with a method of making fadeable logics. We discovered that it may be possible via software PWM, but would require whole new logic boards. I then discovered that by using bi-color LEDs we could have LEDs fade between colors, much like the original trilogy logics - however, the LEDs couldn't be placed close enough to each other so fiber optic cable was required to get correct spacing. Then I discovered Rainbowduino's and built [https://www.youtube.com/watch?v=Z9KnvJx7TDs those RGB logics seen at DroidCon2]. There, Michael Erwin and Brett Bourbin convinced me to rework the design from scratch to better suit our needs - in doing so the RSeries Logic Engine was born.
