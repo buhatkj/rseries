@@ -8,9 +8,38 @@ At it's heart is an AVR Board (with Arduino Uno bootloader) which runs a series 
 Fiber-optic cable is used to route the light from each LED to specific 'pixels' on the logic bezel, which is what is finally seen on your droid. 
 
 = Assembly =
-(detailed assembly instructions to follow)
-[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/Logic_Engine_Parts.png]
+== Front Master ==
+This is the front logic that's connected directly to the AVR Board. It is intended to mount the AVR Board directly to the back of the LED board. If you'd rather mount the AVR Board elsewhere (and connect to the LED board with a 3-pin cable), ignore these instructions and assemble the Front Master with exactly the same hardware as the Front Slave below.
 
+*Hardware Required:*
+ * (2) 40mm M3 screws
+ * (2) 3/4" spacers
+ * (4) 1/8" spacers
+ * (3) washers
+ * (2) M3 threaded brass inserts
+
+== Front Slave ==
+This is the front logic that is connected to the Front Master via a 3-pin cable.
+
+*Hardware Required:*
+ * (2) 35mm M3 screws
+ * (2) 3/4" spacers
+ * (2) 1/8" spacers
+ * (4) washers
+ * (2) M3 threaded brass inserts
+== Rear ==
+(detailed assembly instructions to follow)
+== Mounting To Logic Surrounds ==
+*Hardware Required:*
+ * (14) M3 set screws (12mm or 16mm long)
+ * (14) M3 hex nuts
+
+Screw the set screws into the mounting holes of the logic surrounds (4 for each front logic, 6 for the rear logic). Tighten using a small hex key.
+
+Place the logic engine assembly in place. The set screws will go through the clear screen and logic bezel, leaving enough thread to be secured with the hex nuts.
+
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/Logic_Engine_Parts.png]
+----
 = Standard Settings =
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LogicEngineAVRBoard.png]
 
