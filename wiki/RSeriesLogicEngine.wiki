@@ -40,10 +40,16 @@ Place the logic engine assembly in place. The set screws will go through the cle
 
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/Logic_Engine_Parts.png]
 ----
+= Powering =
+The AVR board features an efficient regulator module that is capable of supplying plenty of current (up to 2.25A) to the AVR and LED boards. It can take an input voltage between +6V and +17V, so you can safely connect power from a 12V battery.
+
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/avr_powering.png]
+
 = Standard Settings =
-[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LogicEngineAVRBoard.png]
 
 The AVR board can be set to produce standard R2-D2 logic colors and speeds for both the Front (FLD) and Rear (RLD) Logic Displays.
+
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/avr_mode.png]
 
 By default the AVR board will output FLD colors (black, blues, whites) & speeds. Placing a jumper/shunt on the *S4* pin switches it to RLD mode (slower black, greens, yellows, reds).
 
@@ -54,7 +60,18 @@ Using a small screwdriver to turn the *BRIGHT* trimpot completely counter-clockw
 
 Similarly turning the *COLOR* trimpot completely counter-clockwise sets the color palette to their default hues (FLD will be black/blue/white, RLD will be black/green/yellow/red). Slowly turning the *COLOR* trimpot clockwise will shift the hues of all colors through the full color spectrum, finally arriving at the same default hues again when turned completely clockwise. 
 
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/avr_speed.png]
+
 Additionally, if different speeds are desired a jumper can be placed on the *S3* pin to enable the *DELAY* and *FADE* trimpots. Delay controls how long each key color is paused for. Fade controls how long each "tween" color is paused for - this adjusts how long each key color takes to cross-fade into the next color. When turned completely counter-clockwise the LEDs will behave fastest, turning clockwise slows the LEDs.
+
+Additional custom settings (such as specific color palettes) may be set by editing the settings.txt file on the microSD card. The microSD card is optional and not needed for basic functionality.
+
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/avr_microsd.png]
+
+= Reprogramming =
+For basic functionality, the AVR board should never need to be reprogrammed. If, however, a future update should be released or you just like to play with the code, the AVR board can be reprogrammed using the Arduino IDE and an FTDI adapter. In the Arduino IDE software you should select 'Arduino UNO' from the Tools->Board menu.
+  
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/avr_ftdi.png]
 
 = Development Notes =
 This system is basically an Arduino running a bunch of WS2812B LEDs. WS2812B's require only one data wire from a microcontroller to run dozens (maybe hundreds) of the RGB LEDs. We use functions from the [https://code.google.com/p/fastspi FastSPI_LED2 Library] to control all the LEDs, assigning them HSV (Hue Saturation Value) color values and address each LED in the order it is wired.
