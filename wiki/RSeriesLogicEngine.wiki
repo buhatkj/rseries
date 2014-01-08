@@ -8,6 +8,14 @@ At it's heart is an AVR Board (with Arduino Uno bootloader) which runs a series 
 Fiber-optic cable is used to route the light from each LED to specific 'pixels' on the logic bezel, which is what is finally seen on your droid. 
 
 = Assembly =
+== Overview ==
+The circuit boards come fully assembled, but you'll need to spend a little time putting them together with the fiber optics before they're ready to be installed in your dome. Assembly is simple, but can take a little time so set an evening aside to get everything together. The general procedure is...
+
+ # Inner screen, inner bezel and outer bezel are attached to the LED boards using screws and spacers.
+ # Fiber-optic cable is threaded through the outer bezel and into the inner bezel so it points directly at an LED.
+ # Once positioned the fiber-optic cable is trimmed to size at the outer bezel. A sharp wire-cutter should be used here to trim the end of the fiber flush with the bezel.
+ # With all fiber-optics placed the AVR board is mounted to the back of the LED board and we're done!
+
 == Front Master ==
 This is the front logic that's connected directly to the AVR Board. It is intended to mount the AVR Board directly to the back of the LED board. If you'd rather mount the AVR Board elsewhere (and connect to the LED board with a 3-pin cable), ignore these instructions and assemble the Front Master with exactly the same hardware as the Front Slave below.
 
@@ -28,7 +36,18 @@ This is the front logic that is connected to the Front Master via a 3-pin cable.
  * (4) washers
  * (2) M3 threaded brass inserts
 == Rear ==
-(detailed assembly instructions to follow)
+Again, while assembling the rear logic it is safer to leave the AVR board detached from the LED boards. The AVR board can be connected to the LED board during assembly using a 3-pin cable. Once the fiber-optics are in place the AVR board can be mounted to the back of the LED boards if you so wish.
+
+The fiber optic cables on the rear should be placed in a specific way to ensure that everyone has their logics mapped identically. To make this simpler I have built in a 'Testpattern Mode' into the code. On the Rear AVR board, remove the S3 jumper (if it exists) and turn the DELAY trimmer completely counter-clockwise. Restart and you should see a color pattern like this...
+
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/rld_pattern.png]
+
+Now, starting from the center and working outwards, fibers should be routed through the outer bezel and into the inner bezel so the color pattern on the outer bezel ends up looking like this...
+
+[https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/rld_patternbez.png]
+
+The outer-most fibers shown in blue and pink will be the trickiest to position, so take extra care (and time) with those.
+
 == Mounting To Logic Surrounds ==
 *Hardware Required:*
  * (14) M3 set screws (12mm or 16mm long)
