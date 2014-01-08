@@ -92,6 +92,8 @@ For basic functionality, the AVR board should never need to be reprogrammed. If,
 
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/avr_ftdi.png]
 
+The basic Arduino sketches are available on the repository [https://code.google.com/p/rseries-open-control/source/browse/trunk#trunk%2FSoftware%2FLogicEngine here].
+
 = Development Notes =
 This system is basically an Arduino running a bunch of WS2812B LEDs. WS2812B's require only one data wire from a microcontroller to run dozens (maybe hundreds) of the RGB LEDs. We use functions from the [https://code.google.com/p/fastspi FastSPI_LED2 Library] to control all the LEDs, assigning them HSV (Hue Saturation Value) color values and address each LED in the order it is wired.
 
