@@ -7,7 +7,7 @@
 //  Uses the FastSPI_LED2 library : https://code.google.com/p/fastspi/downloads/detail?name=FastSPI_LED2.RC5.zip
 //
 //   revision history...
-//   2014-01-08 : Removed debug options to free up some RAM. Fixed rldMap.
+//   2014-01-08 : Removed debug options to free up some RAM. Fixed rldMap. Fixed fldMap.
 //   2014-01-07 : Added 'Testpattern Mode' to aid assembly of the Rear Logic
 //
 //
@@ -31,7 +31,7 @@ CRGB leds[NUM_LEDS];
 byte Tweens=6;
 byte tweenPause=7; // time to delay each tween color (aka fadeyness)
 int keyPause=450; // time to delay each key color (aka pauseyness)
-byte maxBrightness=128; // 0-255, usually no need to go over 128 (current and heat increases exponentially)
+byte maxBrightness=255; // 0-255, usually no need to go over 128 (current and heat increases exponentially)
 
 int keyPin = A0; //analog pin to read keyPause value
 int tweenPin = A1; //analog pin to read tweenPause value 
@@ -80,13 +80,13 @@ byte fldMap[80]={
 16,17,18,19,20,21,22,23,
 31,30,29,28,27,26,25,24,
 32,33,34,35,36,37,38,39,
-40,41,42,43,44,45,46,47,
+47,46,45,44,43,42,41,40,
 
-55,54,53,52,51,50,49,48,
-56,57,58,59,60,61,62,63,
-71,70,69,68,67,66,65,64,
+88,89,90,91,92,93,94,95,
+87,86,85,84,83,82,81,80,
 72,73,74,75,76,77,78,79,
-87,86,85,84,83,82,81,80
+71,70,69,68,67,66,65,64,
+56,57,58,59,60,61,62,63
 };
 #endif
 
@@ -173,11 +173,7 @@ void setup() {
         2,3,3,3,3,2,2,2,
         1,1,1,1,1,1,1,1};
         //go through all our LEDs, setting them to appropriate colors
-        //byte y;
         for(byte x=0;x<96;x++) {
-           //if (x>47)  y=x-48;
-           //else y=x;
-           //y=x;
            if (testColor[x]==1) leds[x] = CRGB::DarkRed;
            if (testColor[x]==2) leds[x] = CRGB::DarkOrange;
            if (testColor[x]==3) leds[x] = CRGB::DarkGreen;
@@ -212,19 +208,21 @@ void setup() {
         if (logic==1) {
           //RLD STARTUP
           leds[rldMap[x]] = CRGB::Green;
-          if ((x+1)%24==0) { delay(250); FastLED.show(); }
+          FastLED.show();
+          delay(10);
         }  
         else {
           //FLD STARTUP
-          if (fldMap[x]>7 && fldMap[x]<88) { //not all LEDs in the array are used for the FLD
+          if (x<80) { //not all LEDs in the array are used for the FLD
             leds[fldMap[x]] = CRGB::Blue;
-            if ((x+1)%8==0) { delay(100); FastLED.show(); } 
+            FastLED.show();
+            delay(10);
           }         
         } 
              
-      }  
+      }
       
-      delay(1000); 
+      delay(100); 
 }
 
 
@@ -314,11 +312,23 @@ void loop() {
     loopCount++;    
     
     //go through each LED and update it 
-    for(byte LEDnum=0;LEDnum<NUM_LEDS;LEDnum++) {
+    /*for(byte LEDnum=0;LEDnum<NUM_LEDS;LEDnum++) {
       if (logic==1) updateLED(rldMap[LEDnum]);  
-      else if (fldMap[LEDnum]>7 && fldMap[LEDnum]<88) updateLED(fldMap[LEDnum]); 
+      else if (fldMap[LEDnum]>7 && fldMap[LEDnum]<88) { updateLED(fldMap[LEDnum]); }
+    }  */
+    
+    if (logic==1) {
+      for(byte LEDnum=0;LEDnum<96;LEDnum++) updateLED(rldMap[LEDnum]);        
     }  
+    else {
+      for(byte LEDnum=0;LEDnum<80;LEDnum++) {
+        updateLED(fldMap[LEDnum]);
+        //if (loopCount==LOOPCHECK-1) Serial.println(String(LEDnum)+" "+String(fldMap[LEDnum]));
+      }
+    }
+    
     FastLED.show();
+    //if (loopCount==LOOPCHECK-1) delay(5000);
     //delay(20);
 }
 
