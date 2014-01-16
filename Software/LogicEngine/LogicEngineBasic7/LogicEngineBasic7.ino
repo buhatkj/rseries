@@ -79,7 +79,7 @@ int huePin = A3; //analog pin to read Color/Hue shift value
 
 byte totalColors,Keys; //
 
-byte AllColors[64][3]; // a big array to hold all original KeyColors and all Tween colors
+byte AllColors[45][3]; // a big array to hold all original KeyColors and all Tween colors
 byte LEDstat[96][3]; // an array holding the current color number of each LED, its direction and pausetime
 boolean speeds=0; //0 for preset, 1 for tweakable (depends on speedpin)
 boolean logic=0; //0 for fld, 1 for rld (depends on togglepin)
@@ -124,8 +124,12 @@ const byte fldMap[]PROGMEM = {
 
 //default colors also get stored in flash memory...
 const byte fldColors[6][3]PROGMEM = { {170,0,0} , {170,255,54} , {170,255,120} , {166,255,200} , {154,84,150} , {174,0,200} };
-//const byte rldColors[6][3] = { {87,0,0}  , {87,206,105} , {79,255,214}  , {43,255,250}  , {25,255,214} , {0,255,214} }; 
 const byte rldColors[5][3]PROGMEM = { {87,0,0} , {87,206,105} , {79,255,184} , {18,255,250} , {0,255,214} };
+
+//experimental microSD stuff
+/*#include <SD.h>
+const int chipSelect = 10; //digital pin used for microSD
+File myFile;*/
 
 void setup() {      
       
@@ -192,7 +196,6 @@ void setup() {
           }  
         }  
       }
-      //memcpy(oColors,AllColors,totalColors*3); //copy AllColors to oColors (AllColors can shift, oColors never changes)
       /*#if (DEBUG>1)
       // print all the colors
       for(byte x=0;x<totalColors;x++) {
@@ -224,11 +227,7 @@ void setup() {
         2,3,3,3,3,2,2,2,
         1,1,1,1,1,1,1,1};
         //go through all our LEDs, setting them to appropriate colors
-        //byte y;
         for(byte x=0;x<96;x++) {
-           //if (x>47)  y=x-48;
-           //else y=x;
-           //y=x;
            if (testColor[x]==1) leds[x] = CRGB::DarkRed;
            if (testColor[x]==2) leds[x] = CRGB::DarkOrange;
            if (testColor[x]==3) leds[x] = CRGB::DarkGreen;
@@ -255,21 +254,17 @@ void setup() {
         else if (x<80) leds[pgm_read_byte(&fldMap[x])].setHSV(AllColors[LEDstat[x][0]][0],AllColors[LEDstat[x][0]][1],AllColors[LEDstat[x][0]][2]) ; 
         FastLED.show(); 
         delay(10);
-        /*if (x>0) leds[x-1].setHSV(0,0,0);
-        if (x==NUM_LEDS-1 && logic==1) leds[x].setHSV(0,0,0);*/
       }
   
       //do a startup animation of some sort
       for(byte x=0;x<NUM_LEDS;x++) {
         if (logic==1) {
           //RLD STARTUP
-          //leds[pgm_read_byte(&rldMap[x])].setHSV(AllColors[LEDstat[pgm_read_byte(&rldMap[x])][0]][0],AllColors[LEDstat[pgm_read_byte(&rldMap[x])][0]][1],AllColors[LEDstat[pgm_read_byte(&rldMap[x])][0]][2]);
           leds[pgm_read_byte(&rldMap[x])] = CRGB::Green;
           if ((x+1)%24==0) { delay(200); FastLED.show(); }
         }  
         else {
           //FLD STARTUP
-          //leds[pgm_read_byte(&fldMap[x])].setHSV(AllColors[LEDstat[pgm_read_byte(&fldMap[x])][0]][0],AllColors[LEDstat[pgm_read_byte(&fldMap[x])][0]][1],AllColors[LEDstat[pgm_read_byte(&fldMap[x])][0]][2]);
           #if defined(PROTOFLD)
           if (pgm_read_byte(&fldMap[x])<80) { //not all LEDs in the array are used for the FLD
           #else
