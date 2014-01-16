@@ -9,10 +9,10 @@
 //   revision history...
 //   2014-01-15 : Optimizing memory to make way for the SD card's wretched 512 byte buffer.
 //                Moved rldMap, fldMap, rldColors & fldColors out of SRAM and into flash memory.
+//                Eliminated oColors array (adjusted hues are now calculated individually by updateLED instead of all at once).
 //                Added debug option to report available SRAM.
-//                Need to move oColors to flash too, or eliminate it completely (maybe try passing hueVal to upadeLED).
-//                Need to write the makeColors function.    
-//                Need to reduce LEDstat size (direction can be combined with color number)
+//                Need to write the makeColors function and a few small helpers for updateLED.    
+//                Need to reduce LEDstat size (direction can be combined with color number to save 64 bytes)
 //   2014-01-12 : Fixed prototype FLD bug
 //   2014-01-08 : Removed debug options to free up some RAM. Fixed rldMap. Fixed fldMap.
 //   2014-01-07 : Added 'Testpattern Mode' to aid assembly of the Rear Logic
@@ -56,11 +56,11 @@
 #define SPEEDPIN 3
 
 //debug will print a bunch of stuff to serial. useful, but takes up valuable memory and may slow down routines a little
-#define DEBUG 1 //0=off, 1=only report available memoty, 2=report lots of stuff, 3=slow the main loop down
+#define DEBUG 1 //0=off, 1=only report available memory, 2=report lots of stuff, 3=slow the main loop down
 
 #define PROTOFLD //uncomment this line if your FLD boards have only 40 LEDs (final versions have 48 LEDs)
 
-#define LOOPCHECK 50 //number of loops after which we'll check the pot values
+#define LOOPCHECK 20 //number of loops after which we'll check the pot values
 
 #include "FastSPI_LED2.h"
 #define NUM_LEDS 96 //absolute max number of LEDs possible (we use numLeds for actual number used later)
@@ -69,8 +69,8 @@ CRGB leds[NUM_LEDS];
 
 byte Tweens=6;
 byte tweenPause=7; // time to delay each tween color (aka fadeyness)
-int keyPause=450; // time to delay each key color (aka pauseyness)
-byte maxBrightness=128; // 0-255, no need to ever go over 100
+int keyPause=350; // time to delay each key color (aka pauseyness)
+byte maxBrightness=255; // 0-255, no need to ever go over 128
 
 int keyPin = A0; //analog pin to read keyPause value
 int tweenPin = A1; //analog pin to read tweenPause value 
@@ -80,7 +80,6 @@ int huePin = A3; //analog pin to read Color/Hue shift value
 byte totalColors,Keys; //
 
 byte AllColors[64][3]; // a big array to hold all original KeyColors and all Tween colors
-byte oColors[64][3]; // will hold a copy of the original colors, useful when shifting hues
 byte LEDstat[96][3]; // an array holding the current color number of each LED, its direction and pausetime
 boolean speeds=0; //0 for preset, 1 for tweakable (depends on speedpin)
 boolean logic=0; //0 for fld, 1 for rld (depends on togglepin)
@@ -193,7 +192,7 @@ void setup() {
           }  
         }  
       }
-      memcpy(oColors,AllColors,totalColors*3); //copy AllColors to oColors (AllColors can shift, oColors never changes)
+      //memcpy(oColors,AllColors,totalColors*3); //copy AllColors to oColors (AllColors can shift, oColors never changes)
       /*#if (DEBUG>1)
       // print all the colors
       for(byte x=0;x<totalColors;x++) {
@@ -302,8 +301,7 @@ int memoryFree() {
 }
 #endif
 
-
-void updateLED(byte LEDnum) {
+void updateLED(byte LEDnum, byte hueVal) {
     //this will take an LED number and adjust its status in the LEDstat array
     //check the current color this LED is set to...
     //unsigned int currentColor=LEDstat[LEDnum];  
@@ -315,7 +313,11 @@ void updateLED(byte LEDnum) {
         //LED had 0 pause time, let's change things around...
         if (LEDstat[LEDnum][1]==0 && LEDstat[LEDnum][0]<(totalColors-1)) {
             LEDstat[LEDnum][0]=LEDstat[LEDnum][0]+1; //change it to next color
-            leds[LEDnum].setHSV(AllColors[LEDstat[LEDnum][0]][0],AllColors[LEDstat[LEDnum][0]][1],AllColors[LEDstat[LEDnum][0]][2]);
+            //adjust hue...
+            byte hue=AllColors[LEDstat[LEDnum][0]][0]+hueVal;
+            if (hue+hueVal>255) hue=hue+hueVal-255;
+            else hue=hue+hueVal;
+            leds[LEDnum].setHSV(hue,AllColors[LEDstat[LEDnum][0]][1],AllColors[LEDstat[LEDnum][0]][2]);
             if (LEDstat[LEDnum][0]%(Keys+1)==0) LEDstat[LEDnum][2]=random(keyPause); //color is a key, set its pause time for longer than tweens
             else LEDstat[LEDnum][2]=random(tweenPause);
         }
@@ -324,7 +326,11 @@ void updateLED(byte LEDnum) {
         }
         else if (LEDstat[LEDnum][1]==1 && LEDstat[LEDnum][0]>0) {
             LEDstat[LEDnum][0]=LEDstat[LEDnum][0]-1; //change it to previous color
-            leds[LEDnum].setHSV(AllColors[LEDstat[LEDnum][0]][0],AllColors[LEDstat[LEDnum][0]][1],AllColors[LEDstat[LEDnum][0]][2]);
+            //adjust hue...
+            byte hue=AllColors[LEDstat[LEDnum][0]][0];
+            if (hue+hueVal>255) hue=hue+hueVal-255;
+            else hue=hue+hueVal;
+            leds[LEDnum].setHSV(hue,AllColors[LEDstat[LEDnum][0]][1],AllColors[LEDstat[LEDnum][0]][2]);
             if (LEDstat[LEDnum][0]%(Keys+1)==0) {
               LEDstat[LEDnum][2]=random(keyPause); //new color is a key, set LED's pause time for longer than tweens
             }
@@ -338,10 +344,26 @@ void updateLED(byte LEDnum) {
 
 
 unsigned int loopCount;
-byte briVal,prevBri,briDiff,hueVal,prevHue,hueDiff;
+byte briVal,prevBri,briDiff,hueVal;
+#if (DEBUG>1)
+unsigned long time;
+#endif
 void loop() {
   
+    /*#if (DEBUG>1)
+    if (loopCount==1) time=millis();
+    #endif*/
+  
     if (loopCount==LOOPCHECK) { //only check this stuff every 100 or so loops
+       
+       #if (DEBUG>0) 
+       Serial.println(String(memoryFree())); // print the free memory  
+       #endif
+       #if (DEBUG>1)
+       time=(micros()-time)/(LOOPCHECK-1);
+       Serial.println("lps "+String(1000000/time)+"\n");
+       time=micros();
+       #endif
               
        if (speeds==1) {
          /*#if (DEBUG>1)
@@ -351,38 +373,8 @@ void loop() {
          tweenPause = round(analogRead(tweenPin)/10);
        }
        
-
-       // LET THE USER SHIFT THE HUES OF ALL COLORS...
-       hueVal = round(analogRead(huePin)/4); 
-       /*#if (DEBUG>1)
-       Serial.println("hueVal is "+String(hueVal)+"\n"); 
-       #endif*/
-       hueDiff=(max(hueVal,prevHue)-min(hueVal,prevHue)); 
-       if (hueDiff>=2) {
-          #if defined(DEBUG)
-          Serial.println(memoryFree()); // print the free memory 
-          delay(1000); 
-          #endif
-           /*#if (DEBUG>1)
-           Serial.println("hueDiff "+String(hueDiff));  
-           //Serial.println("Adjusting TweakedColors...\n");
-           #endif*/      
-           for(int color=0;color<totalColors;color++) {     
-               //go through all the colors in the colors array and give them new Hue values (based on the original color + )  
-               AllColors[color][0]=oColors[color][0]+hueVal;
-               if (AllColors[color][0]>=255) AllColors[color][0]=AllColors[color][0]-255;    
-           }       
-       }
-       prevHue=hueVal;
-       prevBri=briVal;         
-
-       
        // LET THE USER ADJUST GLOBAL BRIGHTNESS... 
-       briVal = (round(analogRead(briPin)/4)*maxBrightness)/255; //the pot will give a value between 0 and 1024, we need to divide this down to something between 0 and our maxBrightness
-       /*#if (DEBUG>1)
-       Serial.println("briVal "+String(briVal)); 
-       delay(200);
-       #endif*/
+       briVal = (round(analogRead(briPin)/4)*maxBrightness)/255; //the Bright trimpot has a value between 0 and 1024, we divide this down to between 0 and our maxBrightness
        if (briVal!=prevBri) {
          briDiff=(max(briVal,prevBri)-min(briVal,prevBri)); 
          if (briDiff>=2) {
@@ -397,21 +389,16 @@ void loop() {
        loopCount=0;       
     }
     
-    #if (DEBUG>1)
-    if (loopCount%LOOPCHECK==0) {
-      Serial.println(String(loopCount));
-      Serial.println(memoryFree()); // print the free memory  
-    }  
-    #endif
     loopCount++;    
     
+    hueVal = round(analogRead(huePin)/4); //read the Color trimpot (gets passed to updateLED for each LED)
     //go through each LED and update it 
     for(byte LEDnum=0;LEDnum<NUM_LEDS;LEDnum++) {
-      if (logic==1) updateLED(pgm_read_byte(&rldMap[LEDnum]));
+      if (logic==1) updateLED(pgm_read_byte(&rldMap[LEDnum]),hueVal);
       #if defined(PROTOFLD)
-      else if (LEDnum<80) updateLED(pgm_read_byte(&fldMap[LEDnum])); 
+      else if (LEDnum<80) updateLED(pgm_read_byte(&fldMap[LEDnum]),hueVal); 
       #else
-      else if (pgm_read_byte(&fldMap[LEDnum])>7 && pgm_read_byte(&fldMap[LEDnum])<88) updateLED(pgm_read_byte(&fldMap[LEDnum])); 
+      else if (pgm_read_byte(&fldMap[LEDnum])>7 && pgm_read_byte(&fldMap[LEDnum])<88) updateLED(pgm_read_byte(&fldMap[LEDnum]),hueVal); 
       #endif
     }  
     FastLED.show();
