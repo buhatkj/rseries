@@ -7,7 +7,7 @@
 //  Uses the FastSPI_LED2 library : https://code.google.com/p/fastspi/downloads/detail?name=FastSPI_LED2.RC5.zip
 //
 //   revision history...
-//   2014-01-15 : Added memoryFree() function to report available RAM.
+//   2014-01-15 : Added memoryFree() function to report available RAM and a loops-per-second check.
 //   2014-01-12 : Fixed prototype FLD bug
 //   2014-01-08 : Removed debug options to free up some RAM. Fixed rldMap. Fixed fldMap.
 //   2014-01-07 : Added 'Testpattern Mode' to aid assembly of the Rear Logic
@@ -20,9 +20,9 @@
 #define SPEEDPIN 3
 
 //debug will print a bunch of stuff to serial. useful, but takes up valuable memory and may slow down routines a little
-//#define DEBUG
+#define DEBUG
 
-//#define PROTOFLD //uncomment this line if your FLD boards have only 40 LEDs (final versions have 48 LEDs)
+#define PROTOFLD //uncomment this line if your FLD boards have only 40 LEDs (final versions have 48 LEDs)
 
 #define LOOPCHECK 50 //number of loops after which we'll check the pot values
 
@@ -99,12 +99,12 @@ byte fldMap[80]={
 
 void setup() {
       
-      // sanity check delay - allows reprogramming if accidently blowing power w/leds
-      //delay(50);
+      // sanity check delay
+      delay(50);
       randomSeed(analogRead(0)); //helps keep random numbers more random  
       #if defined(DEBUG)
       Serial.begin(9600);      
-      Serial.println(String(totalColors)+" colors");     
+      //Serial.println(String(totalColors)+" colors");     
       #endif      
       
       pinMode(TOGGLEPIN, INPUT);
@@ -112,7 +112,7 @@ void setup() {
       logic=digitalRead(TOGGLEPIN);      
       if (logic==1) {
         #if defined(DEBUG)
-        Serial.println("PIN TOGGLEPIN HIGH : RLD");
+        Serial.println("RLD");
         #endif
         //logic=1;
         //numLeds=96;
@@ -123,7 +123,7 @@ void setup() {
       }  
       else {
         #if defined(DEBUG)
-        Serial.println("PIN TOGGLEPIN LOW : FLD");
+        Serial.println("FLD");
         #endif
         //numLeds=80; 
         Keys=sizeof(fldColors)/3;        
@@ -131,7 +131,7 @@ void setup() {
       
       #if defined(DEBUG)
       // print all the colors
-      Serial.println(String(Keys)+" key colors");
+      Serial.println(String(Keys)+" keys");
       delay(250);
       #endif
       
@@ -145,7 +145,7 @@ void setup() {
       if (digitalRead(SPEEDPIN)==HIGH) {
         speeds=1;  
         #if defined(DEBUG)
-        Serial.println("SPEEDS TWEAKABLE");
+        Serial.println("SPD");
         #endif
       }  
       
@@ -259,7 +259,7 @@ void setup() {
       
 	  #if defined(DEBUG)
 	  Serial.println(memoryFree()); // print the free memory 
-      delay(1000); 
+          //delay(1000); 
 	  #endif
 }
 
@@ -313,10 +313,20 @@ void updateLED(byte LEDnum) {
 
 unsigned int loopCount;
 byte briVal,prevBri,briDiff,hueVal,prevHue,hueDiff;
+#if defined(DEBUG)
+unsigned long time;
+#endif
 void loop() {
   
     if (loopCount==LOOPCHECK) { //only check this stuff every 100 or so loops
               
+        #if defined(DEBUG)
+        Serial.println(memoryFree()); // print the free memory 
+        time=(micros()-time)/(LOOPCHECK-1);
+        Serial.println("lps "+String(1000000/time)+"\n");
+        time=micros();
+	#endif
+
        if (speeds==1) {
          /*#if defined(DEBUG)
          Serial.println("checking key and tween pots\n"); 
@@ -334,8 +344,7 @@ void loop() {
        hueDiff=(max(hueVal,prevHue)-min(hueVal,prevHue)); 
        if (hueDiff>=2) {
            #if defined(DEBUG)
-           Serial.println("hueDiff is "+String(hueDiff));  
-           Serial.println("Adjusting TweakedColors...\n");
+           Serial.println("Hdif "+String(hueDiff));  
            #endif      
            for(int color=0;color<totalColors;color++) {     
                //go through all the colors in the colors array and give them new Hue values (based on the original color + )  
@@ -357,7 +366,7 @@ void loop() {
          briDiff=(max(briVal,prevBri)-min(briVal,prevBri)); 
          if (briDiff>=2) {
              #if defined(DEBUG)
-             Serial.println("Setting brightness to "+String(briVal)+"...\n"); 
+             Serial.println("Bri "+String(briVal)+"...\n"); 
              //delay(100);
              #endif
              FastLED.setBrightness(briVal); //sets the overall brightness
@@ -383,9 +392,7 @@ void loop() {
     }  
     FastLED.show();
 	
-	#if defined(DEBUG)
-	if (loopCount==(LOOPCHECK-1)) Serial.println(memoryFree()); // print the free memory 
-	#endif
+	
     //delay(20);
 }
 
