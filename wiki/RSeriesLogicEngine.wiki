@@ -37,12 +37,25 @@ This is the upper front logic and connects directly to the AVR Board. The LED bo
 
 To help diffuse the LED colors, lightly sand both sides of the inner bezel before assembly. 300-500 grit sandpaper should do the trick. Wipe all dust away afterwards.
 
-Line up all the plastic parts with the LED PCB (the one with two sets of pins) to ensure they're all the correct way up. 
+Line up all the plastic parts with the LED PCB (the one with two sets of pins) to ensure they're all the correct way up.
 
-||Determine which side of the outer bezel will face out; we'll call this the front surface. Remove any paper liner from the front surface. Flip the bezel around so the back surface is facing up, then place the two brass inserts into their holes. Push them into place with some light force - a pliers may be used to squeeze them into place.||https://lh3.googleusercontent.com/-lSwxLmfYTJs/Ust0pwu70ZI/AAAAAAABxVE/lgt9h2CPcmM/w240/IMAG1748.jpg||
-||Put plastic washers on both 35mm screws and position the screws through the PCB, inner screen and inner bezel. Then stack two washers, one 1/8" spacer and one 3/4" spacer onto each screw. Ensuring that you have the outer bezel positioned the correct way up, drive the two screws into the bezels brass inserts. Once secured, ensure that the screws don't protrude beyond the front surface of the bezel - if they do unscrew them and add a washer or two to the spacers.||https://lh4.googleusercontent.com/-Z_ehUj8IfkQ/Us6R84SdHJI/AAAAAAABxeY/7La_YN8uUYc/w240/IMAG1799.jpg||
-||Take the bundle of fiber-optic cable and cut a tiny amount from the end to create a nice flat end with all fibers visible. A razor blade or sharp wire cutter can be used for this.||https://lh4.googleusercontent.com/-RDuUFvauTmg/Ust0p-yiRvI/AAAAAAABxV8/TRxXGX0yKFI/w240/IMAG1773.jpg||
-||Starting from the middle row, thread the end of the fiber-optic cable through a hole in the front surface of the outer bezel. A small needle-nose pliers or strong tweezers can be used to pull the cable through inside and position it into the corresponding hole of the inner bezel. Ensure that the cable is seated fully into the inner bezel.||[https://lh5.googleusercontent.com/-0gcoMXwQhKA/Ust0p_rlzRI/AAAAAAABxVE/3qp-HiTYi78/w240/IMAG1775.jpg]_[https://lh4.googleusercontent.com/-w62-2OKtRu8/Ust0p46Y0SI/AAAAAAABxVE/MKU5CbP7U-Y/w240/IMAG1776.jpg]_[https://lh6.googleusercontent.com/-wY8NQ3916oM/Ust0p7WAuGI/AAAAAAABxVE/wv7yBIuIXVg/w240/IMAG1777.jpg]||
+Determine which side of the outer bezel will face out; we'll call this the front surface. Remove any paper liner from the front surface. Flip the bezel around so the back surface is facing up, then place the two brass inserts into their holes. Push them into place with some light force - a pliers may be used to squeeze them into place.
+
+https://lh3.googleusercontent.com/-lSwxLmfYTJs/Ust0pwu70ZI/AAAAAAABxVE/lgt9h2CPcmM/w240/IMAG1748.jpg
+
+Put plastic washers on both 35mm screws and position the screws through the PCB, inner screen and inner bezel. Then stack two washers, one 1/8" spacer and one 3/4" spacer onto each screw. Ensuring that you have the outer bezel positioned the correct way up, drive the two screws into the bezels brass inserts. Once secured, ensure that the screws don't protrude beyond the front surface of the bezel - if they do unscrew them and add a washer or two to the spacers.<br>Note: Optionally, to keep the assembly as compact as possible it is possible to use only the 3/4" spacer between the bezels though this makes positioning fibers a little trickier.
+
+https://lh4.googleusercontent.com/-Z_ehUj8IfkQ/Us6R84SdHJI/AAAAAAABxeY/7La_YN8uUYc/w240/IMAG1799.jpg
+
+Take the bundle of fiber-optic cable and cut a tiny amount from the end to create a nice flat end with all fibers visible. A razor blade or sharp wire cutter can be used for this.
+
+https://lh4.googleusercontent.com/-RDuUFvauTmg/Ust0p-yiRvI/AAAAAAABxV8/TRxXGX0yKFI/w240/IMAG1773.jpg
+
+Starting from the middle row, thread the end of the fiber-optic cable through a hole in the front surface of the outer bezel. A small needle-nose pliers or strong tweezers can be used to pull the cable through inside and position it into the corresponding hole of the inner bezel. Ensure that the cable is seated fully into the inner bezel.
+
+https://lh5.googleusercontent.com/-0gcoMXwQhKA/Ust0p_rlzRI/AAAAAAABxVE/3qp-HiTYi78/w240/IMAG1775.jpg
+https://lh4.googleusercontent.com/-w62-2OKtRu8/Ust0p46Y0SI/AAAAAAABxVE/MKU5CbP7U-Y/w240/IMAG1776.jpg
+https://lh6.googleusercontent.com/-wY8NQ3916oM/Ust0p7WAuGI/AAAAAAABxVE/wv7yBIuIXVg/w240/IMAG1777.jpg
 
 Use a sharp flush-cutter to trim the fiber-optic cable bundle as close to the outer bezel as possible. After trimming the end of the remaining cable may appear "pinched" from the cutter so it may be necessary to trim a tiny portion of cable again (using a razor or sharp wire cutter).
 
