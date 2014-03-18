@@ -18,11 +18,11 @@ The circuit boards come fully assembled, but you'll need to spend a little time 
 
 === `*` <font color=red>Important Assembly Notes</font> `*` ===
 <font color=red>
-*!* The plastic bezels are laser-cut and holes have a slight taper. This results in "fiber holes" that are slightly larger in diameter on one side. When assembling the bezels & screens these larger holes should face outward to make inserting the fiber-optic cable simpler.
+*!* The plastic bezels are laser-cut and holes have a slight taper. This results in "fiber holes" that are slightly larger in diameter on one side. When assembling the bezels & screens these larger holes should face outward to make inserting the fiber-optic cable simpler. Bezels are _NOT symmetric_, so double check that you have them oriented the correct way up and correct way out.
 
-*!* The screws used to space the outer bezel away from the inner bezel should not protrude beyond the outer bezel. If you find that the end of your screws do poke out beyond the plastic of the outer bezel, dis-assemble and add some washers to increase spacing before you start placing any fiber-optics.
+*!* The screws used to space the outer bezel away from the inner bezel should not protrude beyond the outer bezel. If you find that the end of your screws do poke out beyond the plastic of the outer bezel, dis-assemble and add some washers to increase spacing before you start placing any fiber-optics. If left protruding these screws can clash with the mounting hardware of the rear logic surround in the dome and cause you headaches down the line.
 
-*!* Mounting the AVR board to the back of an LED board can create a short if not done carefully. To be safe, trim down the back of the soldered Teeces pins so they're almost flush with the PCB surface, then cover them with a small piece of electrical tape.
+*!* Mounting the AVR board to the back of an LED board can create a short if not done carefully. To be safe, trim down the back of the soldered Teeces pins so they're almost flush with the PCB surface, then cover them with a small piece of electrical tape. You may want to do the same with the OUT pins of the LED boards as an extra precaution.
 </font>
 
 == Front Master ==
@@ -37,7 +37,9 @@ This is the upper front logic and connects directly to the AVR Board. The LED bo
 
 Line up all the plastic parts with the LED PCB (the one with two sets of pins) to ensure they're all the correct way up. 
 
-Determine which side of the outer bezel will face out; we'll call this the front surface. Flip the bezel around so the back surface is facing up, then place the two brass inserts into their holes. Push them into place with some light force - a pliers may be used to squeeze them into place.
+Determine which side of the outer bezel will face out; we'll call this the front surface. Remove any paper liner from the front surface. Flip the bezel around so the back surface is facing up, then place the two brass inserts into their holes. Push them into place with some light force - a pliers may be used to squeeze them into place.
+
+Place plastic washers on both 35mm screws and position the screws through the PCB, inner screen and inner bezel. Stack two washers, one 1/8" spacer and one 3/4" spacer onto each screw.
 
 A small needle-nose pliers or strong tweezers can be used to position the fiber-optic cable into the inner bezel. Use a sharp flush-cutter to trim the fiber-optic cable as close to the bezel as possible. After trimming the end of the remaining cable may appear "pinched" from the cutter so it may be necessary to trim a tiny portion of cable to ensure light can get to all the fiber ends.
 
