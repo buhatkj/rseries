@@ -16,14 +16,23 @@ The circuit boards come fully assembled, but you'll need to spend a little time 
  # Once positioned the fiber-optic cable is trimmed to size at the outer bezel. A sharp wire-cutter should be used here to trim the end of the fiber flush with the bezel.
  # With all fiber-optics placed the AVR board is mounted to the back of the LED board and we're done!
 
+=== `*` <font color=red>Important Assembly Notes</font> `*` ===
+<font color=red>
+*!* The plastic bezels are laser-cut and holes have a slight taper. This results in "fiber holes" that are slightly larger in diameter on one side. When assembling the bezels & screens these larger holes should face outward to make inserting the fiber-optic cable simpler.
+
+*!* The screws used to space the outer bezel away from the inner bezel should not protrude beyond the outer bezel. If you find that the end of your screws do poke out beyond the plastic of the outer bezel, dis-assemble and add some washers to increase spacing before you start placing any fiber-optics.
+
+*!* Mounting the AVR board to the back of an LED board can create a short if not done carefully. To be safe, trim down the back of the soldered Teeces pins so they're almost flush with the PCB surface, then cover them with a small piece of electrical tape.
+</font>
+
 == Front Master ==
-This is the front logic that's connected directly to the AVR Board. It is intended to mount the AVR Board directly to the back of the LED board. If you'd rather mount the AVR Board elsewhere (and connect to the LED board with a 3-pin cable), ignore these instructions and assemble the Front Master with exactly the same hardware as the Front Slave below.
+This is the upper front logic and connects directly to the AVR Board. The LED board has two sets of 3 pins; one set labeled *IN* and another labeled *OUT*. It is intended to mount the AVR Board directly to the back of the LED board, however during assembly it is safer so connect the AVR board to the LED board using one of the 3-wire cables.
 
 *Hardware Required:*
- * (2) 40mm M3 screws
+ * (2) 35mm M3 screws
  * (2) 3/4" spacers
- * (4) 1/8" spacers
- * (3) washers
+ * (2) 1/8" spacers
+ * (X) washers
  * (2) M3 threaded brass inserts
 
 == Front Slave ==
@@ -33,7 +42,7 @@ This is the front logic that is connected to the Front Master via a 3-pin cable.
  * (2) 35mm M3 screws
  * (2) 3/4" spacers
  * (2) 1/8" spacers
- * (4) washers
+ * (X) washers
  * (2) M3 threaded brass inserts
 == Rear ==
 Again, while assembling the rear logic it is safer to leave the AVR board detached from the LED boards. The AVR board can be connected to the LED board during assembly using a 3-pin cable. Once the fiber-optics are in place the AVR board can be mounted to the back of the LED boards if you so wish.
