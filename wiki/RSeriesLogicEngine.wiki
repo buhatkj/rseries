@@ -1,4 +1,5 @@
 #summary Overview of the RSeries Logic Engine system.
+#labels Featured
 
 = Introduction =
 The RSeries Logic Engine combines Arduino, RGB LEDs and fiber-optics to accurately emulate the color-wheel logic patterns seen in the original Star Wars trilogy.
