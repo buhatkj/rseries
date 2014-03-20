@@ -40,6 +40,8 @@ To help diffuse the LED colors, lightly sand both sides of the inner bezel befor
 
 Line up all the plastic parts with the LED PCB (the one with two sets of pins) to ensure they're all the correct way up.
 
+<img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/front_bez_orientation1.jpg" height=150> <img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/front_bez_orientation2.jpg" height=150>
+
 Determine which side of the outer bezel will face out; we'll call this the front surface. Remove any paper liner from the front surface. Flip the bezel around so the back surface is facing up, then place the two brass inserts into their holes. Push them into place with some light force - a pliers may be used to squeeze them into place.
 
 https://lh3.googleusercontent.com/-lSwxLmfYTJs/Ust0pwu70ZI/AAAAAAABxVE/lgt9h2CPcmM/w240/IMAG1748.jpg
