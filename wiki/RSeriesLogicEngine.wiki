@@ -36,7 +36,7 @@ This is the upper front logic and connects directly to the AVR Board. The LED bo
  * (X) washers
  * (2) M3 threaded brass inserts
 
-To help diffuse the LED colors, lightly sand both sides of the inner bezel before assembly. 300-500 grit sandpaper should do the trick. Wipe all dust away afterwards.
+To help diffuse the LED colors, lightly sand both sides of the inner-screen (the thin piece without fiber-optic holes) before assembly. 300-500 grit sandpaper should do the trick. Wipe all dust away afterwards.
 
 Line up all the plastic parts with the LED PCB (the one with two sets of pins) to ensure they're all the correct way up.
 
