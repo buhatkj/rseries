@@ -91,7 +91,7 @@ The outer-most fibers shown in blue and pink will be the trickiest to position, 
 
 Screw the set screws into the mounting holes of the logic surrounds (4 for each front logic, 6 for the rear logic). Tighten using a 1.5mm hex key. If the set screws appear a little loose in the surround you may want to use a drop of threadlocker fluid.
 
-Place the clear screen over the set screws, then position the logic engine assembly in place. The set screws will go through the outer bezel, leaving enough thread to be secured with the hex nuts. The hex nuts can prove to be very tricky to place and tighten - it may help to find someone with small fingers and bribe them into helping. Another trick is to hook the nut onto the end of your 1.5mm hex key, then place the key onto the set screw; this prevents the nut from falling while to you and position and tighten it.
+Place the clear screen over the set screws, then position the logic engine assembly in place. The set screws will go through the outer bezel, leaving enough thread to be secured with the hex nuts. The hex nuts can prove to be very tricky to place and tighten - it may help to find someone with small fingers and bribe them into helping. Another trick is to hook the nut onto the end of your 1.5mm hex key, then place the key onto the set screw; this prevents the nut from falling while you position and tighten it.
 
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/Logic_Engine_Parts.png]
 ----
