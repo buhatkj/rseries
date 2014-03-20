@@ -70,6 +70,10 @@ This is the lower front logic display. Assembly procedure is identical to the up
 == Rear ==
 Again, while assembling the rear logic it is safer to leave the AVR board detached from the LED boards. The AVR board can be connected to the LED board during assembly using a 3-pin cable. Once the fiber-optics are in place the AVR board can be mounted to the back of the LED boards if you so wish.
 
+Just like the fronts, make sure you get the inner screen, inner bezel and outer bezel the right way up and out. The bottom edge of these parts have little half-circle keys on them to help figure it out. If you do get them upside-down it won't cause problems like the fronts, so don't worry too much about it...
+
+<img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/rear_bez_orientation1.jpg" height=180>
+
 The fiber optic cables on the rear should be placed in a specific way to ensure that everyone has their logics mapped identically. To make this simpler I have built in a 'Testpattern Mode' into the code. On the Rear AVR board, remove the S3 jumper (if it exists) and turn the DELAY trimmer completely counter-clockwise. Restart and you should see a color pattern like this for a few minutes (you may need to reset the AVR board occasionally to get back to this pattern during assembly)...
 
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/rld_pattern.png]
