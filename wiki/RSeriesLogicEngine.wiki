@@ -123,6 +123,11 @@ Additional custom settings (such as specific color palettes) may be set by editi
 
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/avr_microsd.png]
 
+= Connecting a PSI =
+The AVR board is also programmed to run a Teeces v3.2 PSI if you have one. To get your PSI running, just connect it using a 5-pin jumper cable like this...
+
+https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/avr_to_teeces_psi.png
+
 = Reprogramming =
 For basic functionality, the AVR board should never need to be reprogrammed. If, however, a future update should be released or you just like to play with the code, the AVR board can be reprogrammed using the Arduino IDE and an FTDI adapter. In the Arduino IDE software you should select 'Arduino UNO' from the Tools->Board menu.
 
