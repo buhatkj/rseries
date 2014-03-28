@@ -1,5 +1,6 @@
 #summary Overview of the RSeries Logic Engine system.
 #labels Featured
+<wiki:toc max_depth="2" />
 
 = Introduction =
 The RSeries Logic Engine combines Arduino, RGB LEDs and fiber-optics to accurately emulate the color-wheel logic patterns seen in the original Star Wars trilogy.
@@ -74,6 +75,8 @@ Just like the fronts, make sure you get the inner screen, inner bezel and outer 
 
 <img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/rear_bez_orientation1.jpg" height=180>
 
+The plastics for the rear are assembled similarly to the fronts. You'll notice that the center of the rear 'inner bezel' has a hexagonal cutout; this is for placing a hex nut. Use the 16mm screw (with a plastic washer) to secure the center mounting hole of the LED board to the hex nut.
+
 The fiber optic cables on the rear should be placed in a specific way to ensure that everyone has their logics mapped identically. To make this simpler I have built in a 'Testpattern Mode' into the code. On the Rear AVR board, remove the S3 jumper (if it exists) and turn the DELAY trimmer completely counter-clockwise. Restart and you should see a color pattern like this for a few minutes (you may need to reset the AVR board occasionally to get back to this pattern during assembly)...
 
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/rld_pattern.png]
@@ -83,6 +86,11 @@ Now, starting from the center and working outwards, fibers should be routed thro
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/rld_patternbez.png]
 
 The outer-most fibers shown in blue and pink will be the trickiest to position, so take extra care (and time) with those. Again, a small needle-nose pliers or strong tweezers can come in very useful when positioning the fibers.
+
+== Piggybacking the AVR Board ==
+To keep things compact you might want to mount the AVR board to the back of the LED board instead of having it connected by the 3-wire cable. To do this you'll need to replace the spacer screws with something a little longer. On the Front Master you'll replace the 35mm screws with 40mm screws. On the Rear you'll replace the 35mm screw beside the IN pins with a 40mm one.
+
+To ensure that the fiber-optics don't come out of place during this procedure, wrap some masking tape tightly around the assembly *BEFORE YOU REMOVE ANY SCREWS*. With the screws removed, attach the AVR board. The LED board's 3 pins should fit securely through the back of the AVR board and into its wacky socket. Screw in the 40mm screw next to the 3 pins first, putting the spacers back in place as you do so. For the opposite screw you will want to use one of the 1/8" spacers or some washers between the AVR and LED board to keep the boards roughly parallel. Additional washers may be needed to ensure the screw doesn't. Now remove the masking tape and you're good to go!
 
 == Mounting To Logic Surrounds ==
 *Hardware Required:*
