@@ -77,6 +77,14 @@ Just like the fronts, make sure you get the inner screen, inner bezel and outer 
 
 The plastics for the rear are assembled similarly to the fronts. You'll notice that the center of the rear 'inner bezel' has a hexagonal cutout; this is for placing a hex nut. Use the 16mm screw (with a plastic washer) to secure the center mounting hole of the LED board to the hex nut.
 
+Before you start placing the fiber-optics, there's an issue to be aware of. The middle of the RLD can be forced to bow out by the fiber-optics and this might not be noticeable until you're done.
+
+<img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/rld_bowed.jpg" height=180>
+
+To minimize this bowing we want to pull the middle of the bezel in slightly during assembly. One way to achieve this is to put screws through the bezel's center mounting holes and secure them using some nuts and washers. With the screws in place, loop a cable-tie around the screws and over the back of the assembly. Tighten the cable-tie until the middle of the bezel is pulled in very slightly. This should prevent the middle of the bezel to spring out during assembly.
+
+< photo of RLD assembly with cable ties goes here >
+
 The fiber optic cables on the rear should be placed in a specific way to ensure that everyone has their logics mapped identically. To make this simpler I have built in a 'Testpattern Mode' into the code. On the Rear AVR board, remove the S3 jumper (if it exists) and turn the DELAY trimmer completely counter-clockwise. Restart and you should see a color pattern like this for a few minutes (you may need to reset the AVR board occasionally to get back to this pattern during assembly)...
 
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/rld_pattern.png]
@@ -86,6 +94,8 @@ Now, starting from the center and working outwards, fibers should be routed thro
 [https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/rld_patternbez.png]
 
 The outer-most fibers shown in blue and pink will be the trickiest to position, so take extra care (and time) with those. Again, a small needle-nose pliers or strong tweezers can come in very useful when positioning the fibers.
+
+If after assembly you find that the middle of the RLD is bowed out, don't panic! Loosen the two spacer screws a few turns and the bowing should subside slightly. When mounting the assembly to your logic surrounds the bowing should disappear.
 
 == Piggybacking the AVR Board ==
 To keep things compact you might want to mount the AVR board to the back of the LED board instead of having it connected by the 3-wire cable. To do this you'll need to replace the spacer screws with something a little longer. On the Front Master you'll replace the 35mm screws with 40mm screws. On the Rear you'll replace the 35mm screw beside the IN pins with a 40mm one.
