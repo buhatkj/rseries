@@ -33,6 +33,8 @@ const unsigned int twitchMin = 20000; //max 65,535 ms
 const unsigned int twitchMax = 60000; //max 65,535 ms
 char path[16]; // This means, that including the ".wav" the filenames must be 16 chars or less
 
+uint8_t randSoundSelection[18] = {1,3,4,5,6,7,8,9,32,33,34,35,36,37,38,39,40,42};
+
 typedef struct 
 {
   uint8_t commandCode; // What command code from the WIRE lib activates this sound
@@ -139,6 +141,12 @@ void waitForSound()
     x = 0;
     delay(100);
   }
+}
+
+
+uint8_t selectRandomSound()
+{
+  return randSoundSelection[random(0,17)];
 }
 
 
