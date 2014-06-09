@@ -43,7 +43,8 @@ Line up all the plastic parts with the LED PCB (the one with two sets of pins) t
 
 <img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/front_bez_orientation1.jpg" height=150> <img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/front_bez_orientation2.jpg" height=150>
 
-Determine which side of the outer bezel will face out; we'll call this the front surface. Remove any paper liner from the front surface. Flip the bezel around so the back surface is facing up, then place the two brass inserts into their holes. Push them into place with some light force - a pliers may be used to squeeze them into place.
+Determine which side of the outer bezel will face out; we'll call this the front surface. Remove any paper liner from the front surface. Flip the bezel around so the back surface is facing up, then place the two brass inserts into their holes. Push them into place with some light force - a pliers may be used to squeeze them into place.<br>
+*Note:* some builders have found that the holes for the brass inserts can be a hair bigger than they should be, causing the brass insert to pull out too easily. To help prevent this you may want to put a drop of superglue on the knurls of the brass insert. 
 
 https://lh3.googleusercontent.com/-lSwxLmfYTJs/Ust0pwu70ZI/AAAAAAABxVE/lgt9h2CPcmM/w240/IMAG1748.jpg
 
