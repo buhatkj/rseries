@@ -105,6 +105,9 @@ To keep things compact you might want to mount the AVR board to the back of the 
 To ensure that the fiber-optics don't come out of place during this procedure, wrap some masking tape tightly around the assembly *BEFORE YOU REMOVE ANY SCREWS*. With the screws removed, attach the AVR board. The LED board's 3 pins should fit securely through the back of the AVR board and into its wacky socket. Screw in the 40mm screw next to the 3 pins first, putting the spacers back in place as you do so. For the opposite screw you will want to use one of the 1/8" spacers or some washers between the AVR and LED board to keep the boards roughly parallel. Additional washers may be needed to ensure the screw doesn't. Now remove the masking tape and you're good to go!
 
 == Mounting To Logic Surrounds ==
+
+<font color=red>*WARNING!* Several builders have encountered problems when mounting the Rear Logic assembly to its surround. While tightening the assembly to the surround the threaded insert has loosened and slipped out; in some cases losing all the precious fiber-optics! Take care when tightening the nuts; turn them slowly and watch the threaded insert at all times. A drop of glue around the insert may help. This problem is more common where the rear bezel has bowed during assembly and does not affect the front assembly.</font>
+
 *Hardware Required:*
  * (14) M3 set screws (12mm or 16mm long)
  * (14) M3 hex nuts
