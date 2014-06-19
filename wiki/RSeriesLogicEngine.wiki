@@ -67,7 +67,8 @@ Use a sharp flush-cutter to trim the fiber-optic cable bundle as close to the ou
 Continue this procedure until fiber-optic cable has been placed in all holes of the bezel.
 
 == Front Slave ==
-This is the lower front logic display. Assembly procedure is identical to the upper front logic. Once assembled, the Front Slave is connected to the Front Master using the short 3-wire jumper cable.
+This is the lower front logic display. Assembly procedure is identical to the upper front logic. Once assembled, the Front Slave is connected to the Front Master using the short 3-wire jumper cable as shown here (click for larger image)...
+<a href="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/fld-connections.png"><img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/fld-connections_th.png"/></a>
 
 == Rear ==
 Again, while assembling the rear logic it is safer to leave the AVR board detached from the LED boards. The AVR board can be connected to the LED board during assembly using a 3-pin cable. Once the fiber-optics are in place the AVR board can be mounted to the back of the LED boards if you so wish.
