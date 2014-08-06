@@ -12,9 +12,8 @@
 //   2014-08-06 : Switched to FastLED library. Added option to skip startup sequence.
 //                RLD or FLD mode is now set in the sketch (to conserve SRAM).
 //                Cut 96 bytes off LEDstat (direction is now combined with color number).
-//                Added option to disable TeecesPSI code (necessary for SD card & I2C)
-//                A more compact LedControl is needed (with setDigit, setChar & charTable removed)
-//                and the PSI code should be optimized.
+//                Added option to disable TeecesPSI code (necessary for SD card & I2C).
+//                Replaced LedControl library with a smaller version (LedCompact) to free about 100 bytes of SRAM.
 //   2014-03-09 : Added code for Teeces PSI V2
 //   2014-01-15 : Optimizing memory to make way for the SD card's wretched 512 byte buffer.
 //                Moved rldMap, fldMap, rldColors & fldColors out of SRAM and into flash memory.
@@ -155,22 +154,21 @@ const byte keyColors[5][3]PROGMEM = { {87,0,0} , {87,206,105} , {79,255,184} , {
 
 // TEECES PSI CODE...
 #if (TeecesPSI==1)
-#include <LedControl.h>
-LedControl lcPSI=LedControl(7,8,9,1); //Data,Clock,Load,DevNum  (pins go GND,+5V,L,C,D)
-#define HPROW 5
+#include <LedCompact.h>
+LedCompact lcPSI=LedCompact(7,8,9,1); //Data,Clock,Load,DevNum  (pins go GND,+5V,L,C,D)
   class PSI {
-  byte stage; //0 thru 6
-  byte inc;
-  int stageDelay[7];
-  byte cols[7][5];
-  byte randNumber; //a random number to decide the fate of the last stage
-
-  unsigned long timeLast;
-  int device;
-
-  public:
+    byte stage; //0 thru 6
+    byte inc;
+    int stageDelay[7];
+    byte cols[7][5];
+    byte randNumber; //a random number to decide the fate of the last stage
   
-  PSI(int _delay1, int _delay2, int _delay3, int _device)
+    unsigned long timeLast;
+    int device;
+  
+    public:
+    
+    PSI(int _delay1, int _delay2, int _delay3, int _device)
   {
     device=_device;
     
@@ -228,21 +226,21 @@ LedControl lcPSI=LedControl(7,8,9,1); //Data,Clock,Load,DevNum  (pins go GND,+5V
     stageDelay[5] = _delay3/5;
     stageDelay[6] = _delay2 - _delay3;
   }
-  
-  void Animate(unsigned long elapsed, LedControl control)
-  {
-    if ((elapsed - timeLast) < stageDelay[stage]) return;
     
-    timeLast = elapsed;
-    stage+=inc;
-
-    if (stage>6 || stage<0 )
+    void Animate(unsigned long elapsed, LedCompact control)
     {
-      inc *= -1;
-      stage+=inc*2;
-    }
-    
-    if (stage==6) //randomly choose whether or not to go 'stuck'
+      if ((elapsed - timeLast) < stageDelay[stage]) return;
+      
+      timeLast = elapsed;
+      stage+=inc;
+  
+      if (stage>6 || stage<0 )
+      {
+        inc *= -1;
+        stage+=inc*2;
+      }
+      
+      if (stage==6) //randomly choose whether or not to go 'stuck'
       {
         randNumber = random(9);
         if (randNumber<5) { //set the last stage to 'stuck' 
@@ -280,10 +278,10 @@ LedControl lcPSI=LedControl(7,8,9,1); //Data,Clock,Load,DevNum  (pins go GND,+5V
           cols[0][4] = B10101000;
         }
       }
-
-    for (int row=0; row<5; row++)
-      control.setRow(device,row,cols[stage][row]);
-  }
+  
+      for (int row=0; row<5; row++)
+        control.setRow(device,row,cols[stage][row]);
+    }
 };
 PSI psiFront=PSI(psiRed, psiBlue, rbSlide, 0);
 #endif
