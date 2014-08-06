@@ -9,16 +9,17 @@
 //     Fat16 : https://code.google.com/p/fat16lib/downloads/detail?name=fat16lib20111205.zip
 //
 //   revision history...
-//   2014-08-05 : Switched to FastLED library, added option to skip startup sequence,
-//                RLD or FLD mode is now set in the sketch (to conserve SRAM and flash)
-//                cut 96 bytes off LEDstat (direction is now combined with color number)
+//   2014-08-06 : Switched to FastLED library. Added option to skip startup sequence.
+//                RLD or FLD mode is now set in the sketch (to conserve SRAM).
+//                Cut 96 bytes off LEDstat (direction is now combined with color number).
+//                Added option to disable TeecesPSI code (necessary for SD card & I2C)
+//                A more compact LedControl is needed (with setDigit, setChar & charTable removed)
+//                and the PSI code should be optimized.
 //   2014-03-09 : Added code for Teeces PSI V2
 //   2014-01-15 : Optimizing memory to make way for the SD card's wretched 512 byte buffer.
 //                Moved rldMap, fldMap, rldColors & fldColors out of SRAM and into flash memory.
 //                Eliminated oColors array (adjusted hues are now calculated individually by updateLED instead of all at once).
 //                Added debug option to report available SRAM.
-//                Need to write the makeColors function and a few small helpers for updateLED.    
-//                Need to reduce LEDstat size (direction can be combined with color number to save 64 bytes)
 //   2014-01-12 : Fixed prototype FLD bug
 //   2014-01-08 : Removed debug options to free up some RAM. Fixed rldMap. Fixed fldMap.
 //   2014-01-07 : Added 'Testpattern Mode' to aid assembly of the Rear Logic
@@ -38,32 +39,46 @@
   
 */
 
-#define logicType 0    // 0 for Front, 1 for Rear
-#define skipStartup 0  // 0 to start with a simple LED animation, 1 to skip
+#define logicType 1    // 0 for Front, 1 for Rear
+#define skipStartup 1  // 0 to start with a simple LED animation, 1 to skip
+#define TeecesPSI 1    // 1 if you're using a Teeces PSI, 0 if not
+#define FrontLEDs 48   // LED boards from first run had 48 LEDs per front board, all others have 40
 
+#if (TeecesPSI==1)
 #define PSIbright 12
 int psiRed=2500;    //how long front PSI stays red  (or yellow)
 int psiBlue=1700;   //how long front PSI stays blue (or green)
 #define rbSlide 125 // mts - time to transition between red and blue
+#endif
 
-//  the TOGGLEPIN is used if there's no SD card. if this pin is jumped to +5V,
-//  then we'll assume this is the RLD, otherwise we'll assume this is the FLD
-#define TOGGLEPIN 4
 //  the SPEEDPIN enables speed adjustment via the pots via the pause & delay
 #define SPEEDPIN 3
 
 //debug will print a bunch of stuff to serial. useful, but takes up valuable memory and may slow down routines a little
-#define DEBUG 0 //0=off, 1=only report available memory, 2=report lots of stuff, 3=slow the main loop down
-
-//#define PROTOFLD //uncomment this line if your FLD boards have only 40 LEDs (final versions have 48 LEDs)
+#define DEBUG 1 //0=off, 1=only report available memory, 2=report lots of stuff, 3=slow the main loop down
 
 #define LOOPCHECK 20 //number of loops after which we'll check the pot values
 
+//if not using a TeecesPSI, we've got enough SRAM to read data from SD cards - yay!
+#if (TeecesPSI==0)
 #include "Fat16.h"
+SdCard card;
+Fat16 file;
+#endif
+
+#include "Wire.h"
+
 #include "FastLED.h"
 #define DATA_PIN 6
+
+#if (logicType==1)
+#define numLEDs 96
+#else
+#define numLEDs 80
+#endif
+
 //                                                                                           Variable Sizes in SRAM:
-CRGB leds[96];      // structure used by the FastSPI_LED library                                    288 bytes
+CRGB leds[numLEDs];      // structure used by the FastSPI_LED library                        240 or 288 bytes
 
 byte Tweens=6;     // number of tween colors to generate                                              1 byte
 byte tweenPause=7; // time to delay each tween color (aka fadeyness)                                  1 byte
@@ -72,8 +87,8 @@ byte maxBrightness=255; // 0-255, no need to ever go over 128                   
 
 byte totalColors,Keys; //                                                                             2 bytes
 
-byte AllColors[45][3]; // a big array to hold all original KeyColors and all Tween colors           135 bytes
-byte LEDstat[96][2]; // an array holding the current color number & pause of each LED               192 bytes (down from 288!)
+byte AllColors[36][3]; // a big array to hold all original KeyColors and all Tween colors           108 bytes
+byte LEDstat[numLEDs][2]; // an array holding the current color number & pause of each LED          192 bytes (down from 288!)
 boolean speeds=0; //0 for preset, 1 for tweakable (depends on speedpin)                               1 byte
 
 unsigned int loopCount; // used during main loop                                                      2 bytes
@@ -101,34 +116,34 @@ const byte ledMap[]PROGMEM = {
 32,33,34,35,36,37,38,39,80,81,82,83,84,85,86,87,
 47,46,45,44,43,42,41,40,95,94,93,92,91,90,89,88};
 #else
-#if defined PROTOFLD
-//mapping for prototype fld boards (with only 40 LEDs)
-const byte ledMap[]PROGMEM = { 
- 0, 1, 2, 3, 4, 5, 6, 7,
-15,14,13,12,11,10, 9, 8,
-16,17,18,19,20,21,22,23,
-31,30,29,28,27,26,25,24,
-32,33,34,35,36,37,38,39,
-40,41,42,43,44,45,46,47,
-55,54,53,52,51,50,49,48,
-56,57,58,59,60,61,62,63,
-71,70,69,68,67,66,65,64,
-72,73,74,75,76,77,78,79};
-#else
-//mapping for final fld boards (with 48 LEDs)
-const byte ledMap[]PROGMEM = {
-15,14,13,12,11,10, 9, 8,
-16,17,18,19,20,21,22,23,
-31,30,29,28,27,26,25,24,
-32,33,34,35,36,37,38,39,
-47,46,45,44,43,42,41,40,
-//
-88,89,90,91,92,93,94,95,
-87,86,85,84,83,82,81,80,
-72,73,74,75,76,77,78,79,
-71,70,69,68,67,66,65,64,
-56,57,58,59,60,61,62,63};
-#endif
+  #if (FrontLEDs==40)
+  //mapping for prototype fld boards (with only 40 LEDs)
+  const byte ledMap[]PROGMEM = { 
+   0, 1, 2, 3, 4, 5, 6, 7,
+  15,14,13,12,11,10, 9, 8,
+  16,17,18,19,20,21,22,23,
+  31,30,29,28,27,26,25,24,
+  32,33,34,35,36,37,38,39,
+  40,41,42,43,44,45,46,47,
+  55,54,53,52,51,50,49,48,
+  56,57,58,59,60,61,62,63,
+  71,70,69,68,67,66,65,64,
+  72,73,74,75,76,77,78,79};
+  #else
+  //mapping for final fld boards (with 48 LEDs)
+  const byte ledMap[]PROGMEM = {
+  15,14,13,12,11,10, 9, 8,
+  16,17,18,19,20,21,22,23,
+  31,30,29,28,27,26,25,24,
+  32,33,34,35,36,37,38,39,
+  47,46,45,44,43,42,41,40,
+  //
+  88,89,90,91,92,93,94,95,
+  87,86,85,84,83,82,81,80,
+  72,73,74,75,76,77,78,79,
+  71,70,69,68,67,66,65,64,
+  56,57,58,59,60,61,62,63};
+  #endif
 #endif
 
 //default colors also get stored in flash memory...
@@ -139,15 +154,16 @@ const byte keyColors[5][3]PROGMEM = { {87,0,0} , {87,206,105} , {79,255,184} , {
 #endif
 
 // TEECES PSI CODE...
+#if (TeecesPSI==1)
 #include <LedControl.h>
 LedControl lcPSI=LedControl(7,8,9,1); //Data,Clock,Load,DevNum  (pins go GND,+5V,L,C,D)
 #define HPROW 5
   class PSI {
-  int stage; //0 thru 6
-  int inc;
+  byte stage; //0 thru 6
+  byte inc;
   int stageDelay[7];
-  int cols[7][5];
-  int randNumber; //a random number to decide the fate of the last stage
+  byte cols[7][5];
+  byte randNumber; //a random number to decide the fate of the last stage
 
   unsigned long timeLast;
   int device;
@@ -270,22 +286,31 @@ LedControl lcPSI=LedControl(7,8,9,1); //Data,Clock,Load,DevNum  (pins go GND,+5V
   }
 };
 PSI psiFront=PSI(psiRed, psiBlue, rbSlide, 0);
+#endif
 
+#if (DEBUG>0)
+// function to return the amount of free RAM
+int freeRam () {
+  extern int __heap_start, *__brkval; 
+  int v; 
+  return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
+}
+#endif
 
 void setup() {      
       
       delay(50); // sanity check delay
       randomSeed(analogRead(0)); //helps keep random numbers more random  
-      #if defined(DEBUG)
+      #if (DEBUG>0)
       Serial.begin(9600);         
       #endif     
      
+      #if (TeecesPSI==1)
       lcPSI.shutdown(0, false); //take the device out of shutdown (power save) mode
       lcPSI.clearDisplay(0); 
       lcPSI.setIntensity(0,PSIbright);
-      
-      pinMode(TOGGLEPIN, INPUT);
-      //digitalWrite(TOGGLEPIN, HIGH); //used for dipswitch prototype
+      #endif
+
       #if (logicType==1)  
         #if (DEBUG>1)
         Serial.println("RLD");
@@ -341,11 +366,12 @@ void setup() {
       }  
       #endif */ 
       
-      FastLED.setBrightness(maxBrightness); //sets the overall brightness to the maximum
-      FastLED.addLeds<WS2812, DATA_PIN, GRB>(leds, 96);
+      briVal = (round(analogRead(briPin)/4)*maxBrightness)/255;
+      FastLED.setBrightness(briVal); //sets the overall brightness to the maximum
+      FastLED.addLeds<WS2812, DATA_PIN, GRB>(leds, numLEDs);
       
-      for(byte x=0;x<96;x++) leds[x] = CRGB::Black; //sets all possible LEDs to black
-      FastLED.show();  
+      //for(byte x=0;x<numLEDs;x++) leds[x] = CRGB::Black; //sets all possible LEDs to black
+      //FastLED.show();  
       
       //to get the RLD test mode, S4 should have jumper, S3 no jumper, Delay trimmer should be turned completely counter-clockwise
       int delayVal = analogRead(keyPin);   
@@ -376,13 +402,13 @@ void setup() {
            FastLED.show();  
            delay(10);        
         }
-        delay(999999);
+        delay(9999999);
         FastLED.setBrightness(maxBrightness);
       }
       #endif
       
       //configure each LED's status (color number, direction, pause time)
-      for(byte x=0;x<96;x++) {
+      for(byte x=0;x<numLEDs;x++) {
         LEDstat[x][0]=byte(random((totalColors*2)-2)); //choose a random color number to start this LED at
         //LEDstat[x][1]=random(2); //choose a random direction for this LED (0 up or 1 down) (this is not determinted by color number)
         if (LEDstat[x][0]%(Tweens+1)==0) LEDstat[x][1]=random(keyPause); //color is a key, set its pause time for longer than tweens
@@ -393,43 +419,26 @@ void setup() {
       #if (skipStartup==0)
       //do a startup animation of some sort
       //now set the LEDs to their initial colors...
-      #if (logicType==1)
-      for(byte x=0;x<96;x++) {
-      #else
-      for(byte x=0;x<80;x++) {
-      #endif 
+      for(byte x=0;x<numLEDs;x++) {
         leds[pgm_read_byte(&ledMap[x])].setHSV(AllColors[LEDstat[x][0]][0],AllColors[LEDstat[x][0]][1],AllColors[LEDstat[x][0]][2]); 
+        if (ledMap[x+1]<numLEDs) leds[pgm_read_byte(&ledMap[x+1])] = CRGB::White;
         FastLED.show();
         delay(20);
       }
-      #if (logicType==1)
-      for(byte x=0;x<96;x++) {
-      #else
-      for(byte x=0;x<80;x++) {
-      #endif
-         leds[pgm_read_byte(&ledMap[x])] = CRGB::Gray;
-         if ((x+1)%8==0) { delay(100); FastLED.show(); }         
+      delay(100);
+      for(byte x=0;x<numLEDs;x++) {
+         leds[pgm_read_byte(&ledMap[x])] = CRGB::Black;
+         delay(10); FastLED.show();     
       }
       #endif   
       
-      #if defined(DEBUG)
-      Serial.println(memoryFree()); // print the free memory 
-      delay(1000); 
+      #if (DEBUG>0)
+      Serial.println(freeRam()); // print the free memory 
+      //delay(500); 
       #endif
 }
 
-#if defined(DEBUG)
-// variables created by the build process when compiling the sketch (used for the memoryFree function)
-extern int __bss_end;
-extern void *__brkval;
-// function to return the amount of free RAM
-int memoryFree() {
-  int freeValue;
-  if((int)__brkval == 0) freeValue = ((int)&freeValue) - ((int)&__bss_end);
-  else freeValue = ((int)&freeValue) - ((int)__brkval);
-  return freeValue;
-}
-#endif
+
 
 //
 /*
@@ -453,7 +462,7 @@ int memoryFree() {
 void updateLED(byte LEDnum, byte hueVal) {
     //This function will either reduce the pause time of the selected LED or advance its color number
     if (LEDstat[LEDnum][1]!=0) {               //LED is paused
-        LEDstat[LEDnum][1]=LEDstat[LEDnum][2]-1; //reduce the LEDs pause number and check back next loop
+        LEDstat[LEDnum][1]=LEDstat[LEDnum][1]-1; //reduce the LEDs pause number and check back next loop
     }
     else {
         byte actualColor;
@@ -483,7 +492,7 @@ void loop() {
     if (loopCount==LOOPCHECK) { //only check this stuff every 100 or so loops
        
        #if (DEBUG>0) 
-       Serial.println(String(memoryFree())); // print the free memory  
+       Serial.println(String(freeRam())); // print the free memory  
        #endif
        #if (DEBUG>1)
        time=(micros()-time)/(LOOPCHECK-1);
@@ -516,18 +525,16 @@ void loop() {
     }
     
     unsigned long timeNew= millis();
+    #if (TeecesPSI==1)
     psiFront.Animate(timeNew, lcPSI);
+    #endif
     
     loopCount++;    
     
     hueVal = round(analogRead(huePin)/4); //read the Color trimpot (gets passed to updateLED for each LED)
     //go through each LED and update it 
-    for(byte LEDnum=0;LEDnum<96;LEDnum++) {
-      #if (logicType==1)
+    for(byte LEDnum=0;LEDnum<numLEDs;LEDnum++) {
       updateLED(pgm_read_byte(&ledMap[LEDnum]),hueVal);
-      #else
-      if (LEDnum<80) updateLED(pgm_read_byte(&ledMap[LEDnum]),hueVal); 
-      #endif
     }  
     FastLED.show();
     
@@ -535,5 +542,6 @@ void loop() {
     delay(10); //slow things down to a crawl
     #endif
 }
+
 
 
