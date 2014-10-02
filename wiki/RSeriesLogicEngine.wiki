@@ -97,7 +97,7 @@ Now, starting from the center and working outwards, fibers should be routed thro
 
 The outer-most fibers shown in blue and pink will be the trickiest to position, so take extra care (and time) with those. Again, a small needle-nose pliers or strong tweezers can come in very useful when positioning the fibers.
 
-<img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/RLD_Pattern_Numbered_th.png">
+<img src="https://rseries-open-control.googlecode.com/svn/trunk/Media/Misc/LEwiki/RLD-Pattern-Numbered_th.png">
 
 If after assembly you find that the middle of the RLD is bowed out, don't panic! Loosen the two spacer screws a few turns and the bowing should subside slightly. When mounting the assembly to your logic surrounds the bowing should disappear.
 
