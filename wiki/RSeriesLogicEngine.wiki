@@ -2,6 +2,7 @@
 #labels Featured
 <wiki:toc max_depth="2" />
 
+
 = Introduction =
 The RSeries Logic Engine combines Arduino, RGB LEDs and fiber-optics to accurately emulate the color-wheel logic patterns seen in the original Star Wars trilogy.
 
@@ -10,6 +11,12 @@ At it's heart is an AVR Board (with Arduino Uno bootloader) which runs a series 
 Fiber-optic cable is used to route the light from each LED to specific 'pixels' on the logic bezel, which is what is finally seen on your droid. 
 
 = Assembly =
+<table border="2"><tr><td>
+= September 2014 Kits =
+The plastics and hardware of the newer kits have changed slightly to simplify assembly. Because of this the assembly instructions below might not make complete sense for newer kits. I'm working on putting together assembly videos for the newer kits, but in the meantime you can see a rough video of the procedure here...
+
+<wiki:video url="http://www.youtube.com/watch?v=97Pf5NG-uJI"/>
+</td></tr></table>
 == Overview ==
 The circuit boards come fully assembled, but you'll need to spend a little time putting them together with the fiber optics before they're ready to be installed in your dome. Assembly is simple, but can take a little time so set an evening aside to get everything together. The general procedure is...
 
