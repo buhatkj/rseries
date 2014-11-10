@@ -15,7 +15,7 @@ Fiber-optic cable is used to route the light from each LED to specific 'pixels' 
 = September 2014 Kits =
 The plastics and hardware of the newer kits have changed slightly to simplify assembly. Because of this the assembly instructions below might not make complete sense for newer kits. I'm working on putting together assembly videos for the newer kits, but in the meantime you can see a rough video of the procedure here...
 
-<wiki:video url="http://www.youtube.com/watch?v=97Pf5NG-uJI"/>
+<wiki:video url="http://www.youtube.com/watch?v=1wT1KpOCRac"/>
 </td></tr></table>
 == Overview ==
 The circuit boards come fully assembled, but you'll need to spend a little time putting them together with the fiber optics before they're ready to be installed in your dome. Assembly is simple, but can take a little time so set an evening aside to get everything together. The general procedure is...
