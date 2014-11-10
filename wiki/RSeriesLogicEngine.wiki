@@ -59,6 +59,8 @@ Put plastic washers on both 35mm screws and position the screws through the PCB,
 
 https://lh4.googleusercontent.com/-Z_ehUj8IfkQ/Us6R84SdHJI/AAAAAAABxeY/7La_YN8uUYc/w240/IMAG1799.jpg
 
+===Fiber-Optic Placement===
+
 Take the bundle of fiber-optic cable and cut a tiny amount from the end to create a nice flat end with all fibers visible. A razor blade or sharp wire cutter can be used for this.
 
 https://lh4.googleusercontent.com/-RDuUFvauTmg/Ust0p-yiRvI/AAAAAAABxV8/TRxXGX0yKFI/w240/IMAG1773.jpg
