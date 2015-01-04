@@ -27,6 +27,9 @@ The circuit boards come fully assembled, but you'll need to spend a little time 
 
 === `*` <font color=red>Important Assembly Notes</font> `*` ===
 <font color=red>
+
+*!* Never connect or disconnect LED boards from the AVR boards while powered; doing so can kill LEDs!
+
 *!* The plastic bezels are laser-cut and holes have a slight taper. This results in the openings of the "fiber holes" being slightly larger in diameter on one side. When assembling the bezels & screens these larger openings should face outward to make inserting the fiber-optic cable simpler. Bezels are _NOT symmetric_, so double check that you have them oriented the correct way up and correct way out.
 
 *!* The screws used to space the outer bezel away from the inner bezel should not protrude beyond the outer bezel. If you find that the end of your screws do poke out beyond the plastic of the outer bezel, dis-assemble and add some washers to increase spacing before you start placing any fiber-optics. If left protruding these screws can clash with the mounting hardware of the rear logic surround in the dome and cause you headaches down the line.
