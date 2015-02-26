@@ -87,10 +87,10 @@ Calculates an Estimated run time = Future
 #include <Servo.h>
 #include <Wire.h>
 
-boolean AudioFX1module = true;     // Set to true if you have installed AudioFX1module on I2C Bus as 4
-boolean AudioFX2module = true;     // Set to true if you have installed AudioFX2module on I2C Bus as 5
-boolean ServoFX1module = true;     // Set to true if you have installed ServoFX1module on I2C Bus as 6
-boolean ShoulderControlmodule = true; // Set to true if you have installed ShoulderControlmodule on I2C Bus as 7
+//boolean AudioFX1module = true;     // Set to true if you have installed AudioFX1module on I2C Bus as 4
+//boolean AudioFX2module = true;     // Set to true if you have installed AudioFX2module on I2C Bus as 5
+//boolean ServoFX1module = true;     // Set to true if you have installed ServoFX1module on I2C Bus as 6
+//boolean ShoulderControlmodule = true; // Set to true if you have installed ShoulderControlmodule on I2C Bus as 7
 
 int registeredAddressCount = 4; // Make sure to update this count when you add registered addresses, or your added one will be missed
 int registeredI2CAddresses[] = {
