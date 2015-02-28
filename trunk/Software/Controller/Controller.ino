@@ -424,6 +424,30 @@ void setupDefaultMenu()
   gfx.menus.addButton(Relay3OFF, 3);
   gfx.menus.addButton(Relay4ON, 3);
   gfx.menus.addButton(Relay4OFF, 3);
+  
+  //page 4
+  rsButton *CPUArmUp = new rsButton(70, 40, 100, 28, BTN_STYLE_ROUND_BOX, GREEN, "CPU UP", 95, sendtrigger);
+  rsButton *CPUArmDown = new rsButton(200, 40, 100, 28, BTN_STYLE_ROUND_BOX, RED, "CPU DWN", 96, sendtrigger);
+  rsButton *TopUtilityOut = new rsButton(70, 80, 100, 28, BTN_STYLE_ROUND_BOX, GREEN, "TU OUT", 97, sendtrigger);
+  rsButton *TopUtilityIn = new rsButton(200, 80, 100, 28, BTN_STYLE_ROUND_BOX, RED, "TU IN", 98, sendtrigger);
+  rsButton *BottomUtilityOut = new rsButton(70, 120, 100, 28, BTN_STYLE_ROUND_BOX, GREEN, "BU OUT", 99, sendtrigger);
+  rsButton *BottomUtilityIn = new rsButton(200, 120, 100, 28, BTN_STYLE_ROUND_BOX, RED, "BU IN", 100, sendtrigger);
+  rsButton *CenterFootUp = new rsButton(70, 160, 100, 28, BTN_STYLE_ROUND_BOX, GREEN, "CTR UP", 101, sendtrigger);
+  rsButton *CenterFootDown = new rsButton(200, 160, 100, 28, BTN_STYLE_ROUND_BOX, RED, "CTR DWN", 102, sendtrigger);
+  rsButton *OuterLegsIn = new rsButton(70, 200, 100, 28, BTN_STYLE_ROUND_BOX, GREEN, "OTR IN", 103, sendtrigger);
+  rsButton *OuterLegsOut = new rsButton(200, 200, 100, 28, BTN_STYLE_ROUND_BOX, RED, "OTR OUT", 105, sendtrigger);
+  gfx.menus.addButton(CPUArmUp, 4);
+  gfx.menus.addButton(CPUArmDown, 4);
+  gfx.menus.addButton(TopUtilityOut, 4);
+  gfx.menus.addButton(TopUtilityIn, 4);
+  gfx.menus.addButton(BottomUtilityOut, 4);
+  gfx.menus.addButton(BottomUtilityIn, 4);
+  gfx.menus.addButton(CenterFootUp, 4);
+  gfx.menus.addButton(CenterFootDown, 4);
+  gfx.menus.addButton(OuterLegsIn, 4);
+  gfx.menus.addButton(OuterLegsOut, 4);
+  //gfx.menus.addButton(Relay4ON, 3);
+  //gfx.menus.addButton(Relay4OFF, 3);
 }
 
 

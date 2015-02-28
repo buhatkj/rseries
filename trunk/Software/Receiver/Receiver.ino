@@ -92,12 +92,13 @@ Calculates an Estimated run time = Future
 //boolean ServoFX1module = true;     // Set to true if you have installed ServoFX1module on I2C Bus as 6
 //boolean ShoulderControlmodule = true; // Set to true if you have installed ShoulderControlmodule on I2C Bus as 7
 
-int registeredAddressCount = 4; // Make sure to update this count when you add registered addresses, or your added one will be missed
+int registeredAddressCount = 5; // Make sure to update this count when you add registered addresses, or your added one will be missed
 int registeredI2CAddresses[] = {
                                 3,   // MP3 Player #1 - Primary Sound FX - R2 Vocal FX
                                 4,   // MP3 Player #2 - Secondary Sound FX - R2 Operational FX
                                 5,   // MP3 Player #3 - Tertiary Sound FX - Soundscapes & Background Music etc.
                                 37,  // Relay controller
+                                38,  // CPU arm/ Utility arm /2-3-2 controller
                                };
 
 int xbeebps = 19200; // Bits Per Second (baud). Avoid 57600 Arduino UNO issue.
