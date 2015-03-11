@@ -29,7 +29,7 @@ I2C Addresses are in decimal
   * 15 Dome Bump Controller (rotopod, ia-parts.com)
   * 16 DataPort (RSeries)
   * 17 TBA
-  * 18 232 Fusion Controller
+  * 18 232 Transform Controller (Vader)
   * 19 Character ID System Receiver
 
   * 20 Magic Panel (rotopod, ia-parts.com)
@@ -40,11 +40,9 @@ I2C Addresses are in decimal
   * 25 Front Holo Projector (RSeries)
   * 26 Top Holo Projector (RSeries)
   * 27 Rear Holo Project (RSeries)
-  * 28 TBA Bus 1 (Vader)
-  * 29 TBA Bus 2 (Vader)
+  * 28 Front PSI (Vader)
+  * 29 Rear PSI (Vader)
 
-  
-  
   * 30 TBA
   * 31 TBA
   * 32 CPU Arm
